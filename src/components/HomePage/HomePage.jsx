@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       <div className="bgImg">
         <h1 className="myFont ">המתכונים שלי</h1>
-        <div className="h-50 pt-4">
+        <div className="pt-4">
           <Login/>
         </div>
        
