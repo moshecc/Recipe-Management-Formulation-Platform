@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       <div className="bgImg">
 
-        <img className="logo1" src="./Logo1.png" alt="" />
+        <img className="logo1" src='https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png' alt="" />
 
         <h3 className="myFont">המתכונים שלי</h3>
         <Login/>
