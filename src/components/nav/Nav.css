@@ -1,0 +1,17 @@
+.myNav{
+    height: 64px;
+   background-color: rgba(173, 187, 198, 0.621);
+}
+.logoNav{
+    height: 56px;
+    width: fit-content;
+    background-color:rgba(255, 255, 255, 0.779);
+    border-radius: 50%;
+}
+.logoNavImg{
+    height: 56px;
+    
+}
+.rtl{
+    direction: rtl;
+}
