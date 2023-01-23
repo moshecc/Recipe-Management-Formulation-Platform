@@ -46,7 +46,7 @@ export default function login() {
           variant="outlined"
         >
           <div>
-            <Typography level="h4" component="h1">
+            <Typography level="h3" component="h1">
               <b style={{color:"black"}}>Welcome!</b>
             </Typography>
             <Typography level="body2" style={{color:"wheat"}}>Sign in to continue.</Typography>
