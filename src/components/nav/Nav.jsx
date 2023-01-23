@@ -30,10 +30,10 @@ export default function Nav() {
             type="button"
             id="button-addon2"
           >
-            search
+            <i className="fa-solid fa-magnifying-glass px-3"></i>
           </button>
       </div>
-      <div className="col-2 ">hayim hale </div>
+      <div className="col-2 justify-content-center d-flex">hayim hale </div>
     </div>
   );
 }

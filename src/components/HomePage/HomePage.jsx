@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Card from "../Card/Card";
 import Login from "../Log in/Login";
 import Nav from "../nav/Nav";
 import "./HomePage.css";
@@ -17,6 +18,7 @@ export default function HomePage() {
           <span>
             <Link className="nav-link active">About Us</Link>
           </span>
+          <Card/>
         </div>
       </div>
     </>
