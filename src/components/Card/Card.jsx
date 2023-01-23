@@ -5,7 +5,7 @@ export default function Card() {
   return (
     <>
     <Link to={""}>
-    <div className="card text-dark m-3 p-1 cardHover">
+    <div className="card text-dark m-3 p-1 cardHover ">
           <img className='card-img imgStyle' width={150} height={150} src="https://i.imagesup.co/images2/4c7cc05dd420f94ff35456056d5a114499bbbb62.jpg" alt="card" />
          <div class="card-img-overlay">
            <h3 class="card-title">Card title</h3>
