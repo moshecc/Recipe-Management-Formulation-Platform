@@ -6,9 +6,11 @@ export default function HomePage() {
   return (
     <>
       <div className="bgImg">
-        <img className="position-absolute" src="../../imges/logo.png" alt="" />
+
+        <img className="logo1" src="./Logo1.png" alt="" />
+
         <h3 className="myFont">המתכונים שלי</h3>
-        <div className="" style={{}}><Login/></div>
+        <Login/>
         <div className=" justify-content-center d-flex">
           <span>
             <Link className="nav-link active">About Us</Link>
