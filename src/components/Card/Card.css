@@ -1,0 +1,13 @@
+.cardHover {
+    transition: transform 1.1s;
+    width: 300px;
+}
+.cardHover:hover {
+    box-shadow: 3px 3px 5px #0e0101;
+    transform: scale(1.05);
+}
+
+.imgStyle {
+    filter: blur(1.4px);
+    opacity: 0.9;
+}
