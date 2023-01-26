@@ -7,10 +7,10 @@ import NewRecipe from './components/newRecipe/NewRecipe'
 export default function App() {
   return (
     <>
-   {/* <HomePage/> */}
+   <HomePage/>
     {/* <NewCard/> */}
     {/* <Card/> */}
-    <NewRecipe/>
+    {/* <NewRecipe/> */}
     </>
   )
 }

@@ -18,7 +18,7 @@ export default function HomePage() {
           <span>
             <Link className="nav-link active">About Us</Link>
           </span>
-          <Card/>
+          {/* <Card/> */}
         </div>
       </div>
     </>
