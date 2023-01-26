@@ -3,7 +3,7 @@
     width: 300px;
 }
 .cardHover:hover {
-    box-shadow: 3px 3px 5px #0e0101;
+    box-shadow: 1px 1px 3px #0e010167;
     transform: scale(1.05);
 }
 
@@ -11,3 +11,10 @@
     filter: blur(1.4px);
     opacity: 0.9;
 }
+
+.bgInpot{
+background-color: rgba(185, 188, 191, 0.6);
+}
+/* input[type = "file"]{
+    display: none;
+} */

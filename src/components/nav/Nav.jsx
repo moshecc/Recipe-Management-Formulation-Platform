@@ -33,7 +33,7 @@ export default function Nav() {
             <i className="fa-solid fa-magnifying-glass px-3"></i>
           </button>
       </div>
-      <div className="col-2 justify-content-center d-flex">hayim hale </div>
+      <div className="col-2 justify-content-center d-flex">Moshe Cohen<i class="fa-solid fa-user-secret"></i></div>
     </div>
   );
 }
