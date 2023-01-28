@@ -1,16 +1,19 @@
-import React from 'react'
-import Card from './components/Card/Card'
-import NewCard from './components/Card/NewCard'
-import HomePage from './components/HomePage/HomePage'
-import NewRecipe from './components/newRecipe/NewRecipe'
+import React, { useState } from 'react'
+import { ContextData } from './context/MyContext'
+import MyRouter from './router/MyRouter'
+
+
 
 export default function App() {
+
+const [DataUser , SetDataUser] = useState({})
+
+
   return (
     <>
-   <HomePage/>
-    {/* <NewCard/> */}
-    {/* <Card/> */}
-    {/* <NewRecipe/> */}
+    <ContextData.Provider value={"heyy i use context value"}>
+    <MyRouter/>
+    </ContextData.Provider>
     </>
   )
 }

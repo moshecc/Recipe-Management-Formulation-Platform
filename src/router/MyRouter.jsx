@@ -1,0 +1,24 @@
+import React from 'react'
+import { Route ,Routes , } from 'react-router-dom'
+import Card from '../components/Card/Card'
+import NewCard from '../components/Card/NewCard'
+import HomePage from '../components/HomePage/HomePage'
+import Nav from '../components/nav/Nav'
+import NewRecipe from '../components/newRecipe/NewRecipe'
+import PageError from '../components/pageError/PageError'
+
+export default function MyRouter() {
+  return (
+    <div>
+        <Routes>
+       <Route path='/' element={<HomePage/>}/>
+       <Route path='/nav' element={<Nav/>}/>
+       <Route path='/card' element={<Card/>}/>
+       <Route path='/newcard' element={<NewCard/>}/>
+       <Route path='/newrecipe' element={<NewRecipe/>}/>
+       <Route path='/*' element={<PageError/>}/>
+        </Routes>
+
+    </div>
+  )
+}
