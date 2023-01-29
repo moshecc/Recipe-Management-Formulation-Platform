@@ -1,6 +1,6 @@
-import "./ClassNewRecipe";
+import "./RecipeData";
 class UserData{
     constructor(nameUser , id ){
-        
+
     }
 }
