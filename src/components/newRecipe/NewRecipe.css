@@ -1,8 +1,9 @@
 .inputStyle{
-    opacity: 1;
+    opacity: 0;
+    /* position: absolute; */
+    /* right: 1px; */
 }
 .imgNewResipeStyle{
     border-radius: 10px;
-    background-image: url();
     box-shadow: 0.5px 0.5px 1px ;
 }
