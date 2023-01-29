@@ -17,23 +17,23 @@ export default function Nav() {
       <div className="col-5 ">
         <h2 className="myFont">המתכונים שלי</h2>
       </div>
-        <div class="input-group col-3">
+        <div className="input-group col-3">
           <input
             type="text"
-            class="form-control rtl"
+            className="form-control rtl"
             placeholder="חפש מתכון"
             aria-label="search recipe"
             aria-describedby="button-addon2"
           />
           <button
-            class="btn btn-outline-secondary"
+            className ="btn btn-outline-secondary"
             type="button"
             id="button-addon2"
           >
             <i className="fa-solid fa-magnifying-glass px-3"></i>
           </button>
       </div>
-      <div className="col-2 justify-content-center d-flex">Moshe Cohen<i class="fa-solid fa-user-secret"></i></div>
+      <div className="col-2 justify-content-center d-flex">Moshe Cohen<i className="fa-solid fa-user-secret m-1"></i></div>
     </div>
   );
 }

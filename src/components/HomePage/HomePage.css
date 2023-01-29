@@ -12,6 +12,8 @@
     left: 80px;
     width: 200px;
     height: 200px;
+    -ms-transform: rotate(42deg); 
+    transform: rotate(42deg);
 }
 
 
