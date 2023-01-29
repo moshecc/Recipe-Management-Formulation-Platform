@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import InputImg from './components/input/InputImg'
 import { ContextData } from './context/MyContext'
 import MyRouter from './router/MyRouter'
 
@@ -14,6 +15,7 @@ const [DataUser , SetDataUser] = useState({})
     <ContextData.Provider value={"heyy i use context value"}>
     <MyRouter/>
     </ContextData.Provider>
+    {/* <InputImg/> */}
     </>
   )
 }
