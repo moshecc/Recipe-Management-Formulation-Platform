@@ -30,24 +30,15 @@ export default function NewRecipe() {
 
   let set  = function setRecipe() {
     let name = refName.current.value;
-    let temp = refIngredients.current.value;
-    console.log(name);
-    let strIngredients = new Array;
-    console.log("hhh");
-    console.log(typeof temp);
-    console.log("hhh");
-
-    let h = temp.split("\\");
-    console.log(h);
-    console.log(temp);
-
-    // while(temp.)
-
-    console.log(strIngredients)
+    let ingredients = refIngredients.current.value;
     let instructions = refInstructions.current.value;
-    let newRecipeData = new RecipeData(name,strIngredients,instructions)
+    
+    ingredients = ingredients.split("\n");
+    instructions =instructions.split("\n");
+
+    let newRecipeData = new RecipeData(name,ingredients,instructions)
+
     console.log(newRecipeData);
-    setdataname(instructions)
     
   }
 

@@ -6,6 +6,7 @@ export default class RecipeData {
         this.favorite = false;
         this.id = null;
     }
+    
     // constructor(name) {
     //     this.name = name;
     //     favorite = false;
