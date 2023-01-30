@@ -5,28 +5,16 @@ import { useRef } from "react";
 import Nav from "../nav/Nav";
 import "./NewRecipe.css";
 import  RecipeData from"../../Classes/ClassNewRecipe"
+import InputFile from "../../inputFile/InputFile";
 
 export default function NewRecipe() {
-  const [image, setImage] = useState(null);
-  const [file, setFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(
-    "https://files.mishloha.co.il/files/rest_header/RHMM_600186_1653480403159.jpg"
-  );
+ 
   const [dataname, setdataname] = useState([]);
   const refName = useRef();
   const refIngredients = useRef();
   const refInstructions = useRef();
 
-  const handleChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
 
-    reader.onloadend = () => {
-      setFile(file);
-      setPreviewUrl(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
 
   let set  = function setRecipe() {
     let name = refName.current.value;
@@ -70,22 +58,7 @@ export default function NewRecipe() {
                     
                   />
                 </div>
-                <div className="m-3 d-flex justify-content-center">
-                  <div className="ml-5" style={{ cursor: "pointer" }}>
-                    <i class="fa fa-cloud-upload"></i> בחר תמונה
-                    <input
-                      className="inputStyle "
-                      type="file"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <img
-                    className="imgNewResipeStyle"
-                    width={250}
-                    src={previewUrl}
-                    alt=""
-                  />
-                </div>
+                <div dir="ltr" className="d-flex justify-content-end mr-3 "><InputFile/></div>
                 <div className="d-flex justify-content-center">
                   <TextField
                     id="outlined-textarea"
