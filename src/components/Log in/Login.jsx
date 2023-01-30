@@ -8,6 +8,7 @@ import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
 import { signInWithGoogle } from '../../Firebase';
+import { FcGoogle } from "react-icons/fc";
 
 
 function ModeToggle() {
@@ -73,7 +74,7 @@ export default function login() {
           </FormControl>
 
           <Button sx={{ mt: 1 /* margin top */ }}>Log in</Button>
-          <button onClick={signInWithGoogle} className='btn bg-info'>Log in wite google </button>
+          <button onClick={signInWithGoogle} className='btn bg-info'><h6><FcGoogle/>  Log in wite google</h6></button>
 
           <Typography
             endDecorator={<Link href="/sign-up">Sign up</Link>}
