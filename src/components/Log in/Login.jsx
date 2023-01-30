@@ -7,6 +7,8 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
+import { signInWithGoogle } from '../../Firebase';
+
 
 function ModeToggle() {
   const { mode, setMode } = useColorScheme();
@@ -71,6 +73,8 @@ export default function login() {
           </FormControl>
 
           <Button sx={{ mt: 1 /* margin top */ }}>Log in</Button>
+          <button onClick={signInWithGoogle} className='btn bg-info'>Log in wite google </button>
+
           <Typography
             endDecorator={<Link href="/sign-up">Sign up</Link>}
             fontSize="sm"
