@@ -15,7 +15,6 @@ const [DataUser , SetDataUser] = useState({})
     <ContextData.Provider value={"heyy i use context value"}>
     <MyRouter/>
     </ContextData.Provider>
-    {/* <InputImg/> */}
     </>
   )
 }

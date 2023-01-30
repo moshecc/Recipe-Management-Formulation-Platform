@@ -19,7 +19,6 @@ export default function MyRouter() {
        <Route path='/newrecipe' element={<NewRecipe/>}/>
        <Route path='/inputfile' element={<InputFile/>}/>
        <Route path='/*' element={<PageError/>}/>
-
         </Routes>
 
     </div>
