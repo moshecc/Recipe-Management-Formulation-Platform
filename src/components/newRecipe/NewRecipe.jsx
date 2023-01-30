@@ -14,29 +14,22 @@ export default function NewRecipe() {
 
   let set = function setRecipe() {
     let name = refName.current.value;
-    let temp = refIngredients.current.value;
-    console.log(name);
-    let strIngredients = new Array();
-    console.log("hhh");
-    console.log(typeof temp);
-    console.log("hhh");
-
-    let h = temp.split("\\");
-    console.log(h);
-    console.log(temp);
-
-    // while(temp.)
-
-    console.log(strIngredients);
+    let ingredients = refIngredients.current.value;
     let instructions = refInstructions.current.value;
-    let newRecipeData = new RecipeData(name, strIngredients, instructions);
+    
+    ingredients = ingredients.split("\n");
+    instructions =instructions.split("\n");
+
+    let newRecipeData = new RecipeData(name,ingredients,instructions)
+
     console.log(newRecipeData);
-    setdataname(instructions);
-  };
+    
+  }
+
+
 
   return (
     <div className="bgImg">
-      {/* <Nav /> */}
       <div dir="rtl" className="d-flex justify-content-center m-3">
         <div className="newRecipeForm p-md-5  col-12 col-md-9  border flex-column d-flex justify-content-center my-5">
           <h1 className="d-flex justify-content-center myFont">מתכון חדש</h1>
