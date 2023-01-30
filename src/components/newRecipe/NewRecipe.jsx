@@ -26,7 +26,6 @@ export default function NewRecipe() {
     instructions =instructions.split("\n");
 
     let newRecipeData = new RecipeData(name,ingredients,instructions)
-
     console.log(newRecipeData);
     
   };
