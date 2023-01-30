@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import { useRef } from "react";
 import "./NewRecipe.css";
 import  RecipeData from"../../Classes/ClassNewRecipe"
+import InputFile from "../../inputFile/InputFile";
 
 export default function NewRecipe() {
   const [image, setImage] = useState(null);
@@ -17,12 +18,6 @@ export default function NewRecipe() {
   const refInstructions = useRef();
 
 
-    reader.onloadend = () => {
-      setFile(file);
-      setPreviewUrl(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
 
   let set  = function setRecipe() {
     let name = refName.current.value;
@@ -36,9 +31,7 @@ export default function NewRecipe() {
 
     console.log(newRecipeData);
     
-  }
-
-
+  };
 
   return (
     <div className="bgImg">
@@ -65,22 +58,7 @@ export default function NewRecipe() {
                     
                   />
                 </div>
-                <div className="m-3 d-flex justify-content-center">
-                  <div className="ml-5" style={{ cursor: "pointer" }}>
-                    <i class="fa fa-cloud-upload"></i> בחר תמונה
-                    <input
-                      className="inputStyle "
-                      type="file"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <img
-                    className="imgNewResipeStyle"
-                    width={250}
-                    src={previewUrl}
-                    alt=""
-                  />
-                </div>
+                <div className="d-flex justify-content-end mr-3" dir= "ltr"><InputFile/></div>
                 <div className="d-flex justify-content-center">
                   <TextField
                     id="outlined-textarea"
@@ -121,4 +99,4 @@ export default function NewRecipe() {
       </div>
     </div>
   );
-
+}

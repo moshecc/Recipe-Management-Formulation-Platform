@@ -15,6 +15,7 @@ export default function InputFile() {
     };
     reader.readAsDataURL(file);
   };
+
   return (
     <>
       <div className="inp_img">
