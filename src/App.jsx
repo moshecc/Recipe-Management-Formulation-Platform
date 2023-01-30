@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 import { ContextData } from './context/MyContext'
 import MyRouter from './router/MyRouter'
 
-
-
 export default function App() {
 
-const [DataUser , SetDataUser] = useState({})
+const [user , SetUser] = useState({});
+
+const data = {
+  user ,
+  SetUser
+
+}
 
 
   return (
     <>
-    <ContextData.Provider value={"heyy i use context value"}>
+    <ContextData.Provider value={data}>
     <MyRouter/>
     </ContextData.Provider>
     </>

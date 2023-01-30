@@ -8,8 +8,8 @@
 }
 .logo1{
     position: absolute;
-    top: 50 px;
-    left: 80px;
+    top: 5%;
+    left: 10%;
     width: 200px;
     height: 200px;
     -ms-transform: rotate(42deg); 

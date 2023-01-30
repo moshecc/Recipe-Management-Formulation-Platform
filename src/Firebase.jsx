@@ -1,0 +1,31 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBjTrhrDGIAom-OWplREO9u9QitMnAbXtk",
+  authDomain: "my-recipe-book-1f797.firebaseapp.com",
+  databaseURL: "https://my-recipe-book-1f797-default-rtdb.firebaseio.com",
+  projectId: "my-recipe-book-1f797",
+  storageBucket: "my-recipe-book-1f797.appspot.com",
+  messagingSenderId: "32554790199",
+  appId: "1:32554790199:web:60b3ff4d8f659a63a67eb2",
+  measurementId: "G-2N43Q9LXHV",
+};
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+
+const googleProvider = new GoogleAuthProvider();
+
+
+export const signInWithGoogle = () =>{
+  signInWithPopup(auth, googleProvider)
+    .then((result) => {
+        console.log(result);
+     })
+    .catch((erorr) => {
+      console.log(erorr);
+      alert("error");
+    });
+};
