@@ -101,8 +101,7 @@ export default function NewRecipe() {
                     onClick={set}
                     type="button"
                     class="btn btn-secondary m-3 border"
-                  >
-                    <BiMessageSquareAdd /> הוסף מתכון
+                  ><BiMessageSquareAdd/> הוסף מתכון
                   </button>
                 </div>
               </div>
