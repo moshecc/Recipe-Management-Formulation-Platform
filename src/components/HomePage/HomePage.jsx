@@ -13,7 +13,7 @@ export default function HomePage() {
         <Login/>
         <div className=" justify-content-center d-flex">
           <span>
-            <Link className="nav-link active">About Us</Link>
+            <Link to={'/aboutus'} className="nav-link active">About Us</Link>
           </span>
         
         </div>

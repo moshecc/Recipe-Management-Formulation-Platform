@@ -8,7 +8,7 @@ export default function PageError() {
         <h1>page note found 404</h1>
       </div>
       <div className="row justify-content-center mt-5">
-        <Link to={'./'}>Go Home 🏠</Link>
+        <Link to={'/'}>Go Home 🏠</Link>
         </div>
     </>
   );

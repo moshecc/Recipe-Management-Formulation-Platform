@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route ,Routes , } from 'react-router-dom'
+import AboutUs from '../components/AboutUs/AboutUs'
 import Card from '../components/Card/Card'
 import NewCard from '../components/Card/NewCard'
 import HomePage from '../components/HomePage/HomePage'
@@ -18,6 +19,7 @@ export default function MyRouter() {
        <Route path='/newcard' element={<NewCard/>}/>
        <Route path='/newrecipe' element={<NewRecipe/>}/>
        <Route path='/inputfile' element={<InputFile/>}/>
+       <Route path='/aboutus' element={<AboutUs/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>
 

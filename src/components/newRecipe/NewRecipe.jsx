@@ -5,6 +5,9 @@ import { useRef } from "react";
 import "./NewRecipe.css";
 import  RecipeData from"../../Classes/ClassNewRecipe"
 import InputFile from "../../inputFile/InputFile";
+import { BiMessageSquareAdd } from "react-icons/bi";
+import { FaTrashAlt } from "react-icons/fa";
+
 
 export default function NewRecipe() {
   const [image, setImage] = useState(null);
@@ -79,14 +82,12 @@ export default function NewRecipe() {
                     inputRef={refInstructions}
                   />
                 </div>
-                <div className="d-flex justify-content-start">
+                <div className="d-flex justify-content-end">
                   <button
                     onClick={set}
                     type="button"
-                    class="btn btn-secondary m-3 "
-                  >
-                    הוסף מתכון
-                    <i className="fa-solid fa-plus mr-2"></i>
+                    class="btn btn-secondary m-3 border"
+                  ><BiMessageSquareAdd/> הוסף מתכון
                   </button>
                 </div>
               </div>

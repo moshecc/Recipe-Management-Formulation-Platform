@@ -3,7 +3,7 @@
     width: 300px;
 }
 .cardHover:hover {
-    box-shadow: 1px 1px 3px #0e010167;
+    filter: drop-shadow(0.5px 0.5px 2px);
     transform: scale(1.05);
 }
 

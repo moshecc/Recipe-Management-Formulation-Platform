@@ -9,6 +9,8 @@ import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
 import { signInWithGoogle } from '../../Firebase';
 import { FcGoogle } from "react-icons/fc";
+import { FaGhost } from "react-icons/fa";
+import { RiLoginCircleFill } from "react-icons/ri";
 
 
 function ModeToggle() {
@@ -49,41 +51,14 @@ export default function login() {
           variant="outlined"
         >
           <div>
-            <Typography level="h3" component="h1">
+            <Typography level="h4" component="h4">
               <b style={{color:"black"}}>Welcome!</b>
             </Typography>
-            <Typography level="body2" style={{color:"wheat"}}>Sign in to continue.</Typography>
+            <Typography level="body2" style={{color:"wheat"}}>Sign /Log in to continue.</Typography>
           </div>
-          <FormControl>
-            <FormLabel style={{color:"black"}}>Email</FormLabel>
-            <Input
-              // html input attribute
-              name="email"
-              type="email"
-              placeholder="johndoe@email.com"
-            />
-          </FormControl>
-          <FormControl>
-            <FormLabel style={{color:"black"}}>Password</FormLabel>
-            <Input
-              // html input attribute
-              name="password"
-              type="password"
-              placeholder="password"
-            />
-          </FormControl>
-
-          <Button sx={{ mt: 1 /* margin top */ }}>Log in</Button>
-          <button onClick={signInWithGoogle} className='btn bg-info'><h6><FcGoogle/>  Log in wite google</h6></button>
-
-          <Typography
-            endDecorator={<Link href="/sign-up">Sign up</Link>}
-            fontSize="sm"
-            sx={{ alignSelf: 'center' }}
-            style={{color:"wheat"}}
-          >
-            Don&apos;t have an account?
-          </Typography>
+          <Button className='btn bg-primary m-1'><RiLoginCircleFill/>  LogIn</Button>
+          <Button onClick={signInWithGoogle} className='btn bg-primary'><h6><FcGoogle/>  Sign in with Google</h6></Button>
+          <Button className='btn bg-primary'><h6><FaGhost/>  Sign in as a Guest</h6></Button>
         </Sheet>
       </main>
     </CssVarsProvider>
