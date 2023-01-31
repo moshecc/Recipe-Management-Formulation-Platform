@@ -1,6 +1,11 @@
 .inp_img{
 display: flex;
 }
+.inp_img:hover{
+        border: 1px rgb(0, 0, 0) solid;
+        border-radius: 15px;
+}
+
 .inp_img:active{
         border: 2px rgb(241, 105, 7) dashed;
         border-radius: 15px;
@@ -33,6 +38,15 @@ display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.trash{
+    transition: transform 0s;
+}
+
+.trash:hover{
+    transform: scale(1.15);
+    cursor: pointer;
 }
 
 .trash:active{
