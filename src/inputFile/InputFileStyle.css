@@ -1,15 +1,14 @@
 .inp_img{
 display: flex;
-border: 2px rgb(0, 0, 0, 0) solid;
+border: 1px rgb(0, 0, 0, 0) solid;
 }
 .inp_img:hover{
-        border: 2px rgb(0, 0, 0) solid;
-        /* box-shadow: 0px 0px 0px 1px rgba(0,0,0,1); */
+        border: 1px rgb(0, 0, 0) solid;
         border-radius: 15px;
 }
 
 .inp_img:active{
-        border:  2px rgb(241, 105, 7) dashed;
+        border:  1px rgb(255, 106, 0) solid;
         border-radius: 15px;
 }
 .imgNewResipeStyle {
