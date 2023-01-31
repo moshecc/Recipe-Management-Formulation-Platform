@@ -12,10 +12,3 @@
     filter: blur(1.4px);
     opacity: 0.9;
 }
-
-.bgInpot{
-background-color: rgba(185, 188, 191, 0.6);
-}
-/* input[type = "file"]{
-    display: none;
-} */

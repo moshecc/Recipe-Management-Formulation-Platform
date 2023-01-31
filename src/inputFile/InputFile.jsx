@@ -5,19 +5,32 @@ import { FaTrashAlt } from "react-icons/fa";
 
 export default function InputFile() {
   const [previewUrl, setPreviewUrl] = useState(
-    "https://files.mishloha.co.il/files/rest_header/RHMM_600186_1653480403159.jpg"
-  );
+"https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
+    );
+  const [trash,settrash] = useState(false);
+
   const handleChange = (e) => {
+    if(!e)
+      return;
+    console.log(e);
     const file = e.target.files[0];
     const reader = new FileReader();
 
     reader.onloadend = () => {
       setPreviewUrl(reader.result);
+      console.log("load before:", trash);
+      settrash(true);
+      console.log("load after:", trash);
+
     };
     reader.readAsDataURL(file);
   };
 function dal(){
-  setPreviewUrl("https://files.mishloha.co.il/files/rest_header/RHMM_600186_1653480403159.jpg");
+  setPreviewUrl("https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png");
+  handleChange()
+  console.log("before:", trash);
+  settrash(false);
+  console.log("after:", trash);
 }
   return (
     <>
@@ -26,7 +39,6 @@ function dal(){
           className="imgNewResipeStyle"
           height={100}
           src={previewUrl}
-          alt=""
         />
         <div className="inp_continer ">
           <input onChange={handleChange} className="inp_hide" type="file" name="" id="" />
@@ -35,7 +47,8 @@ function dal(){
           </div>
         </div>
       </div>
-      <div onClick={dal} className="row m-2 align-items-center"><FaTrashAlt className="trash"/></div>
+      {trash && 
+      <div onClick={dal} className="row m-2 align-items-center"><FaTrashAlt className="trash"/></div>}
     </>
   );
 }
