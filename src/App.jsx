@@ -4,8 +4,7 @@ import MyRouter from './router/MyRouter'
 import {db} from "./Firebase"
 export default function App() {
 
-const [user , SetUser] = useState([]);
-
+const [user , SetUser] = useState();
 
 const data = {
   user ,
