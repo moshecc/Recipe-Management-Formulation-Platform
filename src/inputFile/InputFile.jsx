@@ -39,6 +39,7 @@ function dal(){
           className="imgNewResipeStyle"
           height={100}
           src={previewUrl}
+          alt= " "
         />
         <div className="inp_continer ">
           <input onChange={handleChange} className="inp_hide" type="file" name="" id="" />

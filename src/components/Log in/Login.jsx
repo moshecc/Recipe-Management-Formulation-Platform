@@ -7,10 +7,14 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
-import { signInWithGoogle } from '../../Firebase';
 import { FcGoogle } from "react-icons/fc";
 import { FaGhost } from "react-icons/fa";
 import { RiLoginCircleFill } from "react-icons/ri";
+import { signInWithPopup } from "firebase/auth";
+import {auth , googleProvider} from "../../Firebase"
+import { useContext } from 'react';
+import { ContextData } from '../../context/MyContext';
+
 
 
 function ModeToggle() {
@@ -24,12 +28,25 @@ function ModeToggle() {
   }, []);
   if (!mounted) {
     return null;
-  }
+  }}
 
-  
-}
+export default function Login() {
 
-export default function login() {
+  const {SetUser} = useContext(ContextData);
+
+  const signInWithGoogle = () =>{
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+          console.log(result);
+
+       })
+      .catch((erorr) => {
+        console.log(erorr);    
+        alert("error");
+      });
+  };
+
+
   return (
     <CssVarsProvider>
       <main>
@@ -56,7 +73,7 @@ export default function login() {
             </Typography>
             <Typography level="body2" style={{color:"wheat"}}>Sign /Log in to continue.</Typography>
           </div>
-          <Button className='btn bg-primary'><RiLoginCircleFill/>  LogIn</Button>
+          <Button className='btn bg-primary m-1'><RiLoginCircleFill/>  LogIn</Button>
           <Button onClick={signInWithGoogle} className='btn bg-primary'><h6><FcGoogle/>  Sign in with Google</h6></Button>
           <Button className='btn bg-primary'><h6><FaGhost/>  Sign in as a Guest</h6></Button>
         </Sheet>

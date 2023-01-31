@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Login from "../Log in/Login";
-import Nav from "../nav/Nav";
 import "./HomePage.css";
 export default function HomePage() {
   return (

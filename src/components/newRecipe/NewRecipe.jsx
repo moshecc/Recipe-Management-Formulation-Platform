@@ -3,35 +3,49 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useRef } from "react";
 import "./NewRecipe.css";
-import  RecipeData from"../../Classes/ClassNewRecipe"
+import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
 
-
 export default function NewRecipe() {
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
-  
+
   const [dataname, setdataname] = useState([]);
   const refName = useRef();
   const refIngredients = useRef();
   const refInstructions = useRef();
 
-
-
-  let set  = function setRecipe() {
+  let set = function setRecipe() {
     let name = refName.current.value;
     let ingredients = refIngredients.current.value;
     let instructions = refInstructions.current.value;
-    
-    ingredients = ingredients.split("\n");
-    instructions =instructions.split("\n");
 
-    let newRecipeData = new RecipeData(name,ingredients,instructions)
+    ingredients = ingredients.split("\n");
+    instructions = instructions.split("\n");
+
+    let newRecipeData = new RecipeData(name, ingredients, instructions);
     console.log(newRecipeData);
-    
+    // const NewRecipeConverter = {
+    //   toFirestore: (newRecipeData) => {
+    //     return {
+    //       name: RecipeData.name,
+    //       ingredients: RecipeData.ingredients,
+    //       instructions: RecipeData.instructions,
+    //       favorite: false,
+    //       id: null,
+    //     };
+    //   },
+      // fromFirestore: (snapshot, options) => {
+      //   const data = snapshot.data(options);
+      //   return new City(data.name, data.state, data.country);
+      // },
+    // };
   };
+
+  
+
   return (
     <div className="bgImg">
       <div dir="rtl" className="d-flex justify-content-center m-3">
@@ -54,10 +68,11 @@ export default function NewRecipe() {
                     placeholder="שם מתכון"
                     color="warning"
                     inputRef={refName}
-                    
                   />
                 </div>
-                <div className="d-flex justify-content-end mr-3" dir= "ltr"><InputFile/></div>
+                <div className="d-flex justify-content-end mr-3" dir="ltr">
+                  <InputFile />
+                </div>
                 <div className="d-flex justify-content-center">
                   <TextField
                     id="outlined-textarea"
@@ -86,7 +101,8 @@ export default function NewRecipe() {
                     onClick={set}
                     type="button"
                     class="btn btn-secondary m-3 border"
-                  ><BiMessageSquareAdd/> הוסף מתכון
+                  >
+                    <BiMessageSquareAdd /> הוסף מתכון
                   </button>
                 </div>
               </div>
