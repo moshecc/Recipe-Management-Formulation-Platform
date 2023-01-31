@@ -32,7 +32,6 @@ export default function NewRecipe() {
     console.log(newRecipeData);
     
   };
-
   return (
     <div className="bgImg">
       <div dir="rtl" className="d-flex justify-content-center m-3">
