@@ -4,6 +4,7 @@ import AboutUs from '../components/AboutUs/AboutUs'
 import Card from '../components/Card/Card'
 import NewCard from '../components/Card/NewCard'
 import HomePage from '../components/HomePage/HomePage'
+import LoginPas from '../components/Log in/LoginPas'
 import Nav from '../components/nav/Nav'
 import NewRecipe from '../components/newRecipe/NewRecipe'
 import PageError from '../components/pageError/PageError'
@@ -20,6 +21,7 @@ export default function MyRouter() {
        <Route path='/newrecipe' element={<NewRecipe/>}/>
        <Route path='/inputfile' element={<InputFile/>}/>
        <Route path='/aboutus' element={<AboutUs/>}/>
+       <Route path='/login' element={<LoginPas/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>
 
