@@ -4,20 +4,20 @@ border: 1px rgb(0, 0, 0, 0) solid;
 }
 .inp_img:hover{
         border: 1px rgb(0, 0, 0) solid;
-        border-radius: 15px;
+        border-radius: 5px;
 }
 
 .inp_img:active{
         border:  1px rgb(255, 106, 0) solid;
-        border-radius: 15px;
+        border-radius: 5px;
 }
 .imgNewResipeStyle {
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 5px 0px 0px 5px;
     box-shadow: 0.5px 0.5px 1px;
 }
 
 .inp_continer {
-    border-radius: 0px 15px 15px 0px;
+    border-radius: 0px 5px 5px 0px;
     width: 250px;
     height: 100px;
     box-shadow: 0.5px 0.5px 1px;
@@ -51,6 +51,6 @@ border: 1px rgb(0, 0, 0, 0) solid;
 }
 
 .trash:active{
-    border: 2px rgba(241, 104, 7, 0.685) solid;
+    border: 2px rgb(241, 104, 7) solid;
     border-radius: 3px;
 }

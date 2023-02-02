@@ -2,39 +2,29 @@ import React, { useState } from "react";
 import "./InputFileStyle.css";
 import { BiImageAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
+import { useRef } from "react";
 
 export default function InputFile() {
   const [previewUrl, setPreviewUrl] = useState(
 "https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
     );
   const [trash,settrash] = useState(false);
+  const imgref = useRef();
 
   const handleChange = (e) => {
-    if(!e)
-      return;
-    console.log(e);
-    const file = e.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setPreviewUrl(reader.result);
-      console.log("load before:", trash);
-      settrash(true);
-      console.log("load after:", trash);
-
-    };
-    reader.readAsDataURL(file);
+    const url = URL.createObjectURL(imgref.current.files[0]);
+    setPreviewUrl(url);
+    settrash(true);
   };
+
 function dal(){
   setPreviewUrl("https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png");
-  handleChange()
-  console.log("before:", trash);
   settrash(false);
-  console.log("after:", trash);
+  imgref.current.value = null;
 }
   return (
     <>
-      <div className="inp_img">
+      <div className="inp_img bgInpot">
         <img
           className="imgNewResipeStyle"
           height={100}
@@ -42,7 +32,7 @@ function dal(){
           alt= " "
         />
         <div className="inp_continer ">
-          <input onChange={handleChange} className="inp_hide" type="file" name="" id="" />
+          <input onChange={handleChange} ref={imgref} className="inp_hide" type="file" name="" id="" />
           <div className="inp_caver">
             הוסף תמונה <div><BiImageAdd/></div>
           </div>

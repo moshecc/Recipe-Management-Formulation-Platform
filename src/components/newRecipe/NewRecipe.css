@@ -1,5 +1,9 @@
+.newRecipeForm {
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.199);
+}
 
-.newRecipeForm{
-border-radius: 30px;
-background-color:rgba(255, 255, 255, 0.199);
+.bgInpot {
+    background-color: rgba(144, 140, 140, 0.443);
+    border-radius: 5px;
 }

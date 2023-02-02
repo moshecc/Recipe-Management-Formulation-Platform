@@ -71,7 +71,7 @@ export default function Login() {
             </Typography>
             <Typography level="body2" style={{color:"wheat"}}>Sign /Log in to continue.</Typography>
           </div>
-          <Button className='btn bg-primary m-1'><RiLoginCircleFill/>  LogIn</Button>
+          <Button className='btn bg-primary'><RiLoginCircleFill/>  LogIn</Button>
           <Button onClick={signInWithGoogle} className='btn bg-primary'><h6><FcGoogle/>  Sign in with Google</h6></Button>
           <Button className='btn bg-primary'><h6><FaGhost/>  Sign in as a Guest</h6></Button>
         </Sheet>
