@@ -34,7 +34,7 @@ function dal(){
         <div className="inp_continer ">
           <input onChange={handleChange} ref={imgref} className="inp_hide" type="file" name="" id="" />
           <div className="inp_caver">
-            הוסף תמונה <div><BiImageAdd/></div>
+           ! תלחץ וגרור<div><BiImageAdd/></div>
           </div>
         </div>
       </div>

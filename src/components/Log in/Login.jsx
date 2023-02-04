@@ -1,81 +1,70 @@
-import * as React from 'react';
-import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
-import Sheet from '@mui/joy/Sheet';
-import Typography from '@mui/joy/Typography';
-import Button from '@mui/joy/Button';
-import Link from '@mui/joy/Link';
-import { signInWithGoogle } from '../../Firebase';
+import * as React from "react";
+import Button from "@mui/joy/Button";
+import Card from "@mui/joy/Card";
 import { FcGoogle } from "react-icons/fc";
 import { FaGhost } from "react-icons/fa";
 import { RiLoginCircleFill } from "react-icons/ri";
 import { signInWithPopup } from "firebase/auth";
-import {auth , googleProvider} from "../../Firebase"
-import { useContext } from 'react';
-import { ContextData } from '../../context/MyContext';
+import { auth, googleProvider } from "../../Firebase";
+import { useContext } from "react";
+import { ContextData } from "../../context/MyContext";
+import Dialog from '@mui/material/Dialog';
+import LoginPas from "./LoginPas";
 
-
-
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  // necessary for server-side rendering
-  // because mode is undefined on the server
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return null;
-  }}
 
 export default function Login() {
+  const { SetUser } = useContext(ContextData);
+  const [open, setOpen] = React.useState(false);
 
-  const {SetUser} = useContext(ContextData);
-
-  const signInWithGoogle = () =>{
+  const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-          console.log(result);
-
-       })
+        console.log(result);
+      })
       .catch((erorr) => {
-        console.log(erorr);    
+        console.log(erorr);
         alert("error");
       });
   };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <CssVarsProvider>
-      <main>
-        <ModeToggle />
-        <Sheet
-        style={{backgroundColor: "rgba(0, 0, 0,0.35)"}}
-          sx={{
-            width: 320,
-            mx: 'auto', // margin left & right
-            my: 4, // margin top & botom
-            py: 3, // padding top & bottom
-            px: 2, // padding left & right
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 1,
-            borderRadius: 'sm',
-            boxShadow: 'md',
-          }}
-          variant="outlined"
-        >
-          <div>
-            <Typography level="h4" component="h4">
-              <b style={{color:"black"}}>Welcome!</b>
-            </Typography>
-            <Typography level="body2" style={{color:"wheat"}}>Sign /Log in to continue.</Typography>
-          </div>
-          <Button className='btn bg-primary'><RiLoginCircleFill/>  LogIn</Button>
-          <Button onClick={signInWithGoogle} className='btn bg-primary'><h6><FcGoogle/>  Sign in with Google</h6></Button>
-          <Button className='btn bg-primary'><h6><FaGhost/>  Sign in as a Guest</h6></Button>
-        </Sheet>
-      </main>
-    </CssVarsProvider>
+    <div className="d-flex justify-content-center mt-5">
+      <Card
+        variant="outlined"
+        sx={{ width: 320}}
+        style={{ backgroundColor: "rgba(0, 0, 0,0.35)" }}
+      >
+        <h3>
+          <b style={{ color: "black" }}>Welcome!</b>
+        </h3>
+        <p level="body2" style={{ color: "wheat" }}>
+          Sign /Log in to continue.
+        </p>
+        <Button className="btn bg-primary mb-2" onClick={handleClickOpen}>
+          <RiLoginCircleFill /> LogIn
+        </Button>
+      <Dialog open={open} onClose={handleClose}>
+        <LoginPas/>
+      </Dialog>
+
+        <Button onClick={signInWithGoogle} className="btn bg-primary mb-2">
+          <h6>
+            <FcGoogle /> Sign in with Google
+          </h6>
+        </Button>
+        <Button className="btn bg-primary mb-2">
+          <h6>
+            <FaGhost /> Sign in as a Guest
+          </h6>
+        </Button>
+      </Card>
+    </div>
   );
 }
