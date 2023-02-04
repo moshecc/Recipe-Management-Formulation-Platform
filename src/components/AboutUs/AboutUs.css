@@ -3,17 +3,3 @@
     background-color: rgba(201, 196, 196, 0.443);
 }
 
-.containerAvatar {
-    display: grid;
-    grid-template-columns: repeat(3, 120px);
-}
-
-.avatar {
-    border: solid 2px red;
-    transition: transform 550ms;
-}
-
-.avatar:hover~.avatar {
-    transform: translateX(22px);
-}
-

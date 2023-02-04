@@ -10,7 +10,7 @@ export default function HomePage() {
 
         <h3 className="myFont myFontHomePage">המתכונים שלי</h3>
         <Login/>
-        <div className=" justify-content-center d-flex">
+        <div className=" justify-content-center d-flex mt-5">
           <span>
             <Link to={'/aboutus'} className="nav-link active">About Us</Link>
           </span>

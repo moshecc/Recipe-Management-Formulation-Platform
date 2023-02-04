@@ -7,10 +7,13 @@ import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
 import { BiMessageSquareAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
+import { BsPlusSquareDotted } from "react-icons/bs";
+import Dialog from "@mui/material/Dialog";
 
 export default function NewRecipe() {
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
+  const [open, setOpen] = React.useState(false);
 
   const [dataname, setdataname] = useState([]);
   const refName = useRef();
@@ -37,14 +40,20 @@ export default function NewRecipe() {
     //       id: null,
     //     };
     //   },
-      // fromFirestore: (snapshot, options) => {
-      //   const data = snapshot.data(options);
-      //   return new City(data.name, data.state, data.country);
-      // },
+    // fromFirestore: (snapshot, options) => {
+    //   const data = snapshot.data(options);
+    //   return new City(data.name, data.state, data.country);
+    // },
     // };
   };
 
-  
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className="bgImg">
@@ -70,8 +79,14 @@ export default function NewRecipe() {
                     inputRef={refName}
                   />
                 </div>
-                <div className="d-flex justify-content-end mr-3" dir="ltr">
-                  <InputFile />
+                <div className="d-flex justify-content-end  mr-3 m-1" dir="ltr">
+                  <div className="btn" style={{ color: "black", cursor: "pointer" }}>
+                    <span className="ml-3"> הוסף תמונה </span>
+                    <BsPlusSquareDotted size={35} onClick={handleClickOpen} />
+                  </div>
+                  <Dialog open={open} onClose={handleClose}>
+                    <InputFile />
+                  </Dialog>
                 </div>
                 <div className="d-flex justify-content-center">
                   <TextField
@@ -101,7 +116,8 @@ export default function NewRecipe() {
                     onClick={set}
                     type="button"
                     className="btn btn-secondary m-3 border"
-                  ><BiMessageSquareAdd/> הוסף מתכון
+                  >
+                    <BiMessageSquareAdd /> הוסף מתכון
                   </button>
                 </div>
               </div>
