@@ -6,10 +6,13 @@ import {db} from "./Firebase"
 export default function App() {
 
 const [user , SetUser] = useState();
+const [loading , SetLoading] = useState(false) ;
 
 const data = {
   user ,
-  SetUser
+  SetUser,
+  loading ,
+  SetLoading
 
 }
 

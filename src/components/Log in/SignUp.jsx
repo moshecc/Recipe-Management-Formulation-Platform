@@ -12,18 +12,44 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { autu } from '../../Firebase';
 import { useState } from 'react';
+import { useRef } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useAuth } from '../../Firebase';
+import { ContextData } from '../../context/MyContext';
+import { useContext } from 'react';
 
 
 export default function SignUp() {
 
-  const [registerEmail , SetRegister] = useState("");
+  const {loading , SetLoading} = useContext(ContextData)
 
-  const register = async ()=>{
+  const currentUser = useAuth();
 
+  const email =useRef();
+  const password =useRef();
+  const auth = getAuth();
+
+
+  const register = async function (){
+    SetLoading(true);
+    await createUserWithEmailAndPassword(auth ,email.current.value , password.current.value)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      alert(errorCode);
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      SetLoading(false);
+      // ..
+    });
+  
   }
-
 
 
 const theme = createTheme();
@@ -45,8 +71,10 @@ const theme = createTheme();
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
+            <br />
+            {currentUser?.email}
           </Typography>
-          <Box component="form" noValidate onSubmit={''} sx={{ mt: 3 }}>
+          <Box  noValidate  sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -73,6 +101,7 @@ const theme = createTheme();
                 <TextField
                   required
                   fullWidth
+                 inputRef={email}
                   id="email"
                   label="Email Address"
                   name="email"
@@ -83,6 +112,7 @@ const theme = createTheme();
                 <TextField
                   required
                   fullWidth
+                  inputRef={password}
                   name="password"
                   label="Password"
                   type="password"
@@ -92,7 +122,8 @@ const theme = createTheme();
               </Grid>
             </Grid>
             <Button
-              type="submit"
+            onClick={register}
+            disabled = {loading}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
