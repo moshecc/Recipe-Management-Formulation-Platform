@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { useRef } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from '../../Firebase';
 import { ContextData } from '../../context/MyContext';
 import { useContext } from 'react';
@@ -22,23 +22,29 @@ import { useContext } from 'react';
 
 export default function SignUp() {
 
-  const {loading , SetLoading} = useContext(ContextData)
+  const {loading , SetLoading , SetUser} = useContext(ContextData)
 
   const currentUser = useAuth();
 
   const email =useRef();
   const password =useRef();
+  const name =useRef();
+  const lastName =useRef();
+
+
   const auth = getAuth();
 
 
   const register = async function (){
+    let userName = name.current.value + " " + lastName.current.value;
     SetLoading(true);
     await createUserWithEmailAndPassword(auth ,email.current.value , password.current.value)
     .then((userCredential) => {
-      // Signed in 
+    
       const user = userCredential.user;
+      updateProfile(user,{displayName: userName });
       console.log(user);
-      // ...
+      SetUser(user);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -80,6 +86,7 @@ const theme = createTheme();
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
+                  inputRef={name}
                   required
                   fullWidth
                   id="firstName"
@@ -91,6 +98,7 @@ const theme = createTheme();
                 <TextField
                   required
                   fullWidth
+                  inputRef={lastName}
                   id="lastName"
                   label="Last Name"
                   name="lastName"

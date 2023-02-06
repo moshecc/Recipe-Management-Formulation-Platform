@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -13,21 +11,39 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import SignUp from "./SignUp";
-import Dialog from '@mui/material/Dialog';
+import Dialog from "@mui/material/Dialog";
+import { login } from "../../Firebase";
+import { useRef } from "react";
+import { ContextData } from "../../context/MyContext";
 
 const theme = createTheme();
 
 export default function LoginPas() {
-  const [open, setOpen] = React.useState(false);
+  const { loading, SetLoading ,SetUser } = useContext(ContextData);
 
-  //   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //     event.preventDefault();
-  //     const data = new FormData(event.currentTarget);
-  //     console.log({
-  //       email: data.get('email'),
-  //       password: data.get('password'),
-  //     });
-  //   };
+  const [open, setOpen] = React.useState(false);
+  const email = useRef();
+  const password = useRef();
+
+  async function handelLogIn() {
+    SetLoading(true);
+    await login(email.current.value, password.current.value)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        SetUser(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        alert(errorCode);
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        SetLoading(false);
+        // ..
+      });
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -38,7 +54,7 @@ export default function LoginPas() {
   };
 
   return (
-    <ThemeProvider theme={theme}  >
+    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -55,11 +71,12 @@ export default function LoginPas() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }}>
+          <Box noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
+              inputRef={email}
               id="email"
               label="Email Address"
               name="email"
@@ -70,20 +87,19 @@ export default function LoginPas() {
               margin="normal"
               required
               fullWidth
+              inputRef={password}
               name="password"
               label="Password"
               type="password"
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+
             <Button
-              type="submit"
+              onClick={handelLogIn}
               fullWidth
               variant="contained"
+              disabled = {loading}
               sx={{ mt: 2, mb: 4 }}
             >
               Sign In
@@ -99,8 +115,8 @@ export default function LoginPas() {
                   {"Don't have an account? Sign Up"}
                 </Link>
                 <Dialog open={open} onClose={handleClose}>
-                  <SignUp/>
-               </Dialog>
+                  <SignUp />
+                </Dialog>
               </Grid>
             </Grid>
           </Box>

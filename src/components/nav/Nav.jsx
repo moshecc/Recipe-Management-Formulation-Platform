@@ -3,15 +3,17 @@ import Avatar from '@mui/material/Avatar';
 import "./Nav.css";
 import { logout } from "../../Firebase";
 import { ContextData } from "../../context/MyContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
   
 const {loading , SetLoading} = useContext(ContextData)
-
+const navigate = useNavigate();
   async function handleLogout() {
     SetLoading(true);
     try {
       await logout();
+      navigate("/")
     } catch {
       alert("Error!");
     }

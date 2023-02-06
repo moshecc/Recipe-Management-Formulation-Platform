@@ -9,11 +9,16 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
+import { useAuth ,db } from "../../Firebase";
+import {addDoc , collection} from "firebase/firestore"
 
 export default function NewRecipe() {
+
+  const user = useAuth();
+  console.log(user);
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const [dataname, setdataname] = useState([]);
   const refName = useRef();
@@ -28,23 +33,12 @@ export default function NewRecipe() {
     ingredients = ingredients.split("\n");
     instructions = instructions.split("\n");
 
-    let newRecipeData = new RecipeData(name, ingredients, instructions);
+    let newRecipeData = new RecipeData(name, ingredients, instructions,user.uid );
     console.log(newRecipeData);
-    // const NewRecipeConverter = {
-    //   toFirestore: (newRecipeData) => {
-    //     return {
-    //       name: RecipeData.name,
-    //       ingredients: RecipeData.ingredients,
-    //       instructions: RecipeData.instructions,
-    //       favorite: false,
-    //       id: null,
-    //     };
-    //   },
-    // fromFirestore: (snapshot, options) => {
-    //   const data = snapshot.data(options);
-    //   return new City(data.name, data.state, data.country);
-    // },
-    // };
+
+      const collectionRef = collection(db, "recepis");
+      const docRef = addDoc(collectionRef, {...newRecipeData});
+
   };
 
   const handleClickOpen = () => {

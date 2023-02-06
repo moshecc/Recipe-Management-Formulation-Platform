@@ -13,13 +13,15 @@ import LoginPas from "./LoginPas";
 
 
 export default function Login() {
-  const { SetUser } = useContext(ContextData);
   const [open, setOpen] = React.useState(false);
+  const { user, SetUser } = useContext(ContextData);
+
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log(result);
+        SetUser(result);
       })
       .catch((erorr) => {
         console.log(erorr);
