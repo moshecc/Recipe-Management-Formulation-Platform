@@ -6,6 +6,7 @@ import NewCard from '../components/Card/NewCard'
 import HomePage from '../components/HomePage/HomePage'
 import LoginPas from '../components/Log in/LoginPas'
 import SignUp from '../components/Log in/SignUp'
+import RecipeView from '../components/MainPage/RecipeView'
 import Nav from '../components/nav/Nav'
 import NewRecipe from '../components/newRecipe/NewRecipe'
 import PageError from '../components/pageError/PageError'
@@ -24,6 +25,7 @@ export default function MyRouter() {
        <Route path='/aboutus' element={<AboutUs/>}/>
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/login' element={<LoginPas/>}/>
+       <Route path='/recipeViow' element={<RecipeView/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>
 
