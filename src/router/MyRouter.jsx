@@ -25,6 +25,8 @@ export default function MyRouter() {
        <Route path='/aboutus' element={<AboutUs/>}/>
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/login' element={<LoginPas/>}/>
+       <Route path='/RecipeList' element={<RecipeList/>}/>
+       <Route path='/RecipeView' element={<RecipeView/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>
 
