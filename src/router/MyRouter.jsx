@@ -11,7 +11,7 @@ import Nav from '../components/nav/Nav'
 import NewRecipe from '../components/newRecipe/NewRecipe'
 import PageError from '../components/pageError/PageError'
 import InputFile from '../inputFile/InputFile'
-
+import RecipeList from '../components/MainPage/RecipeList'
 export default function MyRouter() {
   return (
     <div>
@@ -25,7 +25,6 @@ export default function MyRouter() {
        <Route path='/aboutus' element={<AboutUs/>}/>
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/login' element={<LoginPas/>}/>
-       <Route path='/recipeViow' element={<RecipeView/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>
 
