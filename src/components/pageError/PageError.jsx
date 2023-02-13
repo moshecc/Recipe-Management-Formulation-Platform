@@ -1,28 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./PageError.css"
 export default function PageError() {
   return (
     <>
-    
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <div style={{ textAlign: "center" }}>
-          <img
-            width={400}
-            src="https://i.imagesup.co/images2/4f5b1c2bc2877676d89986a8681d0fa343fddf81.jpg"
-            alt="404 Error"
-          />
-          <h1>404 Page Not Found</h1>
-          <p>Sorry, the page you are looking for does not exist.</p>
-          <Link to={"/"}>Go Home 🏠</Link>
-        </div>
-      </div>
+     <Link to={"/"}>
+  <header class="top-header">
+</header>
+
+<div>
+  <div class="starsec"></div>
+  <div class="starthird"></div>
+  <div class="starfourth"></div>
+  <div class="starfifth"></div>
+</div>
+
+
+<div class="lamp__wrap">
+  <div class="lamp">
+    <div class="cable"></div>
+    <div class="cover"></div>
+    <div class="in-cover">
+      <div class="bulb"></div>
+    </div>
+    <div class="light"></div>
+  </div>
+</div>
+<section class="error">
+  <div class="error__content">
+    <div class="error__message message">
+      <h1 class="message__title">Page Not Found</h1>
+      <p class="message__text">We're sorry, the page you were looking for isn't found here. The link you followed may either be broken or no longer exists. Please try again, or take a look at our.</p>
+    </div>
+    <div class="error__nav e-nav">
+      <a href="" target="_blanck" class="e-nav__link"></a>
+    </div>
+  </div>
+
+</section>
+
+</Link>
     </>
   );
 }
