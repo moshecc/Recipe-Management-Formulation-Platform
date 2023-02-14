@@ -5,7 +5,7 @@ import "./RecipeList.css";
 export default function recipeList() {
   return (
     <>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center shadow">
         <div className="overrecipe">
           <form action="" className="search-bar">
             <input className="inputStyle" type="search" name="search" placeholder=" שם מתכון:" pattern=".*\S.*" required  dir="rtl"/>
