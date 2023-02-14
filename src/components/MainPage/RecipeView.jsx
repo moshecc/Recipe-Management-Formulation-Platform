@@ -39,7 +39,7 @@ export default function RecipeView() {
           </div>
           <h3 className=" d-flex justify-content-center">אופן הכנה</h3>
         </div>
-        <div className="ml-4"> <RecipeList/></div>
+        <div className="col-4"><RecipeList/></div>
       </div>
     </div>
   );

@@ -5,24 +5,25 @@ import "./RecipeList.css";
 export default function recipeList() {
   return (
     <>
-      <div className="d-flex justify-content-center shadow">
-        <div className="overrecipe">
+      <div className="col-12">
+        <div  className="overrecipe col-12">
           <form action="" className="search-bar">
             <input className="inputStyle" type="search" name="search" placeholder=" שם מתכון:" pattern=".*\S.*" required  dir="rtl"/>
-            <button className="search-btn" type="submit">
+            <button className="search-btn" >
             </button>
           </form>
-          <NewCard />
+          <div className="col-11">
+         <NewCard />
          <Card />   
          <Card />   
          <Card />   
          <Card />   
          <Card />   
          <Card />   
-
+         </div>
          
         </div>
-      </div>
+        </div>
     </>
   );
 }

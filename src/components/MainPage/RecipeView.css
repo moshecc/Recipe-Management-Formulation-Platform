@@ -1,3 +1,7 @@
+.recipeViowMain{
+    width: fit-content;
+}
+
 .RecipeViewContiner{
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.199);
