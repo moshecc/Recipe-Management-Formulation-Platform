@@ -34,7 +34,7 @@ export default function Nav() {
           </div>
         </div>
       </div>
-      <div className="burger  m-2 " style={{ display: "block" }}>
+      <div className="burger" style={{ display: "block" }}>
         <div className="d-flex justify-content-end">
           <Burger />
         </div>

@@ -20,23 +20,24 @@ export default function Burger() {
 
   return (
     <>
-      <div className="cardBurger">
-        <div className="">
-          <div className="d-flex col-12 p-0">
-            <div className="col-9"> Moshe Cohen</div>
-            <div className="col-2">
-            <Avatar className="border mt-2" alt="User Name" src="" />
+      <div className="cardBurger ">
+          <div className="d-flex col-12  my-2">
+            <div className="col-9 px-0 d-flex align-items-center"> Moshe Cohen</div>
+            <div className="col-3 px-0">
+            <Avatar className="border " alt="User Name" src="" />
             </div>
           </div>
-
-          <div className="m-2"> Moshe </div>
-          <div className="m-2"> Moshe </div>
-          <div className="m-2"> Moshe </div>
-          <div className="m-2"> Moshe </div>
-          <button onClick={handleLogout} className="btn bg-danger">
+          <div className="row">
+          <div className="d-flex justify-content-end mb-2 col-11"> Moshe </div>
+          <div className="d-flex justify-content-end mb-2 col-11"> Moshe </div>
+          <div className="d-flex justify-content-end mb-2 col-11"> Moshe </div>
+          <div className="d-flex justify-content-end mb-2 col-11"> Moshe </div>
+          <div className="d-flex justify-content-end mb-2 col-11">
+          <button onClick={handleLogout} className=" btn bg-danger">
             log out
           </button>
-        </div>
+          </div>
+          </div>
       </div>
     </>
   );
