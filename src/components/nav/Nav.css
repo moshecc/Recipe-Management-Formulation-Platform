@@ -16,3 +16,9 @@
 .rtl{
     direction: rtl;
 }
+.cardBurger{
+    width: 200px;
+    position: absolute;
+    top: 45px;
+    background-color: rgb(167, 201, 230);
+}
