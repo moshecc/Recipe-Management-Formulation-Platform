@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import "./Nav.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Burger from "./Burger";
+import Avatar from "@mui/material/Avatar";
+
+import lottie from "lottie-web";
+import { defineElement } from "lord-icon-element";
+
+// define "lord-icon" custom element with default properties
+defineElement(lottie.loadAnimation);
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
@@ -26,11 +33,29 @@ export default function Nav() {
           <h2 className="myFont">המתכונים שלי</h2>
         </div>
         <div className="col-3 fst-italic fs-2 pr-0 pl-0 d-flex justify-content-center align-items-center">
-          {!burger ? <div className="name">Hello Moshe</div> : ""}
+          {!burger ? (
+            <div className="name d-flex align-content-center">
+              {" "}
+              <div className="mt-2 mr-1">Hello Moshe</div>
+              <Avatar className="border " alt="User Name" src="" />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="col-1 pr-0 pl-0 d-flex align-items-center">
           <div className="" onClick={hideBurger}>
-            <GiHamburgerMenu size={"30px"} className="thebur" />
+            {/* <GiHamburgerMenu size={"30px"} className="thebur" /> */}
+            <div className="thebur">
+              {" "}
+              <lord-icon
+                src="https://cdn.lordicon.com/phtfmmnb.json"
+                trigger="morph"
+                colors="primary:#545454,secondary:#000000"
+                stroke="100"
+                style={{ width: "60px", height: "60px" }}
+              ></lord-icon>
+            </div>
           </div>
         </div>
       </div>

@@ -13,6 +13,9 @@
 .logoNavImg{
     height: 56px;
 }
+.thebur{
+    cursor: pointer;
+}
 .thebur:active{
 transform: scale(1.10);
 }
