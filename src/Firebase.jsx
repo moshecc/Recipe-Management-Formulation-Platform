@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { getFirestore, doc, collection, query, where } from "@firebase/firestore"
+import { getFirestore, doc, collection, query, where, onSnapshot } from "@firebase/firestore"
 import { useEffect, useState } from "react";
 
 const firebaseConfig = {
@@ -47,6 +47,17 @@ export function CurrentUser() {
     return unsub;
   }, [])
   return currentUser;
+}
+
+export function UserRecipes(id, setData){
+  const userRecipe = query(colRef ,where("id","==",`${id}`));
+  let arr = [];
+  onSnapshot(userRecipe,(f)=>{
+    f.docs.forEach((e)=>{
+      arr.push({...e.data(),docId: e.id });
+    })
+    setData(arr);
+  })
 }
 
 

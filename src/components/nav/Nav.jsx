@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Nav.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Burger from "./Burger";
+import { ContextData } from "../../App";
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
+  const {user} = useContext(ContextData);
 
   function hideBurger() {
     sutBurger(!burger);
   }
+  useEffect(()=>{
+    console.log(user)
+  },[user])
 
   return (
     <div className="container-fluid sticky-top">
