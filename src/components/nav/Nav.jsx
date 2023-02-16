@@ -33,13 +33,12 @@ export default function Nav() {
             />
           </div>
         </div>
-        <div className="col-6  pr-0 pl-0 d-flex justify-content-center align-items-center">
+        <div className="col-sm-6 col-5 pr-0 pl-0 d-flex justify-content-center align-items-center">
           <h2 className="myFont">המתכונים שלי</h2>
         </div>
         <div className="col-3 fst-italic fs-2 pr-0 pl-0 d-flex justify-content-center align-items-center">
           {!burger ? (
             <div className="name d-flex align-content-center">
-              {" "}
               <div className="mt-2 mr-1">Hello Moshe</div>
               <Avatar className="border " alt="User Name" src="" />
             </div>
@@ -47,11 +46,10 @@ export default function Nav() {
             ""
           )}
         </div>
-        <div className="col-1 pr-0 pl-0 d-flex align-items-center">
+        <div className="col-sm-1 col-2 pr-0 pl-0 d-flex align-items-center">
           <div className="" onClick={hideBurger}>
             {/* <GiHamburgerMenu size={"30px"} className="thebur" /> */}
             <div className="thebur">
-              {" "}
               <lord-icon
                 src="https://cdn.lordicon.com/phtfmmnb.json"
                 trigger="morph"

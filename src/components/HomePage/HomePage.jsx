@@ -35,7 +35,7 @@ export default function HomePage() {
           </span>
         
         </div>
-      </div>):( navigate("/RecipeView"))}
+      </div>):( navigate("/main"))}
     </>
   );
 }

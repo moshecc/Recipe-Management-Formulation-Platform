@@ -43,7 +43,7 @@ useEffect(()=>{
 
   return (
     <>
-      <div className="col-12">
+      <div className="col-12 mt-2">
         <div  className="overrecipe col-12">
           <form action="" className="search-bar">
             <input className="inputStyle" type="search" name="search" placeholder=" שם מתכון:" pattern=".*\S.*" required  dir="rtl"/>

@@ -5,13 +5,14 @@ import Avatar from "@mui/material/Avatar";
 import { ContextData } from "../../App";
 
 export default function Burger() {
-  const { loading, SetLoading } = useContext(ContextData);
+  const { loading, SetLoading , setCurrentOpen } = useContext(ContextData);
   const navigate = useNavigate();
 
   async function handleLogout() {
     SetLoading(true);
     try {
       await logout();
+      setCurrentOpen(null)
       navigate('/');
 
     } catch {

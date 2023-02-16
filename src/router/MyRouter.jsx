@@ -13,12 +13,14 @@ import PageError from '../components/pageError/PageError'
 import InputFile from '../inputFile/InputFile'
 import RecipeList from '../components/MainPage/RecipeList'
 import Burger from '../components/nav/Burger'
+import Main from '../components/MainPage/Main'
 
 export default function MyRouter() {
   return (
     <div>
         <Routes>
        <Route path='/' element={<HomePage/>}/>
+       <Route path='/main' element={<Main/>}/>
        <Route path='/nav' element={<Nav/>}/>
        <Route path='/card' element={<Card/>}/>
        <Route path='/newcard' element={<NewCard/>}/>
