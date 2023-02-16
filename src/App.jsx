@@ -8,13 +8,20 @@ export default function App() {
 
 const [user , SetUser] = useState();
 const [loading , SetLoading] = useState(false) ;
+const [ userRecipe ,setUserRecipe] = useState();
+const [ currentOpen ,setCurrentOpen] = useState(null);
+
+
 
 const data = {
   user ,
   SetUser,
   loading ,
-  SetLoading
-
+  SetLoading,
+  userRecipe,
+  setUserRecipe,
+  currentOpen,
+  setCurrentOpen
 }
 
   return (

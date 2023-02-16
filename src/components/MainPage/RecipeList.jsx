@@ -11,12 +11,12 @@ import NewCard from "../Card/NewCard";
 import "./RecipeList.css";
 export default function RecipeList() {
 
-const [ userRecipe ,setUserRecipe] = useState();
 
 
-const {user} = useContext(ContextData);
+const {user , userRecipe ,setUserRecipe} = useContext(ContextData);
 console.log(user.uid);
 
+const [data , setData]= useState(undefined);
 
 useEffect(()=>{
   UserRecipes(user.uid, setUserRecipe);
@@ -24,23 +24,22 @@ useEffect(()=>{
 
 useEffect(()=>{
   console.log(userRecipe);
-  console.log(user.uid)
+  console.log(user.uid);
+  setData(userRecipe);
 },[userRecipe])
 
+ const mapRender = ()=>{
+  if(data != undefined ){
+    return( data.map((item,i)=>
+    <div key={i}>
+      {console.log(item)}
+     <Card item={item} />   
+    </div>
+    ))
+   }
+  };
 
 
-// const getUserRecipe = async ()=>{
-//   const user =await CurrentUser();
-//   let uid = await user.uid;
-//   console.log(uid);
-// }
-// getUserRecipe();
-// useEffect(async() => {
-//  let id =  user.uid;
-// },[])
-
-
-// console.log(userRecipe);
 
   return (
     <>
@@ -53,8 +52,7 @@ useEffect(()=>{
           </form>
           <div className="col-11">
          <NewCard />
-         <Card />   
-         
+         {userRecipe==null?"":mapRender()}
          </div>
          
         </div>

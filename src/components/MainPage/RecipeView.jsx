@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./RecipeView.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Nav from "../nav/Nav";
 import RecipeList from "./RecipeList";
+import { ContextData } from "../../App";
 
 export default function RecipeView() {
-  let data = [
+
+  // const [data , setData]= useState(undefined);
+
+  const {currentOpen} = useContext(ContextData);
+
+
+
+  let datal = [
     "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=400",
     "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=400",
     "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -17,8 +25,9 @@ export default function RecipeView() {
     <div className="bgImg">
       <Nav />
       <div className="m-2 d-flex">
+        {currentOpen==null?"":(
         <div className="RecipeViewContiner shadow col-12 col-sm-8 ml-1">
-          <h2 className="d-flex justify-content-center">New Recipe</h2>
+          <h2 className="d-flex justify-content-center">{currentOpen.name}</h2>
           <div className="row">
             <div className="img_div col-12 col-sm-6">
               <Carousel
@@ -28,17 +37,20 @@ export default function RecipeView() {
                 infiniteLoop={true}
                 showStatus={false}
               >
-                {data.map((item, i) => (
+                {datal.map((item, i) => (
                   <img key={i} className="imgCarousel " src={item} />
                 ))}
               </Carousel>
             </div>
             <h3 className="col-12 col-sm-6 d-flex justify-content-center">
-              מרכיבים
+            {currentOpen.ingredients.map((item,i)=>
+            <div key={i}>{item} •</div>
+            )}
             </h3>
           </div>
           <h3 className=" d-flex justify-content-center">אופן הכנה</h3>
         </div>
+        )}
         <div className="col-4"><RecipeList/></div>
       </div>
     </div>

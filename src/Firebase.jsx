@@ -17,9 +17,11 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
 export function logout() {
   return signOut(auth);
 }
+
 export const googleProvider = new GoogleAuthProvider();
 
 export function login(email , password){

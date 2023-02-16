@@ -7,6 +7,7 @@ import { ContextData } from "../../App";
 export default function Burger() {
   const { loading, SetLoading } = useContext(ContextData);
   const navigate = useNavigate();
+  
   async function handleLogout() {
     SetLoading(true);
     try {
