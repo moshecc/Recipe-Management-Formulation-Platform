@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { logout } from "../../Firebase";
-import { ContextData } from "../../context/MyContext";
 import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
+import { ContextData } from "../../App";
 
 export default function Burger() {
   const { loading, SetLoading } = useContext(ContextData);

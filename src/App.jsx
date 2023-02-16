@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { ContextData } from './context/MyContext'
+import React, { createContext, useEffect, useState } from 'react'
 import MyRouter from './router/MyRouter'
-import {db} from "./Firebase"
+
+export const ContextData = createContext();
+
 
 export default function App() {
 
@@ -15,7 +16,6 @@ const data = {
   SetLoading
 
 }
-
 
   return (
     <>

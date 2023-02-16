@@ -16,8 +16,8 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from '../../Firebase';
-import { ContextData } from '../../context/MyContext';
 import { useContext } from 'react';
+import { ContextData } from '../../App';
 
 
 export default function SignUp() {

@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Nav.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Burger from "./Burger";
-import Avatar from "@mui/material/Avatar";
-
-import lottie from "lottie-web";
-import { defineElement } from "lord-icon-element";
-
-// define "lord-icon" custom element with default properties
-defineElement(lottie.loadAnimation);
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
+  const {user} = useContext(ContextData);
 
   function hideBurger() {
     sutBurger(!burger);
   }
+  useEffect(()=>{
+    console.log(user)
+  },[user])
 
   return (
     <div className="container-fluid sticky-top">

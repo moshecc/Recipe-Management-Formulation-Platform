@@ -7,13 +7,14 @@ import { RiLoginCircleFill } from "react-icons/ri";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../Firebase";
 import { useContext } from "react";
-import { ContextData } from "../../context/MyContext";
 import Dialog from '@mui/material/Dialog';
 import LoginPas from "./LoginPas";
+import { useState } from "react";
+import { ContextData } from "../../App";
 
 
 export default function Login() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const { user, SetUser } = useContext(ContextData);
 
 

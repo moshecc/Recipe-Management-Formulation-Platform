@@ -2,24 +2,44 @@ import { async } from "@firebase/util";
 import { query, where } from "firebase/firestore";
 import React from "react";
 import { useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
-import { CurrentUser,  } from "../../Firebase";
+import { ContextData } from "../../App";
+import { CurrentUser, UserRecipes,  } from "../../Firebase";
 import Card from "../Card/Card";
 import NewCard from "../Card/NewCard";
 import "./RecipeList.css";
 export default function RecipeList() {
 
-// const [ user ,setUser] = useState();
-const user = CurrentUser();
-console.log(user);
-// console.log(user.uid);
+const [ userRecipe ,setUserRecipe] = useState();
 
+
+const {user} = useContext(ContextData);
+console.log(user.uid);
+
+
+useEffect(()=>{
+  UserRecipes(user.uid, setUserRecipe);
+},[]);
+
+useEffect(()=>{
+  console.log(userRecipe);
+  console.log(user.uid)
+},[userRecipe])
+
+
+
+// const getUserRecipe = async ()=>{
+//   const user =await CurrentUser();
+//   let uid = await user.uid;
+//   console.log(uid);
+// }
+// getUserRecipe();
 // useEffect(async() => {
 //  let id =  user.uid;
 // },[])
 
 
-// const userRecipe = query(where("id:","==",`${user.uid}`))
 // console.log(userRecipe);
 
   return (

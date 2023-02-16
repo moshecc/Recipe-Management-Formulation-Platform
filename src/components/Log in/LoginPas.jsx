@@ -14,7 +14,7 @@ import SignUp from "./SignUp";
 import Dialog from "@mui/material/Dialog";
 import { login } from "../../Firebase";
 import { useRef } from "react";
-import { ContextData } from "../../context/MyContext";
+import { ContextData } from "../../App";
 
 const theme = createTheme();
 
