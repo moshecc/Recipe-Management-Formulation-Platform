@@ -34,7 +34,7 @@ export default function Burger() {
           <div className="d-flex justify-content-end mb-2 col-11"> Moshe </div>
           <div className="d-flex justify-content-end mb-2 col-11">
           <button onClick={handleLogout} className=" btn bg-danger">
-            log out
+            Log Out
           </button>
           </div>
           </div>

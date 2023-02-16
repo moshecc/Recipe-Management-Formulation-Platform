@@ -1,5 +1,5 @@
 .myNav{
-    height: 64px;
+    height: 57px;
    background-color: rgba(173, 187, 198, 0.621);
    border-radius:  0  0 10px 10px;
    box-shadow:0.25px 0.25px 0.25px 0.25px rgba(68, 76, 83, 0.621) ;
@@ -13,6 +13,9 @@
 .logoNavImg{
     height: 56px;
 }
+.thebur:active{
+transform: scale(1.10);
+}
 .rtl{
     direction: rtl;
 }
@@ -22,4 +25,5 @@
     top: 45px;
     background-color: rgb(167, 201, 230);
     z-index: 1111;
+    border-radius: 15px;
 }
