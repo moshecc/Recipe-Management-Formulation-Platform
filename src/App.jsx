@@ -6,7 +6,7 @@ export const ContextData = createContext();
 
 export default function App() {
 
-const [user , SetUser] = useState();
+const [user , SetUser] = useState(null);
 const [loading , SetLoading] = useState(false) ;
 const [ userRecipe ,setUserRecipe] = useState();
 const [ currentOpen ,setCurrentOpen] = useState(null);

@@ -22,7 +22,7 @@ export default function HomePage() {
   
   const navigate = useNavigate();
   return (
-    <>{user==null?(
+    <>{currentUser==null?(
       <div className="bgImg">
         <img className="logo1" src='https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png' alt="" />
 
