@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../nav/Nav";
 import RecipeList from "./RecipeList";
 import RecipeView from "./RecipeView";
-
+import "./Main.css"
 export default function Main() {
 
   return (

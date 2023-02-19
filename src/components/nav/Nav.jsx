@@ -4,11 +4,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Burger from "./Burger";
 import { ContextData } from "../../App";
 import Avatar from "@mui/material/Avatar";
-import lottie from 'lottie-web';
-import { defineElement } from 'lord-icon-element';
-
-// define "lord-icon" custom element with default properties
-defineElement(lottie.loadAnimation);
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
@@ -17,7 +12,6 @@ export default function Nav() {
   function hideBurger() {
     sutBurger(!burger);
   }
-
 
   return (
     <div className="container-fluid sticky-top">

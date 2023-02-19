@@ -3,6 +3,7 @@ import "./RecipeView.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ContextData } from "../../App";
+import Ples from "./Ples";
 
 export default function RecipeView() {
 
@@ -41,17 +42,17 @@ export default function RecipeView() {
               </Carousel>
             </div>
             <div className="col-12 col-sm-6 ">
-            <h3 className="col-12 d-flex justify-content-center">מרכיבים</h3>
+            <h5 className="col-12 d-flex justify-content-center">מרכיבים</h5>
             {currentOpen.ingredients.map((item,i)=>
             <div dir="rtl" className="d-flex col-12  justify-content-start" key={i}>• {item}</div>
             )}
             </div>
-          </div>
+          </div>    
+            <div className="ples"><Ples/></div>
           <h3 className=" d-flex justify-content-center justify-content-start">אופן הכנה</h3>
           {currentOpen.instructions.map((item,i)=>
-            <span dir="rtl" className="d-flex col-12" key={i}>{i+1} . {item}</span>
+            <span dir="rtl" className="d-flex col-12 text-break" key={i}>{i+1} . {item}</span>
             )}
-         
         </div>
         )}
       </div>

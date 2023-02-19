@@ -13,8 +13,14 @@
 .imgCarousel{
     /* width:100%; */
     height: 300px;
-    background: #05040471;
+    background: #18cbcb36;
     object-fit: cover;
     border-radius: 10px;
 
+}
+.ples{
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
 }

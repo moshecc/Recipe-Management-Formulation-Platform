@@ -1,6 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react'
 import MyRouter from './router/MyRouter'
+//Lord-Icon
+import lottie from 'lottie-web';
+import { defineElement } from 'lord-icon-element';
 
+// define "lord-icon" custom element with default properties
+defineElement(lottie.loadAnimation);
+//
 export const ContextData = createContext();
 
 

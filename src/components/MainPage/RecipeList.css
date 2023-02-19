@@ -129,7 +129,7 @@
 /* Active state */
 .search-bar input:focus+.search-btn,
 .search-bar input:valid+.search-btn {
-    background-image: linear-gradient(to right,#6c9417 , #a2aecf);
+    background-image: linear-gradient(to right,#1c1b1b , #393a3b);
     border-radius: 0 0.375em 0.375em 0;
     transform: scale(1);
 }
