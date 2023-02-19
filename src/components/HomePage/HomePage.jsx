@@ -8,11 +8,11 @@ import { ContextData } from "../../App";
 
 export default function HomePage() {
 
-  const {SetUser , user} = useContext(ContextData);
+  const {SetUser} = useContext(ContextData);
 
   const currentUser = useAuth();
   useEffect(()=>{
-    // console.log(currentUser);
+    console.log(currentUser);
     if(currentUser)
     SetUser( currentUser);
   },[currentUser])

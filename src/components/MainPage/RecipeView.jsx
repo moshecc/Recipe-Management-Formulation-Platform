@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./RecipeView.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Nav from "../nav/Nav";
-import RecipeList from "./RecipeList";
 import { ContextData } from "../../App";
 
 export default function RecipeView() {

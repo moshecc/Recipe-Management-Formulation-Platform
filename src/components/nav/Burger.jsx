@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import { ContextData } from "../../App";
 
 export default function Burger() {
-  const { loading, SetLoading , setCurrentOpen } = useContext(ContextData);
+  const { loading, SetLoading , setCurrentOpen , user } = useContext(ContextData);
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -25,9 +25,9 @@ export default function Burger() {
     <>
       <div className="cardBurger ">
           <div className="d-flex col-12  my-2">
-            <div className="col-9 px-0 d-flex align-items-center"> Moshe Cohen</div>
+            <div className="col-9 px-0 d-flex align-items-center">{user==undefined?" ":`${user.displayName}`}</div>
             <div className="col-3 px-0">
-            <Avatar className="border " alt="User Name" src="" />
+            <Avatar className="border " alt="User Name" src={user==undefined?" ":`${user.photoURL}`} />
             </div>
           </div>
           <div className="row">

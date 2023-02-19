@@ -17,9 +17,7 @@ export default function Nav() {
   function hideBurger() {
     sutBurger(!burger);
   }
-  useEffect(()=>{
-    console.log(user)
-  },[user])
+
 
   return (
     <div className="container-fluid sticky-top">
@@ -39,8 +37,8 @@ export default function Nav() {
         <div className="col-3 fst-italic fs-2 pr-0 pl-0 d-flex justify-content-center align-items-center">
           {!burger ? (
             <div className="name d-flex align-content-center">
-              <div className="mt-2 mr-1">Hello Moshe</div>
-              <Avatar className="border " alt="User Name" src="" />
+              <div className="mt-2 mr-1">{user==undefined?" ":`${user.displayName}`}</div>
+              <Avatar className="border " alt="User Name" src={user==undefined?" ":`${user.photoURL}`} />
             </div>
           ) : (
             ""

@@ -1,11 +1,9 @@
-import { async } from "@firebase/util";
-import { query, where } from "firebase/firestore";
 import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { ContextData } from "../../App";
-import { CurrentUser, useAuth, UserRecipes,  } from "../../Firebase";
+import { useAuth, UserRecipes,  } from "../../Firebase";
 import Card from "../Card/Card";
 import NewCard from "../Card/NewCard";
 import "./RecipeList.css";
@@ -31,7 +29,6 @@ useEffect(()=>{
 },[user]);
 
 useEffect(()=>{
-console.log(userRecipe);
   setData(userRecipe);
 },[userRecipe])
 
@@ -39,7 +36,6 @@ console.log(userRecipe);
   if(data != undefined ){
     return( data.map((item,i)=>
     <div key={i}>
-      {console.log(item)}
      <Card item={item} />   
     </div>
     ))

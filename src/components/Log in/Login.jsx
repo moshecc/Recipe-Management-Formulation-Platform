@@ -21,11 +21,11 @@ export default function Login() {
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         SetUser(result);
       })
       .catch((erorr) => {
-        console.log(erorr);
+        // console.log(erorr);
         alert("error");
       });
   };
