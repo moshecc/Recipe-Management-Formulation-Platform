@@ -16,7 +16,6 @@ export default function RecipeList() {
 const {user , userRecipe ,setUserRecipe ,SetUser} = useContext(ContextData);
 
 const [data , setData]= useState(undefined);
-const [uid , setUid]= useState(undefined);
 
 const currentUser = useAuth();
 useEffect(()=>{
@@ -33,7 +32,6 @@ useEffect(()=>{
 
 useEffect(()=>{
 console.log(userRecipe);
-  setUid(user);
   setData(userRecipe);
 },[userRecipe])
 
