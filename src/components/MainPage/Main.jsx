@@ -11,7 +11,7 @@ export default function Main() {
         <div className="col-lg-8 col-12 ">
           <RecipeView />
         </div>
-        <div className="col-lg-4 col-12">
+        <div className="col-lg-4 col-12 pl-lg-0">
           <RecipeList />
         </div>
       </div>
