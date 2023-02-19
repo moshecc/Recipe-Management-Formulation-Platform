@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { ContextData } from "../../App";
-import { CurrentUser, UserRecipes,  } from "../../Firebase";
+import { CurrentUser, useAuth, UserRecipes,  } from "../../Firebase";
 import Card from "../Card/Card";
 import NewCard from "../Card/NewCard";
 import "./RecipeList.css";
@@ -13,18 +13,27 @@ export default function RecipeList() {
 
 
 
-const {user , userRecipe ,setUserRecipe} = useContext(ContextData);
-console.log(user.uid);
+const {user , userRecipe ,setUserRecipe ,SetUser} = useContext(ContextData);
 
 const [data , setData]= useState(undefined);
+const [uid , setUid]= useState(undefined);
+
+const currentUser = useAuth();
+useEffect(()=>{
+  if(currentUser)
+  SetUser(currentUser);
+},[currentUser]);
+
 
 useEffect(()=>{
+  if(user!=undefined){
   UserRecipes(user.uid, setUserRecipe);
-},[]);
+  }
+},[user]);
 
 useEffect(()=>{
-  console.log(userRecipe);
-  console.log(user.uid);
+console.log(userRecipe);
+  setUid(user);
   setData(userRecipe);
 },[userRecipe])
 
@@ -43,14 +52,14 @@ useEffect(()=>{
 
   return (
     <>
-      <div className="col-12 mt-2">
+      <div className="col-12 mt-2 px-0 ">
         <div  className="overrecipe col-12">
           <form action="" className="search-bar">
             <input className="inputStyle" type="search" name="search" placeholder=" שם מתכון:" pattern=".*\S.*" required  dir="rtl"/>
             <button className="search-btn" >
             </button>
           </form>
-          <div className="col-11">
+          <div className="col-12">
          <NewCard />
          {userRecipe==null?"":mapRender()}
          </div>
