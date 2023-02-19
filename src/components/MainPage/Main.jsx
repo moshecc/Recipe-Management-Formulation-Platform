@@ -1,10 +1,16 @@
 import React from "react";
+import { useContext } from "react";
+import { ContextData } from "../../App";
 import Nav from "../nav/Nav";
 import RecipeList from "./RecipeList";
 import RecipeView from "./RecipeView";
 
 export default function Main() {
+  const {user} = useContext(ContextData);
+
   return (
+    <>
+    {user?
     <div className="bgImg">
       <Nav />
       <div className="d-lg-flex flex-row">
@@ -15,6 +21,7 @@ export default function Main() {
           <RecipeList />
         </div>
       </div>
-    </div>
+    </div>:""}
+   </>
   );
 }

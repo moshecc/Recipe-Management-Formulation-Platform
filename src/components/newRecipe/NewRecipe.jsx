@@ -11,6 +11,7 @@ import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
 import { useAuth ,db } from "../../Firebase";
 import {addDoc , collection} from "firebase/firestore"
+import { useNavigate } from "react-router-dom";
 
 export default function NewRecipe() {
 
@@ -19,6 +20,7 @@ export default function NewRecipe() {
   const [image, setImage] = useState(null);
   const [file, setFile] = useState(null);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const [dataname, setdataname] = useState([]);
   const refName = useRef();
@@ -38,6 +40,7 @@ export default function NewRecipe() {
 
       const collectionRef = collection(db, "recepis");
       const docRef = addDoc(collectionRef, {...newRecipeData});
+      navigate("/main")
 
   };
 
