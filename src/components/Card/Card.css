@@ -17,12 +17,16 @@
     object-fit: cover;
 }
 .NewCardHover{
-    transition: transform 1.1s;
+    transition: transform 0.5s;
     width: 100%;
     height: 90px;
   
 }
 .NewCardHover:hover {
     filter: drop-shadow(0.5px 0.5px 2px);
-    transform: scale(1.05);
+    transform: scale(1.01);
+}
+.favo{
+    z-index: 9999;
+    padding: 10px;
 }
