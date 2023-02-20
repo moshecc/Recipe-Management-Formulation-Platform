@@ -19,6 +19,7 @@ import { ContextData } from "../../App";
 
 export default function Ples() {
   const { currentOpen } = useContext(ContextData);
+  let str= ` *שם מתכון* \n\n ${currentOpen.name} \n\n\n\n ` + "@ my recipe book"
 
   return (
     <>
@@ -26,7 +27,7 @@ export default function Ples() {
         <SpeedDial ariaLabel="SpeedDial basic example" icon={<SpeedDialIcon />}>
           <SpeedDialAction
             icon={
-              <WhatsappShareButton url={currentOpen}>
+              <WhatsappShareButton url={str}>
                 <WhatsappIcon />
               </WhatsappShareButton>
             }

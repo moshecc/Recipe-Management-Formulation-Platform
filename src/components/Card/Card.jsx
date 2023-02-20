@@ -4,12 +4,15 @@ import { ContextData } from "../../App";
 import { db } from "../../Firebase";
 import "./Card.css";
 export default function Card({ item }) {
+  
   const { setCurrentOpen ,setRun} = useContext(ContextData);
 
   const [favo, setFavo] = useState(item.favorite);
 
   const open = () => {
+
     setCurrentOpen(item);
+
     setRun(true);
   };
 
