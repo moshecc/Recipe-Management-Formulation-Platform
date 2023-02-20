@@ -6,8 +6,4 @@ export default class RecipeData {
         this.favorite = false;
         this.id = id;
     }
-
-    favo() {
-        this.favorite === false ? this.favorite = true : this.favorite = false;
-    }
 }

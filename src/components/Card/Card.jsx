@@ -4,22 +4,20 @@ import { ContextData } from "../../App";
 import { db } from "../../Firebase";
 import "./Card.css";
 export default function Card({ item }) {
-  const { setCurrentOpen } = useContext(ContextData);
+  const { setCurrentOpen ,setRun} = useContext(ContextData);
 
   const [favo, setFavo] = useState(item.favorite);
 
   const open = () => {
     setCurrentOpen(item);
+    setRun(true);
   };
 
   function favoriteRecipe() {
     const docref = doc(db, "recepis", item.docId);
-    setDoc(docref, { ...item, favorite: `${!favo}` });
-    setFavo(!favo);
-    item.favorite = !item.favorite;
+    setDoc(docref, { ...item, favorite: favo == "true"?"false":"true" });
+    setFavo(favo == "true"?"false":"true");
   }
-
-  console.log(item.favorite);
 
   return (
     <>
@@ -34,13 +32,14 @@ export default function Card({ item }) {
         <div className="card-img-overlay">
           <h4 className="card-title">{item.name}</h4>
           <div className="favo" onClick={favoriteRecipe}>
-            <h2>{favo}</h2>
-            {/* <lord-icon
+            <h2>
+            <lord-icon
               src="https://cdn.lordicon.com/hqrgkqvs.json"
               trigger="hover"
-              colors={item.favorite==true?"outline:#e83a30,primary:#e83a30,secondary:#ebe6ef":"primary:#121331,secondary:#08a88a"}
+              colors={favo=="true"?"outline:#e83a30,primary:#e83a30,secondary:#ebe6ef":"primary:#121331,secondary:#08a88a"}
               style={{width:"50px",height:"50px"}}
-            ></lord-icon> */}
+            ></lord-icon>
+            </h2>
           </div>
         </div>
       </div>
