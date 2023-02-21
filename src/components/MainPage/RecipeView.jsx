@@ -10,10 +10,12 @@ export default function RecipeView() {
   const [data , setData]= useState(undefined);
   
   const {currentOpen} = useContext(ContextData);
+
   useEffect(()=>{
     setData(currentOpen);
   },[currentOpen]);
 
+  console.log("fff");
 
   let datal = [
     "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=400",

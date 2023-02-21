@@ -12,6 +12,8 @@ export default function Nav() {
   function hideBurger() {
     sutBurger(!burger);
   }
+  console.log("fff");
+
 
   return (
     <div className="container-fluid sticky-top">

@@ -24,7 +24,7 @@ export default function Card({ item }) {
 
   return (
     <>
-      <div className="card text-dark cardHover mb-2 imgScale" onClick={open}>
+      <div className="card text-dark cardHover mb-2 imgScale">
       <div className="imgScale">
         <img
           className=" imgStyle"
@@ -34,7 +34,7 @@ export default function Card({ item }) {
           alt="card"
         /></div>
         <div className="card-img-overlay">
-          <h4 className="card-title">{item.name}</h4>
+          <h4  onClick={open} className="card-title">{item.name}</h4>
           <div className="favo" onClick={favoriteRecipe}>
             <div>
             <lord-icon
