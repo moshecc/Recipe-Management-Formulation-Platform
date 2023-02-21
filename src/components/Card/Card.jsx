@@ -24,14 +24,15 @@ export default function Card({ item }) {
 
   return (
     <>
-      <div className="card text-dark cardHover mb-2" onClick={open}>
+      <div className="card text-dark cardHover mb-2 imgScale" onClick={open}>
+      <div className="imgScale">
         <img
           className=" imgStyle"
           height={"100%"}
           width={"100%"}
           src="https://i.imagesup.co/images2/4c7cc05dd420f94ff35456056d5a114499bbbb62.jpg"
           alt="card"
-        />
+        /></div>
         <div className="card-img-overlay">
           <h4 className="card-title">{item.name}</h4>
           <div className="favo" onClick={favoriteRecipe}>

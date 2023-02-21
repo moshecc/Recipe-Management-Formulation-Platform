@@ -30,9 +30,9 @@ export default function MyRouter() {
        <Route path='/aboutus' element={<AboutUs/>}/>
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/login' element={<LoginPas/>}/>
-       <Route path='/RecipeList' element={<RecipeList/>}/>
+       <Route path='/recipeList' element={<RecipeList/>}/>
        <Route path='/plus' element={<Plus/>}/>
-       <Route path='/RecipeView' element={<RecipeView/>}/>
+       <Route path='/recipeView' element={<RecipeView/>}/>
        <Route path='/burger' element={<Burger/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>

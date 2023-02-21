@@ -119,12 +119,12 @@
     transform-origin: 0 50%;
 }
 
-.search-btn span {
+/* .search-btn span {
     display: inline-block;
     overflow: hidden;
     width: 1px;
     height: 1px;
-}
+} */
 
 /* Active state */
 .search-bar input:focus+.search-btn,

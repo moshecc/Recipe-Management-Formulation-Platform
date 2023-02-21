@@ -30,3 +30,18 @@
     z-index: 9999;
     padding: 10px;
 }
+.imgScale {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.imgScale img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 400ms;
+}
+.imgScale:hover img {
+    transform: scale(1.03);
+}

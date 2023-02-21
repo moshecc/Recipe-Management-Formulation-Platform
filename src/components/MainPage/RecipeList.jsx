@@ -23,14 +23,16 @@ export default function RecipeList() {
             <input
               className="inputStyle"
               type="search"
-              name="search"
               placeholder=" שם מתכון:"
               pattern=".*\S.*"
               required
               dir="rtl"
             />
-            <button className="search-btn"></button>
+            <div className="search-btn"></div>
           </form>
+          {/* {userRecipe.map((item,i)=>(
+              <p>{item.name}</p>
+                  ))} */}
           <div className="col-12">
             <NewCard />
             {userRecipe == null 

@@ -9,10 +9,11 @@ import {
   WhatsappIcon,
   FacebookShareButton,
   FacebookIcon,
-  EmailShareButton,
-  EmailIcon,
+  HatenaShareButton,
+  FacebookMessengerIcon,
   TelegramShareButton,
   TelegramIcon,
+  FacebookMessengerShareButton,
 } from "react-share";
 import { useContext } from "react";
 import { ContextData } from "../../App";
@@ -30,10 +31,32 @@ export default function Plus() {
           <SpeedDialAction
             icon={
               <WhatsappShareButton url={str}>
-                <WhatsappIcon className="whatsapp" />
+                <WhatsappIcon className="" size={40} round={true} />
               </WhatsappShareButton>
             }
             tooltipTitle={"שתף"}
+          />
+          <SpeedDialAction
+            icon={
+              <FacebookMessengerShareButton url={"https://www.youtube.com/watch?v=9WzIACv_mxs"}>
+                <FacebookMessengerIcon className="" size={40} round={true} />
+              </FacebookMessengerShareButton>
+            }
+            tooltipTitle={"שתף"}
+          />
+          <SpeedDialAction
+            icon={
+              <TelegramShareButton url={str}>
+                <TelegramIcon className="" size={40} round={true} />
+              </TelegramShareButton>
+            }
+            tooltipTitle={"שתף"}
+          />
+          <SpeedDialAction
+            icon={
+                <PrintIcon className="shareIcon" />
+            }
+            tooltipTitle={"הדפסה"}
           />
         </SpeedDial>
       </Box>
