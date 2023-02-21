@@ -36,7 +36,7 @@ export default function RecipeList() {
     <>
       <div className="col-12 mt-2 px-0 ">
         <div className="overrecipe col-12">
-          <form action="" className="search-bar">
+          <form className="search-bar">
             <input
               className="inputStyle"
               type="search"
