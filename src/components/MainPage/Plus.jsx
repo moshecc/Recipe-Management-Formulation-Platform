@@ -16,19 +16,21 @@ import {
 } from "react-share";
 import { useContext } from "react";
 import { ContextData } from "../../App";
+import "./Plus.css";
 
-export default function Ples() {
+export default function Plus() {
   const { currentOpen } = useContext(ContextData);
-  let str= ` *שם מתכון* \n\n ${currentOpen.name} \n\n\n\n ` + "@ my recipe book"
+  let str =
+    ` *שם מתכון* \n\n ${currentOpen.name} \n\n\n\n ` + "@ my recipe book";
 
   return (
     <>
-      <Box sx={{}}>
+      <Box>
         <SpeedDial ariaLabel="SpeedDial basic example" icon={<SpeedDialIcon />}>
           <SpeedDialAction
             icon={
               <WhatsappShareButton url={str}>
-                <WhatsappIcon />
+                <WhatsappIcon className="whatsapp" />
               </WhatsappShareButton>
             }
             tooltipTitle={"שתף"}

@@ -3,7 +3,7 @@ import "./RecipeView.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ContextData } from "../../App";
-import Ples from "./Ples";
+import Plus from "./Plus";
 
 export default function RecipeView() {
 
@@ -48,7 +48,7 @@ export default function RecipeView() {
             )}
             </div>
           </div>    
-            <div className="ples"><Ples/></div>
+            <div className="plus"><Plus/></div>
           <h3 className=" d-flex justify-content-center justify-content-start">אופן הכנה</h3>
           {currentOpen.instructions.map((item,i)=>
             <span dir="rtl" className="d-flex col-12 text-break" key={i}>{i+1} . {item}</span>

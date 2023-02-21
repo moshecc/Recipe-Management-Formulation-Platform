@@ -35,14 +35,14 @@ export default function Card({ item }) {
         <div className="card-img-overlay">
           <h4 className="card-title">{item.name}</h4>
           <div className="favo" onClick={favoriteRecipe}>
-            <h2>
+            <div>
             <lord-icon
               src="https://cdn.lordicon.com/hqrgkqvs.json"
               trigger="hover"
               colors={favo=="true"?"outline:#e83a30,primary:#e83a30,secondary:#ebe6ef":"primary:#121331,secondary:#08a88a"}
               style={{width:"50px",height:"50px"}}
             ></lord-icon>
-            </h2>
+            </div>
           </div>
         </div>
       </div>

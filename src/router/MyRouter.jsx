@@ -14,7 +14,7 @@ import InputFile from '../inputFile/InputFile'
 import RecipeList from '../components/MainPage/RecipeList'
 import Burger from '../components/nav/Burger'
 import Main from '../components/MainPage/Main'
-import Ples from '../components/MainPage/Ples'
+import Plus from '../components/MainPage/Plus'
 
 export default function MyRouter() {
   return (
@@ -31,7 +31,7 @@ export default function MyRouter() {
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/login' element={<LoginPas/>}/>
        <Route path='/RecipeList' element={<RecipeList/>}/>
-       <Route path='/ples' element={<Ples/>}/>
+       <Route path='/plus' element={<Plus/>}/>
        <Route path='/RecipeView' element={<RecipeView/>}/>
        <Route path='/burger' element={<Burger/>}/>
        <Route path='/*' element={<PageError/>}/>
