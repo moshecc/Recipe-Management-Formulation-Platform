@@ -4,6 +4,10 @@ import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import PrintIcon from "@mui/icons-material/Print";
+import CreateIcon from '@mui/icons-material/Create';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { pink } from '@mui/material/colors';
+
 import {
   WhatsappShareButton,
   WhatsappIcon,
@@ -34,7 +38,7 @@ export default function Plus() {
                 <WhatsappIcon className="" size={40} round={true} />
               </WhatsappShareButton>
             }
-            tooltipTitle={"שתף"}
+            tooltipTitle={"שתף מתכון"}
           />
           <SpeedDialAction
             icon={
@@ -42,7 +46,7 @@ export default function Plus() {
                 <FacebookMessengerIcon className="" size={40} round={true} />
               </FacebookMessengerShareButton>
             }
-            tooltipTitle={"שתף"}
+            tooltipTitle={"שתף מתכון"}
           />
           <SpeedDialAction
             icon={
@@ -50,13 +54,25 @@ export default function Plus() {
                 <TelegramIcon className="" size={40} round={true} />
               </TelegramShareButton>
             }
-            tooltipTitle={"שתף"}
+            tooltipTitle={"שתף מתכון"}
           />
           <SpeedDialAction
             icon={
-                <PrintIcon className="shareIcon" />
+                <PrintIcon  color="primary" className="shareIcon" />
             }
-            tooltipTitle={"הדפסה"}
+            tooltipTitle={"הדפס מתכון"}
+          />
+          <SpeedDialAction
+            icon={
+                <CreateIcon color="secondary" className="shareIcon" />
+            }
+            tooltipTitle={"ערוך מתכון"}
+          />
+          <SpeedDialAction
+            icon={
+                <DeleteForeverIcon  sx={{ color: pink[500] }} className="shareIcon" />
+            }
+            tooltipTitle={"מחק מתכון"}
           />
         </SpeedDial>
       </Box>
