@@ -26,7 +26,15 @@ import "./Plus.css";
 export default function Plus() {
   const { currentOpen } = useContext(ContextData);
   let str =
-    ` *שם מתכון* \n\n ${currentOpen.name} \n\n\n\n ` + "@ my recipe book";
+    `*שם מתכון* \n\n ${currentOpen.name}\n`
+    +"\n*מרכיבים*\n\n"+ 
+    `${currentOpen.ingredients.map((item) => (
+     "• "+item+"\n"))}`
+    +"\n*אופן הכנה*\n\n"+
+     `${currentOpen.instructions.map((item,i) => (
+      +(i+1)+" "+item+"\n"))}`+
+    
+   " \n\n\n\n" + "@my_recipe_book";
 
   return (
     <>
