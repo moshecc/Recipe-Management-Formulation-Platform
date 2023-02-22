@@ -7,8 +7,9 @@ import PrintIcon from "@mui/icons-material/Print";
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { pink } from '@mui/material/colors';
-
+import { useReactToPrint } from "react-to-print";
 import {
+
   WhatsappShareButton,
   WhatsappIcon,
   FacebookShareButton,
@@ -21,9 +22,13 @@ import {
 } from "react-share";
 import { useContext } from "react";
 import { ContextData } from "../../App";
+import { useRef } from "react";
+
 
 export default function Plus() {
+
   const { currentOpen } = useContext(ContextData);
+  
   let str =
     `*שם מתכון* \n\n ${currentOpen.name}\n`
     +"\n*מרכיבים*\n\n"+ 
@@ -33,6 +38,11 @@ export default function Plus() {
    +"\n\n\n\n" + "#my_recipe_book";
 
  
+   const componentRef = useRef();
+
+   const handlePrint = useReactToPrint({
+     content: () => componentRef.current,
+   });
 
   return (
     <>
@@ -62,12 +72,18 @@ export default function Plus() {
             }
             tooltipTitle={"שתף מתכון"}
           />
+
+
+
           <SpeedDialAction
             icon={
-                <PrintIcon  color="primary" className="shareIcon" />
+                <PrintIcon  color="primary" className="shareIcon" onClick={handlePrint}/>
             }
             tooltipTitle={"הדפס מתכון"}
           />
+
+
+
           <SpeedDialAction
             icon={
                 <CreateIcon color="secondary" className="shareIcon" />
@@ -82,6 +98,17 @@ export default function Plus() {
           />
         </SpeedDial>
       </Box>
+
+      <div ref={componentRef} style={{display:"none"}}>moshe
+      {/* <img
+              // className="logoNavImg"
+              src="https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
+              alt=""
+              height={600}
+              width={600}
+            /> */}
+      </div>
+
     </>
   );
 }
