@@ -1,7 +1,7 @@
 .overrecipe{
     overflow-y: auto; 
-    height: 570px;
-    background-color: rgba(255, 255, 255, 0.199);
+    height: 90vh;
+    background-color: rgba(232, 230, 230, 0.822);
     border-radius: 15px;
 }
 

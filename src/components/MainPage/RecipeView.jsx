@@ -25,8 +25,10 @@ export default function RecipeView() {
   ];
 
   return (
-      <div className="mt-2 d-flex">
-        {data==undefined?(<div></div>):(
+      <div className="mt-2 d-flex  ">
+        {data==undefined?(<div className="RecipeViewContiner shadow col-12 imgLogo_container ">
+          <img className="imgLogo " src='https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png' alt="logo" />
+        </div>):(
         <div className="RecipeViewContiner shadow col-12 ">
           <h2 className="d-flex justify-content-center">{currentOpen.name}</h2>
           <div className="row">
@@ -44,16 +46,16 @@ export default function RecipeView() {
               </Carousel>
             </div>
             <div className="col-12 col-sm-6 ">
-            <h5 className="col-12 d-flex justify-content-center">מרכיבים</h5>
+            <h3 className="col-12 d-flex justify-content-center">מרכיבים</h3>
             {currentOpen.ingredients.map((item,i)=>
-            <div dir="rtl" className="d-flex col-12  justify-content-start" key={i}>• {item}</div>
+            <div dir="rtl" className="d-flex col-12 justify-content-start ing_style" key={i}>• {item}</div>
             )}
             </div>
           </div>    
             <div className="plus"><Plus/></div>
-          <h3 className=" d-flex justify-content-center justify-content-start">אופן הכנה</h3>
+          <h3 className=" d-flex justify-content-center justify-content-start ">אופן הכנה</h3>
           {currentOpen.instructions.map((item,i)=>
-            <span dir="rtl" className="d-flex col-12 text-break" key={i}>{i+1} . {item}</span>
+            <div dir="rtl" className="d-flex col-12 text-break ing_style" key={i}>{i+1} . {item}</div>
             )}
         </div>
         )}
