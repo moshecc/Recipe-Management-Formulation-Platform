@@ -7,7 +7,7 @@ export default function Card({ item }) {
   
   const { setCurrentOpen ,setRun} = useContext(ContextData);
 
-  const [favo, setFavo] = useState(item.favorite);
+  const [favo, setFavo] = useState(item?.favorite);
 
   const open = () => {
 
