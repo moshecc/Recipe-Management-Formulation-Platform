@@ -4,12 +4,11 @@ import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import PrintIcon from "@mui/icons-material/Print";
-import CreateIcon from '@mui/icons-material/Create';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { pink } from '@mui/material/colors';
+import CreateIcon from "@mui/icons-material/Create";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { pink } from "@mui/material/colors";
 import { useReactToPrint } from "react-to-print";
 import {
-
   WhatsappShareButton,
   WhatsappIcon,
   FacebookShareButton,
@@ -23,26 +22,33 @@ import {
 import { useContext } from "react";
 import { ContextData } from "../../App";
 import { useRef } from "react";
-
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../Firebase";
+import { Link } from "react-router-dom";
+import RecipeView from "./RecipeView";
 
 export default function Plus() {
+  const { currentOpen, setCurrentOpen } = useContext(ContextData);
 
-  const { currentOpen } = useContext(ContextData);
-  
   let str =
-    `*שם מתכון* \n\n ${currentOpen.name}\n`
-    +"\n*מרכיבים*\n\n"+ 
-    `${"• "+currentOpen.ingredients.toString().replaceAll(",","\n• ")}`
-    +"\n*אופן הכנה*\n\n"+
-    `${"~ "+currentOpen.instructions.toString().replaceAll(",","\n~ ")}`
-   +"\n\n\n\n" + "#my_recipe_book";
+    `*שם מתכון* \n\n ${currentOpen.name}\n` +
+    "\n*מרכיבים*\n\n" +
+    `${"• " + currentOpen.ingredients.toString().replaceAll(",", "\n• ")}` +
+    "\n*אופן הכנה*\n\n" +
+    `${"~ " + currentOpen.instructions.toString().replaceAll(",", "\n~ ")}` +
+    "\n\n\n\n" +
+    "#my_recipe_book";
 
- 
-   const componentRef = useRef();
+  const componentRef = useRef();
 
-   const handlePrint = useReactToPrint({
-     content: () => componentRef.current,
-   });
+  const daletdoc = async () => {
+    await deleteDoc(doc(db, "recepis", currentOpen.docId));
+    setCurrentOpen(undefined);
+  };
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   return (
     <>
@@ -58,7 +64,9 @@ export default function Plus() {
           />
           <SpeedDialAction
             icon={
-              <FacebookMessengerShareButton url={"https://www.youtube.com/watch?v=9WzIACv_mxs"}>
+              <FacebookMessengerShareButton
+                url={"https://www.youtube.com/watch?v=9WzIACv_mxs"}
+              >
                 <FacebookMessengerIcon className="" size={40} round={true} />
               </FacebookMessengerShareButton>
             }
@@ -73,42 +81,42 @@ export default function Plus() {
             tooltipTitle={"שתף מתכון"}
           />
 
-
-
           <SpeedDialAction
             icon={
-                <PrintIcon  color="primary" className="shareIcon" onClick={handlePrint}/>
+              <PrintIcon
+                color="primary"
+                className="shareIcon"
+                onClick={() => {
+                  {(<div ref={componentRef}>moshe</div>)
+                   handlePrint()}}
+                  
+                 
+                }
+              />
             }
             tooltipTitle={"הדפס מתכון"}
           />
 
-
-
           <SpeedDialAction
             icon={
+              <Link to="/recipeUp">
                 <CreateIcon color="secondary" className="shareIcon" />
+              </Link>
             }
             tooltipTitle={"ערוך מתכון"}
           />
           <SpeedDialAction
             icon={
-                <DeleteForeverIcon  sx={{ color: pink[500] }} className="shareIcon" />
+              <DeleteForeverIcon
+                onClick={() => daletdoc()}
+                sx={{ color: pink[500] }}
+                className="shareIcon"
+              />
             }
             tooltipTitle={"מחק מתכון"}
           />
         </SpeedDial>
       </Box>
-
-      <div ref={componentRef} style={{display:"none"}}>moshe
-      {/* <img
-              // className="logoNavImg"
-              src="https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
-              alt=""
-              height={600}
-              width={600}
-            /> */}
-      </div>
-
     </>
   );
 }

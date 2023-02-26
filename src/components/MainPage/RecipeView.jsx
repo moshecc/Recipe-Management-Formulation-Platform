@@ -15,8 +15,7 @@ export default function RecipeView() {
     setData(currentOpen);
   },[currentOpen]);
 
-  console.log("fff");
-
+console.log("uu");
   let datal = [
     "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=400",
     "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -25,8 +24,8 @@ export default function RecipeView() {
   ];
 
   return (
-      <div className="mt-2 d-flex  ">
-        {data==undefined?(<div className="RecipeViewContiner shadow col-12 imgLogo_container ">
+      <div className="my-2 d-flex  ">
+        {data==undefined||currentOpen==undefined?(<div className="RecipeViewContiner shadow col-12 imgLogo_container">
           <img className="imgLogo " src='https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png' alt="logo" />
         </div>):(
         <div className="RecipeViewContiner shadow col-12 ">
