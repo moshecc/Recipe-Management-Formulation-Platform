@@ -8,19 +8,24 @@ import { useContext } from "react";
 import { ContextData } from "../App";
 
 export default function InputFile() {
-  const { previewUrl, setPreviewUrl } = useContext(ContextData);
+  const { previewUrl, setPreviewUrl ,imgFile, setImgFile } = useContext(ContextData);
   const [trash, settrash] = useState(true);
   const imgref = useRef();
+  console.log(previewUrl);
+  console.log(imgFile);
+
   const handleChange = (e) => {
-    const url = imgref.current.files[0];
-    console.log(url);
-    setPreviewUrl([...previewUrl, {url}]);
+    const file = imgref.current.files[0]
+    const url = URL.createObjectURL(imgref.current.files[0]);
+    setImgFile([...imgFile,{file}])
+    setPreviewUrl([...previewUrl, url]);
     settrash(true);
   };
 
   function dal(i) {
     console.log(i);
     setPreviewUrl(previewUrl.filter((e)=>e!=previewUrl[i]));
+    setImgFile(imgFile.filter((e)=>e!=imgFile[i]));
 
   }
   return (
@@ -53,7 +58,7 @@ export default function InputFile() {
         >
           {previewUrl.map((item, i) => (
             <div key={i}>
-              <img className="imgCarouselInput" src={URL.createObjectURL(item)} />
+              <img className="imgCarouselInput" src={item} />
                 <div onClick={()=>{dal(i)}} className="trash">
                   <FaTrashAlt />
                 </div>

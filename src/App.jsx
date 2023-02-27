@@ -16,7 +16,9 @@ const [user , SetUser] = useState(null);
 const [loading , SetLoading] = useState(false) ;
 const [run , setRun] = useState(false) ;
 const [ currentOpen ,setCurrentOpen] = useState(null);
-const [previewUrl, setPreviewUrl] = useState([{}]);
+const [previewUrl, setPreviewUrl] = useState([]);
+const [imgFile, setImgFile] = useState([]);
+
 
 
 const data = {
@@ -29,7 +31,9 @@ const data = {
   run ,
   setRun,
   previewUrl,
-  setPreviewUrl
+  setPreviewUrl,
+  imgFile,
+  setImgFile
 }
 
 
