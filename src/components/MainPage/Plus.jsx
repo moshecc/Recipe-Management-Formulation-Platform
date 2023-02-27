@@ -64,6 +64,16 @@ export default function Plus() {
           />
           <SpeedDialAction
             icon={
+              <FacebookMessengerShareButton
+                url={"https://www.youtube.com/watch?v=9WzIACv_mxs"}
+              >
+                <FacebookMessengerIcon className="" size={40} round={true} />
+              </FacebookMessengerShareButton>
+            }
+            tooltipTitle={"שתף מתכון"}
+          />
+          <SpeedDialAction
+            icon={
               <TelegramShareButton url={str}>
                 <TelegramIcon className="" size={40} round={true} />
               </TelegramShareButton>
@@ -77,11 +87,11 @@ export default function Plus() {
                 color="primary"
                 className="shareIcon"
                 onClick={() => {
-                  {
-                    <div ref={componentRef}>moshe</div>;
-                    handlePrint();
-                  }
-                }}
+                  {(<div ref={componentRef}>moshe</div>)
+                   handlePrint()}}
+                  
+                 
+                }
               />
             }
             tooltipTitle={"הדפס מתכון"}

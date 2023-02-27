@@ -60,7 +60,7 @@ export default function RecipeList() {
               />
               <div className="search-btn "></div>
             </form>
-            <div className="d-flex align-items-center" onClick={favorite}>
+            <div className="d-flex align-items-center actheart" onClick={favorite}>
               <lord-icon
                 src="https://cdn.lordicon.com/hqrgkqvs.json"
                 trigger="hover"

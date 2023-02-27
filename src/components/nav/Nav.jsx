@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Nav.css";
-import { GiHamburgerMenu } from "react-icons/gi";
 import Burger from "./Burger";
 import { ContextData } from "../../App";
 import Avatar from "@mui/material/Avatar";
@@ -42,7 +41,6 @@ export default function Nav() {
         </div>
         <div className="col-sm-1 col-2 pr-0 pl-0 d-flex align-items-center">
           <div className="" onClick={hideBurger}>
-            {/* <GiHamburgerMenu size={"30px"} className="thebur" /> */}
             <div className="thebur">
               <lord-icon
                 src="https://cdn.lordicon.com/phtfmmnb.json"
