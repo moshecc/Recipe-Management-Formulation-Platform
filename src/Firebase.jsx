@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { getFirestore, collection, query, where, onSnapshot } from "@firebase/firestore"
 import { useEffect, useState } from "react";
+import { getStorage } from "firebase/storage";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBjTrhrDGIAom-OWplREO9u9QitMnAbXtk",
@@ -23,6 +25,8 @@ export function logout() {
 }
 
 export const googleProvider = new GoogleAuthProvider();
+
+export const storage = getStorage(app);
 
 export function login(email , password){
   return signInWithEmailAndPassword(auth, email ,password)
@@ -50,6 +54,7 @@ export function CurrentUser() {
   }, [])
   return currentUser;
 }
+
 
 export function UserRecipes(id, setData){
   const userRecipe = query(colRef ,where("id","==",`${id}`));

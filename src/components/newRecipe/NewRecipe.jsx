@@ -9,11 +9,15 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
-import { useAuth ,db } from "../../Firebase";
-import {addDoc , collection} from "firebase/firestore"
+import { useAuth, db, storage } from "../../Firebase";
+import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { ref, uploadBytes } from "@firebase/storage";
+import { useContext } from "react";
+import { ContextData } from "../../App";
 
 export default function NewRecipe() {
+  const { previewUrl } = useContext(ContextData);
 
   const user = useAuth();
   console.log(user);
@@ -32,13 +36,27 @@ export default function NewRecipe() {
     ingredients = ingredients.split("\n");
     instructions = instructions.split("\n");
 
-    let newRecipeData = new RecipeData(name, ingredients, instructions,user.uid );
+    let newRecipeData = new RecipeData(
+      name,
+      ingredients,
+      instructions,
+      user.uid
+    );
     console.log(newRecipeData);
 
-      const collectionRef = collection(db, "recepis");
-      const docRef = addDoc(collectionRef, {...newRecipeData});
-      navigate("/main")
+    const collectionRef = collection(db, "recepis");
+    const docRef = addDoc(collectionRef, { ...newRecipeData });
 
+    if (previewUrl == null) {
+      navigate("/main");
+    } else {
+
+      const imageRef = ref(storage , `images/${previewUrl[0]}`);
+      uploadBytes(imageRef, previewUrl[0]).then(() => {
+        console.log("Uploaded a blob or file!");
+        navigate("/main");
+      });
+    }
   };
 
   const handleClickOpen = () => {
@@ -74,12 +92,15 @@ export default function NewRecipe() {
                   />
                 </div>
                 <div className="d-flex justify-content-end  mr-3 m-1" dir="ltr">
-                  <div className="btn" style={{ color: "black", cursor: "pointer" }}>
+                  <div
+                    className="btn"
+                    style={{ color: "black", cursor: "pointer" }}
+                  >
                     <span className="ml-3"> הוסף תמונה </span>
                     <BsPlusSquareDotted size={35} onClick={handleClickOpen} />
                   </div>
                   <Dialog open={open} onClose={handleClose}>
-                    <InputFile/>
+                    <InputFile />
                   </Dialog>
                 </div>
                 <div className="d-flex justify-content-center">

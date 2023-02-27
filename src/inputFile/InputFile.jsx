@@ -4,15 +4,17 @@ import { BiImageAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
 import { useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
+import { useContext } from "react";
+import { ContextData } from "../App";
 
 export default function InputFile() {
-  const [previewUrl, setPreviewUrl] = useState([ ]);
+  const { previewUrl, setPreviewUrl } = useContext(ContextData);
   const [trash, settrash] = useState(true);
   const imgref = useRef();
-  console.log(previewUrl);
   const handleChange = (e) => {
-    const url = URL.createObjectURL(imgref.current.files[0]);
-    setPreviewUrl([...previewUrl, url]);
+    const url = imgref.current.files[0];
+    console.log(url);
+    setPreviewUrl([...previewUrl, {url}]);
     settrash(true);
   };
 
@@ -51,7 +53,7 @@ export default function InputFile() {
         >
           {previewUrl.map((item, i) => (
             <div key={i}>
-              <img className="imgCarouselInput" src={item} />
+              <img className="imgCarouselInput" src={URL.createObjectURL(item)} />
                 <div onClick={()=>{dal(i)}} className="trash">
                   <FaTrashAlt />
                 </div>
