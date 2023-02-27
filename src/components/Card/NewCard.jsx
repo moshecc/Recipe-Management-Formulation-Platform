@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { TiPlus } from "react-icons/ti";
 
 export default function NewCard() {
     return (
      <>
      <Link to={"/newrecipe"}>
-        <div className="card text-dark NewCardHover mb-2">
-          <img className='imgStyle' width={"100%"} height={"100%"} src="https://i.imagesup.co/images2/81b86e9d7be9582a7fd0cbc3bd9fdfdb606acac1.jpg" alt="Newcard" />
-          <div className="card-img-overlay ">
-            <h4 className='d-flex justify-content-center align-items-center'>הוספת מתכון חדש</h4>
-            <i className="fa-solid text-dark fa-plus d-flex justify-content-center align-items-center "></i>
+        <div className="card text-dark NewCardHover mb-2 bg-bg">
+          <div className="card-img-overlay p-0">
+            <h4 className='d-flex justify-content-center align-items-center'>הוסף מתכון</h4>
+            <div className='d-flex justify-content-center align-items-center'> <TiPlus size={30}/></div>
           </div>
         </div>
         </Link>
