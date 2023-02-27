@@ -19,8 +19,6 @@ export default function RecipeList() {
 
   const [favCol, setFavoCol] = useState("false");
 
-  console.log("fff");
-
   useEffect(() => {
     if (currentUser) SetUser(currentUser);
   }, [currentUser]);
@@ -38,7 +36,6 @@ export default function RecipeList() {
   async function favorite() {
     if (user != undefined) {
       await UserRecipes(user.uid, setUserRecipe);
-      console.log("userbf");
       setFavoCol(favCol == "true" ? "false" : "true");
     }
   }

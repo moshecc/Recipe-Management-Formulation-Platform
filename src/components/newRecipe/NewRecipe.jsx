@@ -10,11 +10,12 @@ import { FaTrashAlt } from "react-icons/fa";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
 import { useAuth, db, storage } from "../../Firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { ref, uploadBytes } from "@firebase/storage";
 import { useContext } from "react";
 import { ContextData } from "../../App";
+import { v4 } from "uuid";
 
 export default function NewRecipe() {
   const { previewUrl ,setpreviewUrl,imgFile, setImgFile} = useContext(ContextData);
@@ -40,18 +41,18 @@ export default function NewRecipe() {
       name,
       ingredients,
       instructions,
-      user.uid
-    );
-    console.log(newRecipeData);
+      user.uid,
 
-    const collectionRef = collection(db, "recepis");
-    const docRef = addDoc(collectionRef, { ...newRecipeData });
+    );
+    newRecipeData.docId =  v4()
+    console.log(newRecipeData);
+    const docRef = setDoc(doc(db,"recepis",`${newRecipeData.docId}`),{ ...newRecipeData });
 
     if (previewUrl == null) {
       navigate("/main");
     } else {
       for (let index = 0; index < imgFile.length; index++) {
-        const imageRef = ref(storage , `images/${imgFile[index].file.name}`);
+        const imageRef = ref(storage ,`${newRecipeData.docId}/${imgFile[index].file.name}`);
         uploadBytes(imageRef,imgFile[index].file).then(() => {
           console.log("Uploaded a blob or file!");
         });

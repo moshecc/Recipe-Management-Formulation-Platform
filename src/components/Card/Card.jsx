@@ -51,12 +51,12 @@ export default function Card({ item }) {
               style={{ width: "43px", height: "43px" }}
             ></lord-icon>
           </div>
-          <h3
+          <h4
             onClick={open}
-            className="d-flex justify-content-end col-8 pl-0 pr-0 align-items-center"
+            className="d-flex justify-content-end col-8 pl-0 pr-0 align-items-center textCard"
           >
             {item.name}
-          </h3>
+          </h4>
         </div>
       </div>
     </>
