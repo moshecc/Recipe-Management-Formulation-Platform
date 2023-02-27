@@ -82,7 +82,7 @@ export default function RecipeList() {
               .filter((recipe) => recipe.favorite=="true")
               .map((item, i) => (
                 <div key={i}>
-                  <Card item={item} />
+                  <Card item={item}/>
                 </div>
               ))
                :filter == null?

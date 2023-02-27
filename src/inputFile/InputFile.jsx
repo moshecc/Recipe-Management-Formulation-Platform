@@ -3,43 +3,62 @@ import "./InputFileStyle.css";
 import { BiImageAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
 import { useRef } from "react";
+import { Carousel } from "react-responsive-carousel";
 
 export default function InputFile() {
-  const [previewUrl, setPreviewUrl] = useState(
-"https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
-    );
-  const [trash,settrash] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState([ ]);
+  const [trash, settrash] = useState(true);
   const imgref = useRef();
-
+  console.log(previewUrl);
   const handleChange = (e) => {
     const url = URL.createObjectURL(imgref.current.files[0]);
-    setPreviewUrl(url);
+    setPreviewUrl([...previewUrl, url]);
     settrash(true);
   };
 
-function dal(){
-  setPreviewUrl("https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png");
-  settrash(false);
-  imgref.current.value = null;
-}
+  function dal(i) {
+    console.log(i);
+    setPreviewUrl(previewUrl.filter((e)=>e!=previewUrl[i]));
+
+  }
   return (
     <>
-      <div className="inp_img bgInpot">
-        <img
-          className="imgNewResipeStyle"
-          height={100}
-          src={previewUrl}
-          alt= " "
-        />
-        <div className="inp_continer ">
-          <input onChange={handleChange} ref={imgref} className="inp_hide" type="file" name="" id="" />
+      <div className="bgInpot  container-fluid   ">
+        <div className="inp_continer inp_img container mt-2 mb-2">
+          <input
+            onChange={handleChange}
+            ref={imgref}
+            className="inp_hide"
+            type="file"
+            name=""
+            id=""
+          />
           <div className="inp_caver">
-           ! תלחץ וגרור<div><BiImageAdd/></div>
+            ! תלחץ וגרור
+            <div>
+              <BiImageAdd />
+            </div>
           </div>
         </div>
+        <Carousel
+          showThumbs={false}
+          thumbWidth={40}
+          autoPlay={true}
+          transitionTime={3}
+          infiniteLoop={true}
+          showStatus={false}
+          className="container mb-2 caruselStyle"
+        >
+          {previewUrl.map((item, i) => (
+            <div key={i}>
+              <img className="imgCarouselInput" src={item} />
+                <div onClick={()=>{dal(i)}} className="trash">
+                  <FaTrashAlt />
+                </div>
+            </div>
+          ))}
+        </Carousel>
       </div>
-      {trash && 
-      <div onClick={dal} className="row m-2 align-items-center"><FaTrashAlt className="trash"/></div>}
     </>
   );
 }

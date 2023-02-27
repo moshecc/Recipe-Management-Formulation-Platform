@@ -17,12 +17,9 @@ export default function NewRecipe() {
 
   const user = useAuth();
   console.log(user);
-  const [image, setImage] = useState(null);
-  const [file, setFile] = useState(null);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const [dataname, setdataname] = useState([]);
   const refName = useRef();
   const refIngredients = useRef();
   const refInstructions = useRef();
@@ -82,7 +79,7 @@ export default function NewRecipe() {
                     <BsPlusSquareDotted size={35} onClick={handleClickOpen} />
                   </div>
                   <Dialog open={open} onClose={handleClose}>
-                    <InputFile />
+                    <InputFile/>
                   </Dialog>
                 </div>
                 <div className="d-flex justify-content-center">
