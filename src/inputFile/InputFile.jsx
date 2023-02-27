@@ -8,25 +8,25 @@ import { useContext } from "react";
 import { ContextData } from "../App";
 
 export default function InputFile() {
-  const { previewUrl, setPreviewUrl ,imgFile, setImgFile } = useContext(ContextData);
+  const { previewUrl, setPreviewUrl, imgFile, setImgFile } =
+    useContext(ContextData);
   const [trash, settrash] = useState(true);
   const imgref = useRef();
   console.log(previewUrl);
   console.log(imgFile);
 
   const handleChange = (e) => {
-    const file = imgref.current.files[0]
+    const file = imgref.current.files[0];
     const url = URL.createObjectURL(imgref.current.files[0]);
-    setImgFile([...imgFile,{file}])
+    setImgFile([...imgFile, { file }]);
     setPreviewUrl([...previewUrl, url]);
     settrash(true);
   };
 
   function dal(i) {
     console.log(i);
-    setPreviewUrl(previewUrl.filter((e)=>e!=previewUrl[i]));
-    setImgFile(imgFile.filter((e)=>e!=imgFile[i]));
-
+    setPreviewUrl(previewUrl.filter((e) => e != previewUrl[i]));
+    setImgFile(imgFile.filter((e) => e != imgFile[i]));
   }
   return (
     <>
@@ -41,10 +41,16 @@ export default function InputFile() {
             id=""
           />
           <div className="inp_caver">
-            ! תלחץ וגרור
+            <h3> ! תלחץ וגרור לכאן</h3>
             <div>
-              <BiImageAdd />
+              <lord-icon
+                src="https://cdn.lordicon.com/ynwbvguu.json"
+                trigger="hover"
+                colors="primary:#911710"
+                style={{width:"30px",height:"30px"}}
+              ></lord-icon>
             </div>
+            <b style={{ fontSize: "12px" }}>לעוד תמונה לחץ שוב * </b>
           </div>
         </div>
         <Carousel
@@ -59,9 +65,14 @@ export default function InputFile() {
           {previewUrl.map((item, i) => (
             <div key={i}>
               <img className="imgCarouselInput" src={item} />
-                <div onClick={()=>{dal(i)}} className="trash">
-                  <FaTrashAlt />
-                </div>
+              <div
+                onClick={() => {
+                  dal(i);
+                }}
+                className="trash"
+              >
+                <FaTrashAlt />
+              </div>
             </div>
           ))}
         </Carousel>
