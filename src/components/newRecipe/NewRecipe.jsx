@@ -17,7 +17,7 @@ import { useContext } from "react";
 import { ContextData } from "../../App";
 
 export default function NewRecipe() {
-  const { previewUrl } = useContext(ContextData);
+  const { previewUrl ,setpreviewUrl,imgFile, setImgFile} = useContext(ContextData);
 
   const user = useAuth();
   console.log(user);
@@ -50,12 +50,14 @@ export default function NewRecipe() {
     if (previewUrl == null) {
       navigate("/main");
     } else {
-
-      const imageRef = ref(storage , `images/${previewUrl[0]}`);
-      uploadBytes(imageRef, previewUrl[0]).then(() => {
-        console.log("Uploaded a blob or file!");
-        navigate("/main");
-      });
+      for (let index = 0; index < imgFile.length; index++) {
+        const imageRef = ref(storage , `images/${imgFile[index].file.name}`);
+        uploadBytes(imageRef,imgFile[index].file).then(() => {
+          console.log("Uploaded a blob or file!");
+        });
+        
+      }
+      navigate("/main");
     }
   };
 
