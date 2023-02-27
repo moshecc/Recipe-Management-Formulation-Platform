@@ -36,11 +36,10 @@ export default function RecipeList() {
   }
 
   async function favorite() {
-   
     if (user != undefined) {
-     await UserRecipes(user.uid, setUserRecipe);
-     console.log("userbf");
-      setFavoCol(favCol == "true"?"false":"true");
+      await UserRecipes(user.uid, setUserRecipe);
+      console.log("userbf");
+      setFavoCol(favCol == "true" ? "false" : "true");
     }
   }
 
@@ -62,31 +61,32 @@ export default function RecipeList() {
               <div className="search-btn "></div>
             </form>
             <div className="d-flex align-items-center" onClick={favorite}>
-            <lord-icon
-              src="https://cdn.lordicon.com/hqrgkqvs.json"
-              trigger="hover"
-              colors={
-                favCol == "true"
-                  ? "outline:#e83a30,primary:#e83a30,secondary:#ebe6ef"
-                  : "primary:#121331,secondary:#08a88a"
-              }
-              style={{ width: "50px", height: "50px" }}
-            ></lord-icon>
+              <lord-icon
+                src="https://cdn.lordicon.com/hqrgkqvs.json"
+                trigger="hover"
+                colors={
+                  favCol == "true"
+                    ? "primary:#e83a30,secondary:#000000"
+                    : "primary:#242424,secondary:#fad3d1"
+                }
+                style={{ width: "60px", height: "60px", cursor: "pointer" }}
+              ></lord-icon>
             </div>
           </div>
           <div className="col-12">
             <NewCard />
             {userRecipe == null
               ? ""
-              :favCol == "true"? userRecipe
-              .filter((recipe) => recipe.favorite=="true")
-              .map((item, i) => (
-                <div key={i}>
-                  <Card item={item}/>
-                </div>
-              ))
-               :filter == null?
-               userRecipe.map((item, i) => (
+              : favCol == "true"
+              ? userRecipe
+                  .filter((recipe) => recipe.favorite == "true")
+                  .map((item, i) => (
+                    <div key={i}>
+                      <Card item={item} />
+                    </div>
+                  ))
+              : filter == null
+              ? userRecipe.map((item, i) => (
                   <div key={i}>
                     <Card item={item} />
                   </div>

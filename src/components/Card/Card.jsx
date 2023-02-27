@@ -45,10 +45,10 @@ export default function Card({ item }) {
               trigger="hover"
               colors={
                 favo == "true"
-                  ? "primary:#911710,secondary:#000000"
-                  : "primary:#242424,secondary:#c71f16"
+                  ? "primary:#e83a30,secondary:#000000"
+                  : "primary:#242424,secondary:#fad3d1"
               }
-              style={{ width: "40px", height: "40px" }}
+              style={{ width: "43px", height: "43px" }}
             ></lord-icon>
           </div>
           <h3
