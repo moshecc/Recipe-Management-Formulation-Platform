@@ -42,14 +42,7 @@ export default function InputFile() {
           />
           <div className="inp_caver">
             <h3> ! תלחץ וגרור לכאן</h3>
-            <div>
-              <lord-icon
-                src="https://cdn.lordicon.com/ynwbvguu.json"
-                trigger="hover"
-                colors="primary:#911710"
-                style={{width:"30px",height:"30px"}}
-              ></lord-icon>
-            </div>
+           <BiImageAdd size={30}/>
             <b style={{ fontSize: "12px" }}>לעוד תמונה לחץ שוב * </b>
           </div>
         </div>

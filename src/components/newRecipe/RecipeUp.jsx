@@ -125,9 +125,15 @@ export default function RecipeUp() {
                       setUp();
                     }}
                     type="button"
-                    className="btn btn-secondary m-3 border"
+                    className="btn btn-secondary m-3 d-flex"
                   >
-                    <BiMessageSquareAdd /> עדכן מתכון
+                     <lord-icon
+                      src="https://cdn.lordicon.com/wfadduyp.json"
+                      trigger="hover"
+                      colors="primary:#000000"
+                      style={{width:"25px",height:"25px"}}
+                    ></lord-icon>
+                    <div>עדכן מתכון</div> 
                   </button>
                 </div>
               </div>

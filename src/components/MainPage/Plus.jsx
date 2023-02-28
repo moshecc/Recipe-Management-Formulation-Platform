@@ -25,10 +25,12 @@ import { useRef } from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../Firebase";
 import { Link } from "react-router-dom";
-import RecipeView from "./RecipeView";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Plus() {
   const { currentOpen, setCurrentOpen } = useContext(ContextData);
+  const componentRef = useRef();
 
   let str =
     `*שם מתכון* \n\n ${currentOpen.name}\n` +
@@ -39,7 +41,7 @@ export default function Plus() {
     "\n\n\n\n" +
     "#my_recipe_book";
 
-  const componentRef = useRef();
+  const notify = () => toast("Wow so easy!");
 
   const daletdoc = async () => {
     await deleteDoc(doc(db, "recepis", currentOpen.docId));
@@ -64,34 +66,23 @@ export default function Plus() {
           />
           <SpeedDialAction
             icon={
-              <FacebookMessengerShareButton
-                url={"https://www.youtube.com/watch?v=9WzIACv_mxs"}
-              >
-                <FacebookMessengerIcon className="" size={40} round={true} />
-              </FacebookMessengerShareButton>
-            }
-            tooltipTitle={"שתף מתכון"}
-          />
-          <SpeedDialAction
-            icon={
               <TelegramShareButton url={str}>
                 <TelegramIcon className="" size={40} round={true} />
               </TelegramShareButton>
             }
             tooltipTitle={"שתף מתכון"}
           />
-
           <SpeedDialAction
             icon={
               <PrintIcon
                 color="primary"
                 className="shareIcon"
                 onClick={() => {
-                  {(<div ref={componentRef}>moshe</div>)
-                   handlePrint()}}
-                  
-                 
-                }
+                  {
+                    <div ref={componentRef}>moshe</div>;
+                    handlePrint();
+                  }
+                }}
               />
             }
             tooltipTitle={"הדפס מתכון"}
@@ -106,6 +97,7 @@ export default function Plus() {
             tooltipTitle={"ערוך מתכון"}
           />
           <SpeedDialAction
+          onClick={notify}
             icon={
               <DeleteForeverIcon
                 onClick={() => daletdoc()}
@@ -115,6 +107,7 @@ export default function Plus() {
             }
             tooltipTitle={"מחק מתכון"}
           />
+          <ToastContainer />
         </SpeedDial>
       </Box>
     </>

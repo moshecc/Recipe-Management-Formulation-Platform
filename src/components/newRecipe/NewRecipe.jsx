@@ -18,7 +18,8 @@ import { ContextData } from "../../App";
 import { v4 } from "uuid";
 
 export default function NewRecipe() {
-  const { previewUrl ,setpreviewUrl,imgFile, setImgFile} = useContext(ContextData);
+  const { previewUrl, setpreviewUrl, imgFile, setImgFile } =
+    useContext(ContextData);
 
   const user = useAuth();
   console.log(user);
@@ -41,22 +42,25 @@ export default function NewRecipe() {
       name,
       ingredients,
       instructions,
-      user.uid,
-
+      user.uid
     );
-    newRecipeData.docId =  v4()
+    newRecipeData.docId = v4();
     console.log(newRecipeData);
-    const docRef = setDoc(doc(db,"recepis",`${newRecipeData.docId}`),{ ...newRecipeData });
+    const docRef = setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
+      ...newRecipeData,
+    });
 
     if (previewUrl == null) {
       navigate("/main");
     } else {
       for (let index = 0; index < imgFile.length; index++) {
-        const imageRef = ref(storage ,`${newRecipeData.docId}/${imgFile[index].file.name}`);
-        uploadBytes(imageRef,imgFile[index].file).then(() => {
+        const imageRef = ref(
+          storage,
+          `${newRecipeData.docId}/${imgFile[index].file.name}`
+        );
+        uploadBytes(imageRef, imgFile[index].file).then(() => {
           console.log("Uploaded a blob or file!");
         });
-        
       }
       navigate("/main");
     }
@@ -99,8 +103,15 @@ export default function NewRecipe() {
                     className="btn"
                     style={{ color: "black", cursor: "pointer" }}
                   >
-                    <span className="ml-3"> הוסף תמונה </span>
-                    <BsPlusSquareDotted size={35} onClick={handleClickOpen} />
+                    <div className="d-flex align-items-center"  onClick={handleClickOpen}>
+                    <b > הוסף תמונה </b>
+                      <lord-icon
+                        src="https://cdn.lordicon.com/ynwbvguu.json"
+                        trigger="hover"
+                        colors="primary:#911710"
+                        style={{ width: "60px", height: "60px" }}
+                      ></lord-icon>
+                    </div>
                   </div>
                   <Dialog open={open} onClose={handleClose}>
                     <InputFile />
@@ -133,9 +144,15 @@ export default function NewRecipe() {
                   <button
                     onClick={set}
                     type="button"
-                    className="btn btn-secondary m-3 border"
+                    className="btn d-flex btn-secondary m-3 "
                   >
-                    <BiMessageSquareAdd /> הוסף מתכון
+                    <lord-icon
+                      src="https://cdn.lordicon.com/wfadduyp.json"
+                      trigger="hover"
+                      colors="primary:#000000"
+                      style={{ width: "25px", height: "25px" }}
+                    ></lord-icon>
+                    <div className=""> הוסף מתכון</div>
                   </button>
                 </div>
               </div>

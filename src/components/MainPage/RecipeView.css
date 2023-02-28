@@ -11,12 +11,9 @@
     height: 300px;
 }
 .imgCarousel{
-    /* width:100%; */
     height: 300px;
-    background: #18cbcb36;
     object-fit: cover;
     border-radius: 10px;
-
 }
 .plus{
     position: fixed;
