@@ -16,6 +16,7 @@ import Burger from '../components/nav/Burger'
 import Main from '../components/MainPage/Main'
 import Plus from '../components/MainPage/Plus'
 import RecipeUp from '../components/newRecipe/RecipeUp'
+import Pro from '../components/Pro/Pro'
 
 export default function MyRouter() {
   return (
@@ -34,6 +35,7 @@ export default function MyRouter() {
        <Route path='/recipeList' element={<RecipeList/>}/>
        <Route path='/plus' element={<Plus/>}/>
        <Route path='/recipeView' element={<RecipeView/>}/>
+       <Route path='/pro' element={<Pro/>}/>
        <Route path='/burger' element={<Burger/>}/>
        <Route path='/recipeUp' element={<RecipeUp/>}/>
        <Route path='/*' element={<PageError/>}/>

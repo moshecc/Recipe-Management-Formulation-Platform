@@ -55,7 +55,7 @@ export default function RecipeView() {
                 autoPlay={true}
                 transitionTime={3}
                 infiniteLoop={true}
-                showStatus={false}
+                showStatus={true}
               >
                 {dataImg.length==0?(datal.map((item, i) => (
                   <img key={i} className="imgCarousel " src={item} />

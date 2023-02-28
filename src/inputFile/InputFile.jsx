@@ -42,7 +42,7 @@ export default function InputFile() {
           />
           <div className="inp_caver">
             <h3> ! תלחץ וגרור לכאן</h3>
-           <BiImageAdd size={30}/>
+            <BiImageAdd size={30} />
             <b style={{ fontSize: "12px" }}>לעוד תמונה לחץ שוב * </b>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function InputFile() {
           autoPlay={true}
           transitionTime={3}
           infiniteLoop={true}
-          showStatus={false}
+          showStatus={true}
           className="container mb-2 caruselStyle"
         >
           {previewUrl.map((item, i) => (
@@ -64,7 +64,13 @@ export default function InputFile() {
                 }}
                 className="trash"
               >
-                <FaTrashAlt />
+                <lord-icon
+                  src="https://cdn.lordicon.com/tntmaygd.json"
+                  trigger="hover"
+                  colors="primary:#000000,secondary:#c71f16"
+                  stroke="100"
+                  style={{width:"40px",height:"40px"}}
+                ></lord-icon>
               </div>
             </div>
           ))}

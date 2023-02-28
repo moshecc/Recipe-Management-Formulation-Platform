@@ -17,7 +17,7 @@ export default function RecipeList() {
 
   const currentUser = useAuth();
 
-  const [favCol, setFavoCol] = useState("false");
+  const [favCol, setFavoCol] = useState(false);
 
   useEffect(() => {
     if (currentUser) SetUser(currentUser);
@@ -36,7 +36,7 @@ export default function RecipeList() {
   async function favorite() {
     if (user != undefined) {
       await UserRecipes(user.uid, setUserRecipe);
-      setFavoCol(favCol == "true" ? "false" : "true");
+      setFavoCol(!favCol);
     }
   }
 
@@ -62,7 +62,7 @@ export default function RecipeList() {
                 src="https://cdn.lordicon.com/hqrgkqvs.json"
                 trigger="hover"
                 colors={
-                  favCol == "true"
+                  favCol
                     ? "primary:#e83a30,secondary:#000000"
                     : "primary:#242424,secondary:#fad3d1"
                 }
@@ -74,9 +74,9 @@ export default function RecipeList() {
             <NewCard />
             {userRecipe == null
               ? ""
-              : favCol == "true"
+              : favCol
               ? userRecipe
-                  .filter((recipe) => recipe.favorite == "true")
+                  .filter((recipe) => recipe.favorite)
                   .map((item, i) => (
                     <div key={i}>
                       <Card item={item} />

@@ -1,26 +1,28 @@
 import { doc, setDoc } from "firebase/firestore";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ContextData } from "../../App";
 import { db } from "../../Firebase";
 import "./Card.css";
 export default function Card({ item }) {
   const { setCurrentOpen, setRun } = useContext(ContextData);
 
-  const [favo, setFavo] = useState(item?.favorite);
+  const [favo, setFavo] = useState(false);
 
   const open = () => {
     setCurrentOpen(item);
-
     setRun(true);
   };
 
   function favoriteRecipe() {
     const docref = doc(db, "recepis", item.docId);
-    setDoc(docref, { ...item, favorite: favo == "true" ? "false" : "true" });
-    setFavo(favo == "true" ? "false" : "true");
+    setDoc(docref, { ...item, favorite: !favo});
+    setFavo(!favo);
   }
+  useEffect(() => {
+    setFavo(item.favorite);
+  }, [item])
 
-  return (
+    return (
     <>
       <div
         className="card text-dark cardHover mb-2 imgScale p-0"
@@ -44,7 +46,7 @@ export default function Card({ item }) {
               src="https://cdn.lordicon.com/hqrgkqvs.json"
               trigger="hover"
               colors={
-                favo == "true"
+                favo
                   ? "primary:#e83a30,secondary:#000000"
                   : "primary:#242424,secondary:#fad3d1"
               }
