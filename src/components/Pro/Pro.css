@@ -1,4 +1,8 @@
-.bc-card{
-    background-color: rgb(40, 230, 247);
+.f{
     height: 100vh;
+    background-color: rgb(40, 230, 247);
+
+}
+.bc-card{
+    background-color: whitesmoke;
 }
