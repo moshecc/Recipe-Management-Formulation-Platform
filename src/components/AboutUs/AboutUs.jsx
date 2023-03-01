@@ -8,7 +8,7 @@ export default function AboutUs() {
   return (
     <>
       <div className="bgImg ">
-      <Link to={"/main"}>
+      <Link to={"/"}>
           <div className="btn back-button">
             <div><IoMdReturnRight size={30}/></div>
           </div>

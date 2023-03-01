@@ -32,7 +32,7 @@ export default function Burger() {
             </div>
           </div>
           <div className="row">
-          <Link to={""} className="d-flex justify-content-end  col-11 nav-link  active fs-1 fst-italic">ערןך משתמש</Link>
+          <Link to={""} className="d-flex justify-content-end  col-11 nav-link  active fs-1 fst-italic">ערוך משתמש</Link>
           <Link to={"/main/pro"} className="d-flex justify-content-end  col-11 nav-link  active fs-1 fst-italic"> שדרג לפרימיום </Link>
           <Link to={""} className="d-flex justify-content-end col-11 nav-link  active fs-1 fst-italic">חפש מתכון חדש</Link>
             <Link to={'/aboutus'} className="d-flex justify-content-end mb-1 col-11 nav-link  active fs-1 fst-italic">About Us</Link>
