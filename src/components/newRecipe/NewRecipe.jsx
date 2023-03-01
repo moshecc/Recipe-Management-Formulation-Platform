@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useRef } from "react";
@@ -17,10 +17,15 @@ import { useContext } from "react";
 import { ContextData } from "../../App";
 import { v4 } from "uuid";
 import { IoMdReturnRight } from "react-icons/io";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import rtlPlugin from "stylis-plugin-rtl";
+import { prefixer } from "stylis";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
 
 export default function NewRecipe() {
   const { previewUrl, setpreviewUrl, imgFile, setImgFile } =
-  useContext(ContextData);
+    useContext(ContextData);
   const user = useAuth();
   console.log(user);
   const [open, setOpen] = useState(false);
@@ -28,8 +33,7 @@ export default function NewRecipe() {
 
   useEffect(() => {
     setImgFile(null);
-  }, [])
-  
+  }, []);
 
   const refName = useRef();
   const refIngredients = useRef();
@@ -78,13 +82,23 @@ export default function NewRecipe() {
   const handleClose = () => {
     setOpen(false);
   };
+  const theme = createTheme({
+    direction: "rtl", // Both here and <body dir="rtl">
+  });
+  // Create rtl cache
+  const cacheRtl = createCache({
+    key: "muirtl",
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
 
   return (
     <div className="bgImg">
       <div dir="rtl" className="d-flex justify-content-center m-3">
-      <Link to={"/main"}>
+        <Link to={"/main"}>
           <div className="btn back-button">
-            <div><IoMdReturnRight size={30}/></div>
+            <div>
+              <IoMdReturnRight size={30} />
+            </div>
           </div>
         </Link>
         <div className="newRecipeForm p-md-5  col-12 col-md-9  border flex-column d-flex justify-content-center my-5">
@@ -98,15 +112,19 @@ export default function NewRecipe() {
               autoComplete="off"
             >
               <div>
-                <div className="d-flex justify-content-center">
-                  <TextField
-                    id="outlined-multiline-flexible"
-                    className="bgInpot"
-                    label="שם מתכון"
-                    placeholder="שם מתכון"
-                    color="warning"
-                    inputRef={refName}
-                  />
+                <div dir="rtl" className="d-flex justify-content-center">
+                  <CacheProvider value={cacheRtl}>
+                    <ThemeProvider theme={theme}>
+                      <TextField
+                        id="outlined-multiline-flexible"
+                        className="bgInpot"
+                        label="שם מתכון"
+                        placeholder="שם מתכון"
+                        color="warning"
+                        inputRef={refName}
+                      />
+                    </ThemeProvider>
+                  </CacheProvider>
                 </div>
                 <div className="d-flex justify-content-end  mr-3 m-1" dir="ltr">
                   <div
@@ -130,28 +148,36 @@ export default function NewRecipe() {
                     <InputFile />
                   </Dialog>
                 </div>
-                <div className="d-flex justify-content-center">
-                  <TextField
-                    id="outlined-textarea"
-                    className="bgInpot"
-                    label="מרכיבים"
-                    placeholder="מרכיבים"
-                    color="warning"
-                    multiline
-                    inputRef={refIngredients}
-                  />
+                <div dir="rtl" className="d-flex justify-content-center">
+                  <CacheProvider value={cacheRtl}>
+                    <ThemeProvider theme={theme}>
+                      <TextField
+                        id="outlined-textarea"
+                        className="bgInpot"
+                        label="מרכיבים"
+                        placeholder="מרכיבים"
+                        color="warning"
+                        multiline
+                        inputRef={refIngredients}
+                      />
+                    </ThemeProvider>
+                  </CacheProvider>
                 </div>
-                <div className="d-flex justify-content-center">
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="אופן הכנה"
-                    placeholder="אופן הכנה"
-                    className="bgInpot"
-                    multiline
-                    color="warning"
-                    rows={5}
-                    inputRef={refInstructions}
-                  />
+                <div dir="rtl" className="d-flex justify-content-center">
+                  <CacheProvider value={cacheRtl}>
+                    <ThemeProvider theme={theme}>
+                      <TextField
+                        id="outlined-multiline-static"
+                        label="אופן הכנה"
+                        placeholder="אופן הכנה"
+                        className="bgInpot"
+                        multiline
+                        color="warning"
+                        rows={5}
+                        inputRef={refInstructions}
+                      />
+                    </ThemeProvider>
+                  </CacheProvider>
                 </div>
                 <div className="d-flex justify-content-end">
                   <button
