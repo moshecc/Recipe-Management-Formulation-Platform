@@ -24,20 +24,19 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
 export default function NewRecipe() {
-  const { previewUrl, setpreviewUrl, imgFile, setImgFile } =
+  const { previewUrl, setPreviewUrl, imgFile, setImgFile ,setCurrentOpen } =
     useContext(ContextData);
   const user = useAuth();
   console.log(user);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setImgFile(null);
-  }, []);
-
   const refName = useRef();
   const refIngredients = useRef();
   const refInstructions = useRef();
+  useEffect(() => {
+    setCurrentOpen(null);
+  }, [])
 
   let set = function setRecipe() {
     let name = refName.current.value;
@@ -58,6 +57,8 @@ export default function NewRecipe() {
     const docRef = setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
       ...newRecipeData,
     });
+   
+    
 
     if (previewUrl == null) {
       navigate("/main");
@@ -71,6 +72,8 @@ export default function NewRecipe() {
           console.log("Uploaded a blob or file!");
         });
       }
+      setImgFile([]);
+      setPreviewUrl(null)
       navigate("/main");
     }
   };

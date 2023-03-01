@@ -9,19 +9,20 @@ import { storage } from "../../Firebase";
 
 export default function RecipeView() {
   const [data, setData] = useState(undefined);
-  const [dataImg, setDataImg] = useState([]);
 
-  const { currentOpen } = useContext(ContextData);
+  const { currentOpen ,previewUrl, setPreviewUrl, imgFile, setImgFile  } = useContext(ContextData);
 
   useEffect(() => {
     setData(currentOpen);
-    setDataImg([])
+    setImgFile([]);
+    setPreviewUrl([])
     if (currentOpen!=null){
       const imagesListRef = ref(storage, `${currentOpen.docId==null?"":currentOpen.docId}`);
       listAll(imagesListRef).then((response) => {
         response.items.forEach((item) => {
+          setImgFile((imgFile) => [...imgFile, item])
           getDownloadURL(item).then((url) => {
-            setDataImg((prev) => [...prev, url]);
+            setPreviewUrl((previewUrl) => [...previewUrl, url]);
           });
         });
       });
@@ -57,9 +58,9 @@ export default function RecipeView() {
                 infiniteLoop={true}
                 showStatus={true}
               >
-                {dataImg.length==0?(datal.map((item, i) => (
+                {previewUrl.length==0?(datal.map((item, i) => (
                   <img key={i} className="imgCarousel " src={item} />
-                ))):(dataImg.map((item, i) => (
+                ))):(previewUrl.map((item, i) => (
                   <img key={i} className="imgCarousel " src={item} />
                 )))
                 

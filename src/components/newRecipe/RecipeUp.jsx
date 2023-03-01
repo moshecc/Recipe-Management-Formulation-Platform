@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useRef } from "react";
@@ -9,17 +9,17 @@ import { BiMessageSquareAdd } from "react-icons/bi";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
-import { useAuth, db } from "../../Firebase";
+import { useAuth, db, storage } from "../../Firebase";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextData } from "../../App";
 import { IoMdReturnRight } from "react-icons/io";
+import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 
-export default function RecipeUp() {
+export default function RecipeUp() {  
   const navigate = useNavigate();
-  const { currentOpen ,setCurrentOpen } = useContext(ContextData);
+  const { currentOpen ,setCurrentOpen ,setPreviewUrl ,setImgFile ,imgFile ,previewUrl  } = useContext(ContextData);
   const [open, setOpen] = useState(false);
-
   const [nameRecipe, setNameRecipe] = useState(currentOpen.name);
   const [ingredients, setIngredients] = useState(
     currentOpen.ingredients.toString().replaceAll(",", "\n")
@@ -28,6 +28,7 @@ export default function RecipeUp() {
     currentOpen.instructions.toString().replaceAll(",", "\n")
   );
 
+ 
   async function setUp() {
      let newRecipeData =await new RecipeData(
       nameRecipe,
@@ -40,6 +41,17 @@ export default function RecipeUp() {
     await updateDoc(doc(db, "recepis", currentOpen.docId), {
       ...newRecipeData
     });
+    for (let index = 0; index < imgFile.length; index++) {
+      const imageRef = ref(
+        storage,
+        `${currentOpen.docId}/${imgFile[index].file.name}`
+      );
+      uploadBytes(imageRef, imgFile[index].file).then(() => {
+        console.log("Uploaded a blob or file!");
+      });
+    }
+    setImgFile([]);
+    setPreviewUrl(null)
     setCurrentOpen(undefined);
     navigate("/main");
   }
