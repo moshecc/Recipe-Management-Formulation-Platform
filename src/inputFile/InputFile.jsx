@@ -54,9 +54,9 @@ export default function InputFile() {
             id=""
           />
           <div className="inp_caver">
-            <h3> ! תלחץ וגרור לכאן</h3>
+            <h3> !תלחץ וגרור לכאן</h3>
             <BiImageAdd size={30} />
-            <b style={{ fontSize: "12px" }}>לעוד תמונה לחץ שוב * </b>
+            <b style={{ fontSize: "12px" }}>לעוד תמונה לחץ שוב* </b>
           </div>
         </div>
         <Carousel

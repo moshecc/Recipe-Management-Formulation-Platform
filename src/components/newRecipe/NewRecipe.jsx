@@ -5,9 +5,6 @@ import { useRef } from "react";
 import "./NewRecipe.css";
 import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
-import { BiMessageSquareAdd } from "react-icons/bi";
-import { FaTrashAlt } from "react-icons/fa";
-import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
 import { useAuth, db, storage } from "../../Firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
@@ -107,6 +104,8 @@ export default function NewRecipe() {
         <div className="newRecipeForm p-md-5  col-12 col-md-9  border flex-column d-flex justify-content-center my-5">
           <h1 className="d-flex justify-content-center myFont">מתכון חדש</h1>
           <div className="d-flex justify-content-center">
+          <CacheProvider value={cacheRtl}>
+                    <ThemeProvider theme={theme}>
             <Box
               component="form"
               className="col-11"
@@ -115,19 +114,15 @@ export default function NewRecipe() {
               autoComplete="off"
             >
               <div>
-                <div dir="rtl" className="d-flex justify-content-center">
-                  <CacheProvider value={cacheRtl}>
-                    <ThemeProvider theme={theme}>
+                <div className="d-flex justify-content-center">
                       <TextField
                         id="outlined-multiline-flexible"
                         className="bgInpot"
                         label="שם מתכון"
                         placeholder="שם מתכון"
-                        color="warning"
+                        color="error"
                         inputRef={refName}
                       />
-                    </ThemeProvider>
-                  </CacheProvider>
                 </div>
                 <div className="d-flex justify-content-end  mr-3 m-1" dir="ltr">
                   <div
@@ -151,36 +146,28 @@ export default function NewRecipe() {
                     <InputFile />
                   </Dialog>
                 </div>
-                <div dir="rtl" className="d-flex justify-content-center">
-                  <CacheProvider value={cacheRtl}>
-                    <ThemeProvider theme={theme}>
+                <div className="d-flex justify-content-center">
                       <TextField
                         id="outlined-textarea"
                         className="bgInpot"
                         label="מרכיבים"
                         placeholder="מרכיבים"
-                        color="warning"
+                        color="error"
                         multiline
                         inputRef={refIngredients}
                       />
-                    </ThemeProvider>
-                  </CacheProvider>
                 </div>
-                <div dir="rtl" className="d-flex justify-content-center">
-                  <CacheProvider value={cacheRtl}>
-                    <ThemeProvider theme={theme}>
+                <div className="d-flex justify-content-center">
                       <TextField
                         id="outlined-multiline-static"
                         label="אופן הכנה"
                         placeholder="אופן הכנה"
                         className="bgInpot"
                         multiline
-                        color="warning"
+                        color="error"
                         rows={5}
                         inputRef={refInstructions}
                       />
-                    </ThemeProvider>
-                  </CacheProvider>
                 </div>
                 <div className="d-flex justify-content-end">
                   <button
@@ -199,6 +186,8 @@ export default function NewRecipe() {
                 </div>
               </div>
             </Box>
+            </ThemeProvider>
+                  </CacheProvider>
           </div>
         </div>
       </div>

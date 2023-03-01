@@ -26,7 +26,7 @@ transform: scale(1.10);
     width: 200px;
     position: absolute;
     top: 45px;
-    background-color: rgb(167, 201, 230);
+    background-color: rgba(179, 202, 222, 0.7);
     z-index: 1111;
     border-radius: 15px;
 }
