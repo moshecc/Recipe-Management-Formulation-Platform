@@ -77,87 +77,104 @@ export default function RecipeUp() {
         <div className="newRecipeForm p-md-5  col-12 col-md-9  border flex-column d-flex justify-content-center my-5">
           <h1 className="d-flex justify-content-center myFont">עדכן מתכון</h1>
           <div className="d-flex justify-content-center">
-            <Box
-              component="form"
-              className="col-11"
-              sx={{ "& .MuiTextField-root": { m: 2, width: "160ch" } }}
-              noValidate
-              autoComplete="off"
-            >
-              <div>
-                <div className="d-flex justify-content-center">
-                  <TextField
-                    id="outlined-multiline-flexible"
-                    className="bgInpot"
-                    label="שם מתכון"
-                    placeholder="שם מתכון"
-                    color="warning"
-                    value={nameRecipe}
-                    onChange={(e) => {
-                      setNameRecipe(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className="d-flex justify-content-end  mr-3 m-1" dir="ltr">
-                  <div
-                    className="btn"
-                    style={{ color: "black", cursor: "pointer" }}
-                  >
-                    <span className="ml-3"> הוסף תמונה </span>
-                    <BsPlusSquareDotted size={35} onClick={handleClickOpen} />
+            <CacheProvider value={cacheRtl}>
+              <ThemeProvider theme={theme}>
+                <Box
+                  component="form"
+                  className="col-11"
+                  sx={{ "& .MuiTextField-root": { m: 2, width: "160ch" } }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <div>
+                    <div className="d-flex justify-content-center">
+                      <TextField
+                        id="outlined-multiline-flexible"
+                        className="bgInpot"
+                        label="שם מתכון"
+                        placeholder="שם מתכון"
+                        color="error"
+                        value={nameRecipe}
+                        onChange={(e) => {
+                          setNameRecipe(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div
+                      className="d-flex justify-content-end  mr-3 m-1"
+                      dir="ltr"
+                    >
+                      <div
+                        className="btn"
+                        style={{ color: "black", cursor: "pointer" }}
+                      >
+                        <div
+                          className="d-flex align-items-center"
+                          onClick={handleClickOpen}
+                        >
+                          <b> עדכן תמונה </b>
+                          <lord-icon
+                            src="https://cdn.lordicon.com/ynwbvguu.json"
+                            trigger="hover"
+                            colors="primary:#911710"
+                            style={{ width: "60px", height: "60px" }}
+                          ></lord-icon>
+                        </div>{" "}
+                      </div>
+                      <Dialog open={open} onClose={handleClose}>
+                        <InputFile />
+                      </Dialog>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                      <TextField
+                        id="outlined-textarea"
+                        className="bgInpot"
+                        label="מרכיבים"
+                        placeholder="מרכיבים"
+                        color="error"
+                        multiline
+                        value={ingredients}
+                        onChange={(e) => {
+                          setIngredients(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div className="d-flex justify-content-center">
+                      <TextField
+                        id="outlined-multiline-static"
+                        label="אופן הכנה"
+                        placeholder="אופן הכנה"
+                        className="bgInpot"
+                        multiline
+                        color="error"
+                        rows={5}
+                        value={instructions}
+                        onChange={(e) => {
+                          setInstructions(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div className="d-flex justify-content-end">
+                      <button
+                        onClick={() => {
+                          setUp();
+                        }}
+                        type="button"
+                        className="btn btn-secondary m-3 d-flex"
+                      >
+                        <lord-icon
+                          src="https://cdn.lordicon.com/wfadduyp.json"
+                          trigger="hover"
+                          colors="primary:#000000"
+                          style={{ width: "25px", height: "25px" }}
+                        ></lord-icon>
+                        <div>עדכן מתכון</div>
+                      </button>
+                    </div>
                   </div>
-                  <Dialog open={open} onClose={handleClose}>
-                    <InputFile />
-                  </Dialog>
-                </div>
-                <div className="d-flex justify-content-center">
-                  <TextField
-                    id="outlined-textarea"
-                    className="bgInpot"
-                    label="מרכיבים"
-                    placeholder="מרכיבים"
-                    color="warning"
-                    multiline
-                    value={ingredients}
-                    onChange={(e) => {
-                      setIngredients(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className="d-flex justify-content-center">
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="אופן הכנה"
-                    placeholder="אופן הכנה"
-                    className="bgInpot"
-                    multiline
-                    color="warning"
-                    rows={5}
-                    value={instructions}
-                    onChange={(e) => {
-                      setInstructions(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className="d-flex justify-content-end">
-                  <button
-                    onClick={() => {
-                      setUp();
-                    }}
-                    type="button"
-                    className="btn btn-secondary m-3 d-flex"
-                  >
-                     <lord-icon
-                      src="https://cdn.lordicon.com/wfadduyp.json"
-                      trigger="hover"
-                      colors="primary:#000000"
-                      style={{width:"25px",height:"25px"}}
-                    ></lord-icon>
-                    <div>עדכן מתכון</div> 
-                  </button>
-                </div>
-              </div>
-            </Box>
+                </Box>
+              </ThemeProvider>
+            </CacheProvider>
           </div>
         </div>
       </div>
