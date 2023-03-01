@@ -1,25 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useRef } from "react";
 import "./NewRecipe.css";
 import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
-import { BiMessageSquareAdd } from "react-icons/bi";
-import { FaTrashAlt } from "react-icons/fa";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
-import { useAuth, db, storage } from "../../Firebase";
+import { useAuth, db } from "../../Firebase";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextData } from "../../App";
 import { IoMdReturnRight } from "react-icons/io";
-import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import rtlPlugin from "stylis-plugin-rtl";
+import { prefixer } from "stylis";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
 
-export default function RecipeUp() {  
+export default function RecipeUp() {
   const navigate = useNavigate();
-  const { currentOpen ,setCurrentOpen ,setPreviewUrl ,setImgFile ,imgFile ,previewUrl  } = useContext(ContextData);
+  const { currentOpen, setCurrentOpen } = useContext(ContextData);
   const [open, setOpen] = useState(false);
+
   const [nameRecipe, setNameRecipe] = useState(currentOpen.name);
   const [ingredients, setIngredients] = useState(
     currentOpen.ingredients.toString().replaceAll(",", "\n")
@@ -28,30 +31,18 @@ export default function RecipeUp() {
     currentOpen.instructions.toString().replaceAll(",", "\n")
   );
 
- 
   async function setUp() {
-     let newRecipeData =await new RecipeData(
+    let newRecipeData = await new RecipeData(
       nameRecipe,
       ingredients.split("\n"),
       instructions.split("\n"),
       currentOpen.id
     );
-    newRecipeData.favorite=currentOpen.favorite;
+    newRecipeData.favorite = currentOpen.favorite;
 
     await updateDoc(doc(db, "recepis", currentOpen.docId), {
-      ...newRecipeData
+      ...newRecipeData,
     });
-    for (let index = 0; index < imgFile.length; index++) {
-      const imageRef = ref(
-        storage,
-        `${currentOpen.docId}/${imgFile[index].file.name}`
-      );
-      uploadBytes(imageRef, imgFile[index].file).then(() => {
-        console.log("Uploaded a blob or file!");
-      });
-    }
-    setImgFile([]);
-    setPreviewUrl(null)
     setCurrentOpen(undefined);
     navigate("/main");
   }
@@ -64,12 +55,23 @@ export default function RecipeUp() {
     setOpen(false);
   };
 
+  const theme = createTheme({
+    direction: "rtl", // Both here and <body dir="rtl">
+  });
+  // Create rtl cache
+  const cacheRtl = createCache({
+    key: "muirtl",
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
+
   return (
     <div className="bgImg">
       <div dir="rtl" className="d-flex justify-content-center m-3">
-      <Link to={"/main"}>
+        <Link to={"/main"}>
           <div className="btn back-button">
-            <div><IoMdReturnRight size={30}/></div>
+            <div>
+              <IoMdReturnRight size={30} />
+            </div>
           </div>
         </Link>
         <div className="newRecipeForm p-md-5  col-12 col-md-9  border flex-column d-flex justify-content-center my-5">
@@ -101,7 +103,7 @@ export default function RecipeUp() {
                     className="btn"
                     style={{ color: "black", cursor: "pointer" }}
                   >
-                    <span className="ml-3"> ערוך תמונות</span>
+                    <span className="ml-3"> הוסף תמונה </span>
                     <BsPlusSquareDotted size={35} onClick={handleClickOpen} />
                   </div>
                   <Dialog open={open} onClose={handleClose}>
