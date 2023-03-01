@@ -11,11 +11,12 @@ import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
 import { useAuth, db, storage } from "../../Firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ref, uploadBytes } from "@firebase/storage";
 import { useContext } from "react";
 import { ContextData } from "../../App";
 import { v4 } from "uuid";
+import { IoMdReturnRight } from "react-icons/io";
 
 export default function NewRecipe() {
   const { previewUrl, setpreviewUrl, imgFile, setImgFile } =
@@ -77,6 +78,11 @@ export default function NewRecipe() {
   return (
     <div className="bgImg">
       <div dir="rtl" className="d-flex justify-content-center m-3">
+      <Link to={"/main"}>
+          <div className="btn back-button">
+            <div><IoMdReturnRight size={30}/></div>
+          </div>
+        </Link>
         <div className="newRecipeForm p-md-5  col-12 col-md-9  border flex-column d-flex justify-content-center my-5">
           <h1 className="d-flex justify-content-center myFont">מתכון חדש</h1>
           <div className="d-flex justify-content-center">
@@ -103,8 +109,11 @@ export default function NewRecipe() {
                     className="btn"
                     style={{ color: "black", cursor: "pointer" }}
                   >
-                    <div className="d-flex align-items-center"  onClick={handleClickOpen}>
-                    <b > הוסף תמונה </b>
+                    <div
+                      className="d-flex align-items-center"
+                      onClick={handleClickOpen}
+                    >
+                      <b> הוסף תמונה </b>
                       <lord-icon
                         src="https://cdn.lordicon.com/ynwbvguu.json"
                         trigger="hover"

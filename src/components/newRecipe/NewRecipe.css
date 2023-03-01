@@ -7,3 +7,15 @@
     background-color: rgba(144, 140, 140, 0.443);
     border-radius: 5px;
 }
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    height: 40px;
+    right: 10px;
+    width: 60px;
+    z-index: 1000;
+}
+.back-button:active{
+    transform: scale(1.1);
+}

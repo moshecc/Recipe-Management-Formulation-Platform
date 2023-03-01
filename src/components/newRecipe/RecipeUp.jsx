@@ -11,8 +11,9 @@ import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
 import { useAuth, db } from "../../Firebase";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ContextData } from "../../App";
+import { IoMdReturnRight } from "react-icons/io";
 
 export default function RecipeUp() {
   const navigate = useNavigate();
@@ -54,6 +55,11 @@ export default function RecipeUp() {
   return (
     <div className="bgImg">
       <div dir="rtl" className="d-flex justify-content-center m-3">
+      <Link to={"/main"}>
+          <div className="btn back-button">
+            <div><IoMdReturnRight size={30}/></div>
+          </div>
+        </Link>
         <div className="newRecipeForm p-md-5  col-12 col-md-9  border flex-column d-flex justify-content-center my-5">
           <h1 className="d-flex justify-content-center myFont">עדכן מתכון</h1>
           <div className="d-flex justify-content-center">

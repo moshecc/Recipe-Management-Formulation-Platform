@@ -17,6 +17,7 @@ import Main from '../components/MainPage/Main'
 import Plus from '../components/MainPage/Plus'
 import RecipeUp from '../components/newRecipe/RecipeUp'
 import Pro from '../components/Pro/Pro'
+import CreditCard from '../components/Pro/CreditCard'
 
 export default function MyRouter() {
   return (
@@ -35,7 +36,8 @@ export default function MyRouter() {
        <Route path='/recipeList' element={<RecipeList/>}/>
        <Route path='/plus' element={<Plus/>}/>
        <Route path='/recipeView' element={<RecipeView/>}/>
-       <Route path='/pro' element={<Pro/>}/>
+       <Route path='/main/pro' element={<Pro/>}/>
+       <Route path='/main/pro/creditcard' element={<CreditCard/>}/>
        <Route path='/burger' element={<Burger/>}/>
        <Route path='/recipeUp' element={<RecipeUp/>}/>
        <Route path='/*' element={<PageError/>}/>

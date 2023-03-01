@@ -1,12 +1,18 @@
 import React from "react";
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/joy/Box';
 import "./AboutUs.css";
+import "../newRecipe/NewRecipe.css"
+import { IoMdReturnRight } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function AboutUs() {
   return (
     <>
       <div className="bgImg ">
+      <Link to={"/main"}>
+          <div className="btn back-button">
+            <div><IoMdReturnRight size={30}/></div>
+          </div>
+        </Link>
         <div className="container-fluid w-100 d-flex justify-content-center">
           <div className="aboutUs mt-5 col-9">
             <div>
