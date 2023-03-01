@@ -30,7 +30,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { deleteObject, ref } from "firebase/storage";
 
 export default function Plus() {
-  const { currentOpen, setCurrentOpen } = useContext(ContextData);
+  const { currentOpen, setCurrentOpen , imgFile } = useContext(ContextData);
   const componentRef = useRef();
 
   let str =
@@ -45,14 +45,16 @@ export default function Plus() {
   const notify = () => toast("Wow so easy!");
 
   const daletdoc = async () => {
-    const desertRef = ref(storage , currentOpen.docId);
-// Delete the file
-deleteObject(desertRef).then((e) => {
+
+for (let index = 0; index < imgFile.length; index++) {
+  const desertRef = ref(storage , `${currentOpen.docId}/${imgFile[index].name}`);
+  deleteObject(desertRef).then((e) => {
   console.log("sucsess");
 }).catch((error) => {
   console.log(error);
 });
-    await deleteDoc(doc(db, "recepis", currentOpen.docId+"/"));
+}
+    await deleteDoc(doc(db, "recepis", currentOpen.docId));
     setCurrentOpen(undefined);
   };
 

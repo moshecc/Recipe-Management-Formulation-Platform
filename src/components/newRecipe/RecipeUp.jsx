@@ -101,7 +101,7 @@ export default function RecipeUp() {
                     className="btn"
                     style={{ color: "black", cursor: "pointer" }}
                   >
-                    <span className="ml-3"> הוסף תמונה </span>
+                    <span className="ml-3"> ערוך תמונות</span>
                     <BsPlusSquareDotted size={35} onClick={handleClickOpen} />
                   </div>
                   <Dialog open={open} onClose={handleClose}>
