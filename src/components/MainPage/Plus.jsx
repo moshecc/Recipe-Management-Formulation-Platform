@@ -23,10 +23,11 @@ import { useContext } from "react";
 import { ContextData } from "../../App";
 import { useRef } from "react";
 import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "../../Firebase";
+import { db, storage } from "../../Firebase";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { deleteObject, ref } from "firebase/storage";
 
 export default function Plus() {
   const { currentOpen, setCurrentOpen } = useContext(ContextData);
@@ -44,7 +45,14 @@ export default function Plus() {
   const notify = () => toast("Wow so easy!");
 
   const daletdoc = async () => {
-    await deleteDoc(doc(db, "recepis", currentOpen.docId));
+    const desertRef = ref(storage , currentOpen.docId);
+// Delete the file
+deleteObject(desertRef).then((e) => {
+  console.log("sucsess");
+}).catch((error) => {
+  console.log(error);
+});
+    await deleteDoc(doc(db, "recepis", currentOpen.docId+"/"));
     setCurrentOpen(undefined);
   };
 

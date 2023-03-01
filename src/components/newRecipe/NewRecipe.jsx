@@ -20,12 +20,16 @@ import { IoMdReturnRight } from "react-icons/io";
 
 export default function NewRecipe() {
   const { previewUrl, setpreviewUrl, imgFile, setImgFile } =
-    useContext(ContextData);
-
+  useContext(ContextData);
   const user = useAuth();
   console.log(user);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setImgFile(null);
+  }, [])
+  
 
   const refName = useRef();
   const refIngredients = useRef();
