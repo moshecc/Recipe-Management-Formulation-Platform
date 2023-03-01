@@ -6,9 +6,11 @@ import { useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { useContext } from "react";
 import { ContextData } from "../App";
+import { deleteObject, ref } from "firebase/storage";
+import { storage } from "../Firebase";
 
 export default function InputFile() {
-  const { previewUrl, setPreviewUrl, imgFile, setImgFile } =
+  const { previewUrl, setPreviewUrl, imgFile, setImgFile ,currentOpen } =
     useContext(ContextData);
   const [trash, settrash] = useState(true);
   const imgref = useRef();
@@ -24,6 +26,17 @@ export default function InputFile() {
   };
 
   function dal(i) {
+    if (currentOpen) {
+      const desertRef = ref(storage, `${currentOpen.docId}/${imgFile[i].name}`);
+      // Delete the file
+      deleteObject(desertRef)
+        .then((e) => {
+          console.log("sucsess");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
     console.log(i);
     setPreviewUrl(previewUrl.filter((e) => e != previewUrl[i]));
     setImgFile(imgFile.filter((e) => e != imgFile[i]));
@@ -69,7 +82,7 @@ export default function InputFile() {
                   trigger="hover"
                   colors="primary:#000000,secondary:#c71f16"
                   stroke="100"
-                  style={{width:"40px",height:"40px"}}
+                  style={{ width: "40px", height: "40px" }}
                 ></lord-icon>
               </div>
             </div>
