@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Nav.css";
 import Burger from "./Burger";
 import { ContextData } from "../../App";
@@ -12,8 +12,16 @@ export default function Nav() {
     sutBurger(!burger);
   }
 
+    // if (burger) {
+    //   document.getElementById("e").addEventListener("click", () =>{
+    //     console.log("click");
+    //     hideBurger()});
+    //   console.log("om");
+    // }
+
+
   return (
-    <div className="container-fluid sticky-top">
+    <div id="e" className="container-fluid sticky-top">
       <div className="myNav row ">
         <div className="col-2 d-flex align-items-center">
           <div className="logoNav">
@@ -30,14 +38,14 @@ export default function Nav() {
         <div className="col-3 fst-italic fs-2 pr-0 pl-0 d-flex justify-content-center align-items-center">
           {!burger ? (
             <div className="name d-flex align-content-center">
-              <div className="mt-2 mr-1">{user==undefined?" ":`${user.displayName}`}</div>
+              <div className="mt-2 mr-3">{user==undefined?" ":`${user.displayName}`}</div>
               <Avatar className="border " alt="User Name" src={user==undefined?" ":`${user.photoURL}`} />
             </div>
           ) : (
             ""
           )}
         </div>
-        <div className="col-sm-1 col-2 pr-0 pl-0 d-flex align-items-center">
+        <div className="col-sm-1 col-2 pr-0 pl-0 d-flex justify-content-center">
           <div className="" onClick={hideBurger}>
             <div className="thebur">
               <lord-icon
@@ -52,7 +60,7 @@ export default function Nav() {
         </div>
       </div>
       {burger ? (
-        <div className="burger">
+        <div>
           <div className="d-flex justify-content-end">
             <Burger />
           </div>

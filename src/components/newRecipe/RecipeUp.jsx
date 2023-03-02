@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { useRef } from "react";
 import "./NewRecipe.css";
 import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
-import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
 import { useAuth, db } from "../../Firebase";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
@@ -116,7 +114,7 @@ export default function RecipeUp() {
                           <lord-icon
                             src="https://cdn.lordicon.com/ynwbvguu.json"
                             trigger="hover"
-                            colors="primary:#911710"
+                            colors="primary:#c71f16"
                             style={{ width: "60px", height: "60px" }}
                           ></lord-icon>
                         </div>{" "}
@@ -168,7 +166,7 @@ export default function RecipeUp() {
                           colors="primary:#000000"
                           style={{ width: "25px", height: "25px" }}
                         ></lord-icon>
-                        <div>עדכן מתכון</div>
+                        <div className="mr-1">עדכן </div>
                       </button>
                     </div>
                   </div>

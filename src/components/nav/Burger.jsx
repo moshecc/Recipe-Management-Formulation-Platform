@@ -24,7 +24,7 @@ export default function Burger() {
 
   return (
     <>
-      <div className="cardBurger border">
+      <div className="cardBurger">
           <div className="d-flex col-12  my-2">
             <div className="col-9 px-0 d-flex justify-content-center align-items-center">{user==undefined?" ":`${user.displayName}`}</div>
             <div className="col-3 px-0 d-flex justify-content-start">
@@ -36,8 +36,8 @@ export default function Burger() {
           <Link to={"/main/pro"} className="d-flex justify-content-end  col-11 nav-link"> שדרג לפרימיום </Link>
           <Link to={""} className="d-flex justify-content-end col-11 nav-link">חפש מתכון חדש</Link>
             <Link to={'/aboutus'} className="d-flex justify-content-end mb-1 col-11 nav-link">קצת עלינו</Link>
-          <div className="d-flex justify-content-start ml-2 mb-2 col-11">
-          <button onClick={handleLogout} className="bg-danger btn d-flex justify-content-start" style={{borderRadius:"15px"}}>
+          <div className="d-flex justify-content-start ml-3 mb-2 col-11">
+          <button onClick={handleLogout} className="bg-danger btn d-flex justify-content-start" style={{borderRadius:"8px"}}>
            <div>Log Out</div> 
             <div className="ml-2"><BiLogOut size={20}/></div>
           </button>
