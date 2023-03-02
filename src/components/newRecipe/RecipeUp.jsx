@@ -7,7 +7,7 @@ import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
 import { BsPlusSquareDotted } from "react-icons/bs";
 import Dialog from "@mui/material/Dialog";
-import { useAuth, db } from "../../Firebase";
+import { useAuth, db, storage } from "../../Firebase";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextData } from "../../App";
@@ -17,10 +17,11 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
+import { deleteObject, ref } from "firebase/storage";
 
 export default function RecipeUp() {
   const navigate = useNavigate();
-  const { currentOpen, setCurrentOpen } = useContext(ContextData);
+  const { currentOpen, setCurrentOpen ,imgFile } = useContext(ContextData);
   const [open, setOpen] = useState(false);
 
   const [nameRecipe, setNameRecipe] = useState(currentOpen.name);
@@ -40,6 +41,14 @@ export default function RecipeUp() {
     );
     newRecipeData.favorite = currentOpen.favorite;
 
+    for (let index = 0; index < imgFile.length; index++) {
+        const desertRef = ref(storage , `${currentOpen.docId}/${imgFile[index].file.name}`);
+        deleteObject(desertRef).then((e) => {
+         console.log("sucsess");
+       }).catch((error) => {
+         console.log(error);
+       });
+      }
     await updateDoc(doc(db, "recepis", currentOpen.docId), {
       ...newRecipeData,
     });
