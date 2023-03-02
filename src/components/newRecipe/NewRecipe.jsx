@@ -19,6 +19,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
+import { Carousel } from "react-responsive-carousel";
 
 export default function NewRecipe() {
   const { previewUrl, setPreviewUrl, imgFile, setImgFile, setCurrentOpen } =
@@ -33,8 +34,6 @@ export default function NewRecipe() {
   const refInstructions = useRef();
   useEffect(() => {
     setCurrentOpen(null);
-    setImgFile([]);
-    setPreviewUrl([]);
   }, []);
 
   let set = function setRecipe() {
@@ -61,7 +60,10 @@ export default function NewRecipe() {
       navigate("/main");
     } else {
       for (let index = 0; index < imgFile.length; index++) {
-        const imageRef = ref(storage,`${newRecipeData.docId}/${imgFile[index].file.name}`);
+        const imageRef = ref(
+          storage,
+          `${newRecipeData.docId}/${imgFile[index].file.name}`
+        );
         uploadBytes(imageRef, imgFile[index].file).then((e) => {
           console.log(e);
         });
@@ -121,18 +123,16 @@ export default function NewRecipe() {
                         inputRef={refName}
                       />
                     </div>
-                    <div
-                      className="d-flex justify-content-end  mr-3 m-1"
-                      dir="ltr"
-                    >
-                      <div
-                        className="btn"
-                        style={{ color: "black", cursor: "pointer" }}
-                      >
-                        <div
-                          className="d-flex align-items-center"
-                          onClick={handleClickOpen}
-                        >
+                    <div className="d-flex justify-content-end  row mr-3 m-1" dir="ltr" >
+                      <div className="col-12 nl-2 col-lg-6 ">
+                      <Carousel showThumbs={false}  autoPlay={true}  transitionTime={3} infiniteLoop={true} showStatus={true}>            
+              {previewUrl.map((item, i) => (
+                  <img key={i} className="imgCarouselNew " src={item} />
+                ))}
+              </Carousel>
+                      </div>
+                      <div className="btn col-12 d-flex col-lg-4 justify-content-center" style={{ color: "black", cursor: "pointer", height:"100px" }}>
+                        <div className="d-flex align-items-center" onClick={handleClickOpen} >
                           <b> הוסף תמונה </b>
                           <lord-icon
                             src="https://cdn.lordicon.com/ynwbvguu.json"

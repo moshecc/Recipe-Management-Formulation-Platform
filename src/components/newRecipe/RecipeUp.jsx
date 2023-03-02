@@ -16,10 +16,11 @@ import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { deleteObject, ref, uploadBytes } from "firebase/storage";
+import { Carousel } from "react-responsive-carousel";
 
 export default function RecipeUp() {
   const navigate = useNavigate();
-  const { currentOpen, setCurrentOpen ,imgFile } = useContext(ContextData);
+  const { currentOpen,previewUrl, setCurrentOpen ,imgFile } = useContext(ContextData);
   const [open, setOpen] = useState(false);
 
   const [nameRecipe, setNameRecipe] = useState(currentOpen.name);
@@ -113,13 +114,17 @@ export default function RecipeUp() {
                       />
                     </div>
                     <div
-                      className="d-flex justify-content-end  mr-3 m-1"
+                      className="d-flex justify-content-end row mr-3 m-1"
                       dir="ltr"
-                    >
+                    ><div className="col-12 nl-2 col-lg-6 ">
+                      <Carousel showThumbs={false}  autoPlay={true}  transitionTime={3} infiniteLoop={true} showStatus={true}>            
+              {previewUrl.map((item, i) => (
+                  <img key={i} className="imgCarouselNew " src={item} />
+                ))}
+              </Carousel>
+                      </div>
                       <div
-                        className="btn"
-                        style={{ color: "black", cursor: "pointer" }}
-                      >
+className="btn col-12 d-flex col-lg-4 justify-content-center" style={{ color: "black", cursor: "pointer", height:"100px" }}                      >
                         <div
                           className="d-flex align-items-center"
                           onClick={handleClickOpen}

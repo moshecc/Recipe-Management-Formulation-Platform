@@ -23,3 +23,8 @@
     background-color: rgb(199, 31, 22);
     color: whitesmoke;
 }
+.imgCarouselNew{
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
