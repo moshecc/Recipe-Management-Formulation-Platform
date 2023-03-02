@@ -33,6 +33,8 @@ export default function NewRecipe() {
   const refInstructions = useRef();
   useEffect(() => {
     setCurrentOpen(null);
+    setImgFile([]);
+    setPreviewUrl([]);
   }, []);
 
   let set = function setRecipe() {
