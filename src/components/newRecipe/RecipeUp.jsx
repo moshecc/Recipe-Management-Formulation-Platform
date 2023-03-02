@@ -15,7 +15,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import { deleteObject, ref } from "firebase/storage";
+import { deleteObject, ref, uploadBytes } from "firebase/storage";
 
 export default function RecipeUp() {
   const navigate = useNavigate();
@@ -38,15 +38,20 @@ export default function RecipeUp() {
       currentOpen.id
     );
     newRecipeData.favorite = currentOpen.favorite;
+    newRecipeData.docId = currentOpen.docId;
 
     for (let index = 0; index < imgFile.length; index++) {
-        const desertRef = ref(storage , `${currentOpen.docId}/${imgFile[index].file.name}`);
-        deleteObject(desertRef).then((e) => {
-         console.log("sucsess");
-       }).catch((error) => {
-         console.log(error);
-       });
+      console.log(imgFile);
+      const imageRef = ref(storage,`${newRecipeData.docId}/${imgFile[index].file?.name}`);
+      if(imgFile[index].file){
+        uploadBytes(imageRef, imgFile[index].file).then((e) => {
+          console.log(e);
+        });
       }
+     
+    }
+
+   
     await updateDoc(doc(db, "recepis", currentOpen.docId), {
       ...newRecipeData,
     });
