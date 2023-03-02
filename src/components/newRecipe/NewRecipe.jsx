@@ -174,12 +174,12 @@ export default function NewRecipe() {
                       <button
                         onClick={set}
                         type="button"
-                        className="btn d-flex btn-secondary m-3 "
+                        className="btn d-flex btn-color m-3 "
                       >
                         <lord-icon
                           src="https://cdn.lordicon.com/wfadduyp.json"
                           trigger="hover"
-                          colors="primary:#000000"
+                          colors="primary:#ffffff"
                           style={{ width: "25px", height: "25px" }}
                         ></lord-icon>
                         <div className="mr-1"> הוסף </div>

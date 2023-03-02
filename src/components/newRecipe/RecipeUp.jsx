@@ -167,12 +167,12 @@ export default function RecipeUp() {
                           setUp();
                         }}
                         type="button"
-                        className="btn btn-secondary m-3 d-flex"
+                        className="btn btn-color m-3 d-flex"
                       >
                         <lord-icon
                           src="https://cdn.lordicon.com/wfadduyp.json"
                           trigger="hover"
-                          colors="primary:#000000"
+                          colors="primary:#ffffff"
                           style={{ width: "25px", height: "25px" }}
                         ></lord-icon>
                         <div className="mr-1">עדכן </div>
