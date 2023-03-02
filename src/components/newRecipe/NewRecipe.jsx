@@ -59,12 +59,9 @@ export default function NewRecipe() {
       navigate("/main");
     } else {
       for (let index = 0; index < imgFile.length; index++) {
-        const imageRef = ref(
-          storage,
-          `${newRecipeData.docId}/${imgFile[index].file.name}`
-        );
-        uploadBytes(imageRef, imgFile[index].file).then(() => {
-          console.log("Uploaded a blob or file!");
+        const imageRef = ref(storage,`${newRecipeData.docId}/${imgFile[index].file.name}`);
+        uploadBytes(imageRef, imgFile[index].file).then((e) => {
+          console.log(e);
         });
       }
       setImgFile([]);
