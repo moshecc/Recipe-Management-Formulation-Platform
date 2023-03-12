@@ -3,7 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -13,6 +12,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../../Firebase";
 import { useRef } from "react";
 import { ContextData } from "../../App";
+import "./Login.css"
 
 const theme = createTheme();
 
@@ -93,16 +93,16 @@ export default function LoginPas() {
             >
               Sign In
             </Button>
-            <Grid container>
+            <Grid container className="mb-1" style={{cursor:"pointer"}}>
               <Grid item xs>
-                <Link href="#" variant="body2" onClick={()=>{setPas(true)}}>
+                <div className="link" onClick={()=>{setPas(true)}}>
                   {"Forgot password?"}
-                </Link>
+                </div>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2" onClick={()=>{setLogInAcoount(false)}}>
+                <div className="link" onClick={()=>{setLogInAcoount(false)}}>
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </div>
               </Grid>
             </Grid>
           </Box>

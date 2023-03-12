@@ -3,9 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -17,7 +14,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase
 import { useAuth } from '../../Firebase';
 import { useContext } from 'react';
 import { ContextData } from '../../App';
-
+import "./Login.css"
 
 export default function SignUp() {
 
@@ -137,11 +134,11 @@ const theme = createTheme();
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="flex-end" className='mb-1'>
               <Grid item>
-                <Link href="#" variant="body2" onClick={()=>{setLogInAcoount(true)}}>
+                <div className='link' onClick={()=>{setLogInAcoount(true)}}>
                   Already have an account? Sign in
-                </Link>
+                </div>
               </Grid>
             </Grid>
           </Box>

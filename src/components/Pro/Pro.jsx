@@ -23,7 +23,7 @@ export default function Pro() {
    <span className="d-flex justify-content-center">n</span>
    <span className="d-flex justify-content-center">n</span>
     </div>
-  <Link to={"/main/pro/creditcard"} className="col-12 btn border bg-danger">קנה עכשיו</Link>
+  <Link to={"/main/pro/creditcard"} className="col-12 btn border bg-danger shake">קנה עכשיו</Link>
   </div>
 </div>
     <div class=" border rounded bc-card bc-card mr-2 mt-2 " style={{width: "13rem",height: "19rem"}}>
@@ -36,7 +36,7 @@ export default function Pro() {
    <span className="d-flex justify-content-center">n</span>
    <span className="d-flex justify-content-center">n</span>
     </div>
-    <Link to={"/main/pro/creditcard"} className="col-12 btn border bg-danger">קנה עכשיו</Link>
+    <Link to={"/main/pro/creditcard"} className="col-12 btn border bg-danger shake">קנה עכשיו</Link>
   </div>
 </div>
     <div class=" border rounded bc-card bc-card mr-2 mt-2 mt-sm-5" style={{width: "13rem",height: "19rem"}}>
@@ -49,7 +49,7 @@ export default function Pro() {
    <span className="d-flex justify-content-center">n</span>
    <span className="d-flex justify-content-center">n</span>
     </div>
-    <Link to={"/main/pro/creditcard"} className="col-12 btn border bg-danger">קנה עכשיו</Link>
+    <Link to={"/main/pro/creditcard"} className="col-12 btn border bg-danger shake">קנה עכשיו</Link>
   </div>
 </div>
 </div>
