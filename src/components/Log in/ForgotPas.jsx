@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,11 +10,37 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useContext } from 'react';
 import { ContextData } from '../../App';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../../Firebase';
 
 const theme = createTheme();
 
 export default function ForgotPas() {
-    const { loading, SetLoading } = useContext(ContextData);
+  const { loading, SetLoading } = useContext(ContextData);
+  const[email , setEmail] = useState("");
+
+function reset(){
+  SetLoading(true)
+  sendPasswordResetEmail(auth, email)
+  .then(() => {
+    // Password reset email sent!
+    // ..
+    alert("secsed");
+    SetLoading(false)
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorCode);
+    alert(errorMessage);
+    SetLoading(false)
+  });
+}
+
+
+
+
 
   return (
     <>
@@ -46,9 +72,10 @@ export default function ForgotPas() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e)=>{setEmail(e.target.value)}}
             />
             <Button
-              onClick={""}
+              onClick={()=>{reset()}}
               fullWidth
               variant="contained"
               disabled = {loading}

@@ -9,15 +9,19 @@ import { auth, googleProvider } from "../../Firebase";
 import { useContext } from "react";
 import Dialog from '@mui/material/Dialog';
 import LoginPas from "./LoginPas";
+import ForgetPas from "./ForgotPas";
+
 import { useState } from "react";
 import { ContextData } from "../../App";
 import SignUp from "./SignUp";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login() {
   const [open, setOpen] = useState(false);
-  const { user, SetUser , logInAcoount } = useContext(ContextData);
-console.log(logInAcoount);
+  const { SetUser , logInAcoount ,pas ,setPas } = useContext(ContextData);
+const navigate = useNavigate();
+
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
@@ -32,6 +36,7 @@ console.log(logInAcoount);
   };
   const handleClickOpen = () => {
     setOpen(true);
+    setPas(false)
   };
 
   const handleClose = () => {
@@ -55,7 +60,8 @@ console.log(logInAcoount);
           <RiLoginCircleFill /> LogIn
         </Button>
       <Dialog open={open} onClose={handleClose}>
-        {logInAcoount?<LoginPas/>:<SignUp/>}
+        {pas?<ForgetPas/>
+        :logInAcoount?<LoginPas/>:<SignUp/>}
       </Dialog>
 
         <Button onClick={signInWithGoogle} className="btn bg-primary mb-2">
@@ -63,7 +69,7 @@ console.log(logInAcoount);
             <FcGoogle /> Sign in with Google
           </h6>
         </Button>
-        <Button className="btn bg-primary mb-2">
+        <Button className="btn bg-primary mb-2" onClick={()=>{navigate("/main")}}>
           <h6>
             <FaGhost /> Sign in as a Guest
           </h6>

@@ -17,9 +17,8 @@ import { ContextData } from "../../App";
 const theme = createTheme();
 
 export default function LoginPas() {
-  const { loading, SetLoading ,SetUser , setLogInAcoount } = useContext(ContextData);
+  const { loading, SetLoading ,SetUser , setLogInAcoount ,setPas } = useContext(ContextData);
 
-  const [open, setOpen] = React.useState(false);
   const email = useRef();
   const password = useRef();
 
@@ -96,8 +95,8 @@ export default function LoginPas() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
+                <Link href="#" variant="body2" onClick={()=>{setPas(true)}}>
+                  {"Forgot password?"}
                 </Link>
               </Grid>
               <Grid item>

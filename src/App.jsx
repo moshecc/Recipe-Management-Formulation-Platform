@@ -16,6 +16,7 @@ const [user , SetUser] = useState(null);
 const [loading , SetLoading] = useState(false) ;
 const [run , setRun] = useState(false) ;
 const [logInAcoount , setLogInAcoount] = useState(true) ;
+const [pas , setPas] = useState(false) ;
 const [currentOpen ,setCurrentOpen] = useState(null);
 const [previewUrl, setPreviewUrl] = useState([]);
 const [imgFile, setImgFile] = useState([]);
@@ -36,7 +37,9 @@ const data = {
   imgFile,
   setImgFile,
   logInAcoount,
-  setLogInAcoount
+  setLogInAcoount,
+  pas,
+  setPas
 }
 
 
