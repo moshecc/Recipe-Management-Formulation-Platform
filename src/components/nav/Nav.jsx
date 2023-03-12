@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState} from "react";
 import "./Nav.css";
 import Burger from "./Burger";
 import { ContextData } from "../../App";
@@ -11,14 +11,6 @@ export default function Nav() {
   function hideBurger() {
     sutBurger(!burger);
   }
-
-    // if (burger) {
-    //   document.getElementById("e").addEventListener("click", () =>{
-    //     console.log("click");
-    //     hideBurger()});
-    //   console.log("om");
-    // }
-
 
   return (
     <div id="e" className="container-fluid sticky-top">
@@ -38,8 +30,8 @@ export default function Nav() {
         <div className="col-3 fst-italic fs-2 pr-0 pl-0 d-flex justify-content-center align-items-center">
           {!burger ? (
             <div className="name d-flex align-content-center">
-              <div className="mt-2 mr-3">{user==undefined?" ":`${user.displayName}`}</div>
-              <Avatar className="border " alt="User Name" src={user==undefined?" ":`${user.photoURL}`} />
+              <div className="mt-2 mr-3">{user?`${user.displayName}`:" "}</div>
+              <Avatar className="border " alt="User Name" src={user?`${user.photoURL}`:" "} />
             </div>
           ) : (
             ""

@@ -11,12 +11,13 @@ import Dialog from '@mui/material/Dialog';
 import LoginPas from "./LoginPas";
 import { useState } from "react";
 import { ContextData } from "../../App";
+import SignUp from "./SignUp";
 
 
 export default function Login() {
   const [open, setOpen] = useState(false);
-  const { user, SetUser } = useContext(ContextData);
-
+  const { user, SetUser , logInAcoount } = useContext(ContextData);
+console.log(logInAcoount);
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
@@ -54,7 +55,7 @@ export default function Login() {
           <RiLoginCircleFill /> LogIn
         </Button>
       <Dialog open={open} onClose={handleClose}>
-        <LoginPas/>
+        {logInAcoount?<LoginPas/>:<SignUp/>}
       </Dialog>
 
         <Button onClick={signInWithGoogle} className="btn bg-primary mb-2">

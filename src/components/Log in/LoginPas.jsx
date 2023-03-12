@@ -10,8 +10,6 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import SignUp from "./SignUp";
-import Dialog from "@mui/material/Dialog";
 import { login } from "../../Firebase";
 import { useRef } from "react";
 import { ContextData } from "../../App";
@@ -19,7 +17,7 @@ import { ContextData } from "../../App";
 const theme = createTheme();
 
 export default function LoginPas() {
-  const { loading, SetLoading ,SetUser } = useContext(ContextData);
+  const { loading, SetLoading ,SetUser , setLogInAcoount } = useContext(ContextData);
 
   const [open, setOpen] = React.useState(false);
   const email = useRef();
@@ -44,14 +42,6 @@ export default function LoginPas() {
         // ..
       });
   }
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -111,12 +101,9 @@ export default function LoginPas() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2" onClick={handleClickOpen}>
+                <Link href="#" variant="body2" onClick={()=>{setLogInAcoount(false)}}>
                   {"Don't have an account? Sign Up"}
                 </Link>
-                <Dialog open={open} onClose={handleClose}>
-                  <SignUp />
-                </Dialog>
               </Grid>
             </Grid>
           </Box>

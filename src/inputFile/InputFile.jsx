@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./InputFileStyle.css";
 import { BiImageAdd } from "react-icons/bi";
-import { FaTrashAlt } from "react-icons/fa";
 import { useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { useContext } from "react";
@@ -12,7 +11,6 @@ import { storage } from "../Firebase";
 export default function InputFile() {
   const { previewUrl, setPreviewUrl, imgFile, setImgFile ,currentOpen } =
     useContext(ContextData);
-  const [trash, settrash] = useState(true);
   const imgref = useRef();
   console.log(previewUrl);
   console.log(imgFile);
@@ -22,7 +20,6 @@ export default function InputFile() {
     const url = URL.createObjectURL(imgref.current.files[0]);
     setImgFile([...imgFile, { file }]);
     setPreviewUrl([...previewUrl, url]);
-    settrash(true);
   };
 
   function dal(i) {
@@ -38,8 +35,8 @@ export default function InputFile() {
         });
     }
     console.log(i);
-    setPreviewUrl(previewUrl.filter((e) => e != previewUrl[i]));
-    setImgFile(imgFile.filter((e) => e != imgFile[i]));
+    setPreviewUrl(previewUrl.filter((e) => e !== previewUrl[i]));
+    setImgFile(imgFile.filter((e) => e !== imgFile[i]));
   }
   return (
     <>
@@ -70,7 +67,7 @@ export default function InputFile() {
         >
           {previewUrl.map((item, i) => (
             <div key={i}>
-              <img className="imgCarouselInput" src={item} />
+              <img className="imgCarouselInput" src={item} alt = "hey" />
               <div
                 onClick={() => {
                   dal(i);

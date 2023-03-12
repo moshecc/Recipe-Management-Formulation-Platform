@@ -5,8 +5,8 @@ import "./NewRecipe.css";
 import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
 import Dialog from "@mui/material/Dialog";
-import { useAuth, db, storage } from "../../Firebase";
-import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { db, storage } from "../../Firebase";
+import { doc, updateDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextData } from "../../App";
 import { IoMdReturnRight } from "react-icons/io";
@@ -15,7 +15,7 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import { deleteObject, ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 import { Carousel } from "react-responsive-carousel";
 
 export default function RecipeUp() {
@@ -119,7 +119,7 @@ export default function RecipeUp() {
                     ><div className="col-12 nl-2 col-lg-6 ">
                       <Carousel showThumbs={false}  autoPlay={true}  transitionTime={3} infiniteLoop={true} showStatus={true}>            
               {previewUrl.map((item, i) => (
-                  <img key={i} className="imgCarouselNew " src={item} />
+                  <img key={i} className="imgCarouselNew " src={item} alt = "hey" />
                 ))}
               </Carousel>
                       </div>

@@ -12,7 +12,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
 import { useRef } from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from '../../Firebase';
@@ -22,7 +21,7 @@ import { ContextData } from '../../App';
 
 export default function SignUp() {
 
-  const {loading , SetLoading , SetUser} = useContext(ContextData)
+  const {loading , SetLoading , SetUser ,setLogInAcoount} = useContext(ContextData)
 
   const currentUser = useAuth();
 
@@ -140,7 +139,7 @@ const theme = createTheme();
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" onClick={()=>{setLogInAcoount(true)}}>
                   Already have an account? Sign in
                 </Link>
               </Grid>

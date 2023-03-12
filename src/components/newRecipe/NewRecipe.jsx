@@ -7,7 +7,7 @@ import RecipeData from "../../Classes/ClassNewRecipe";
 import InputFile from "../../inputFile/InputFile";
 import Dialog from "@mui/material/Dialog";
 import { useAuth, db, storage } from "../../Firebase";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import { ref, uploadBytes } from "@firebase/storage";
 import { useContext } from "react";
@@ -52,7 +52,7 @@ export default function NewRecipe() {
     );
     newRecipeData.docId = v4();
     console.log(newRecipeData);
-    const docRef = setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
+    setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
       ...newRecipeData,
     });
 
@@ -127,7 +127,7 @@ export default function NewRecipe() {
                       <div className="col-12 nl-2 col-lg-6 ">
                       <Carousel showThumbs={false}  autoPlay={true}  transitionTime={3} infiniteLoop={true} showStatus={true}>            
               {previewUrl.map((item, i) => (
-                  <img key={i} className="imgCarouselNew " src={item} />
+                  <img key={i} className="imgCarouselNew " src={item} alt = "hey" />
                 ))}
               </Carousel>
                       </div>

@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import MyRouter from './router/MyRouter'
 //Lord-Icon
 import lottie from 'lottie-web';
@@ -15,7 +15,8 @@ export default function App() {
 const [user , SetUser] = useState(null);
 const [loading , SetLoading] = useState(false) ;
 const [run , setRun] = useState(false) ;
-const [ currentOpen ,setCurrentOpen] = useState(null);
+const [logInAcoount , setLogInAcoount] = useState(true) ;
+const [currentOpen ,setCurrentOpen] = useState(null);
 const [previewUrl, setPreviewUrl] = useState([]);
 const [imgFile, setImgFile] = useState([]);
 
@@ -33,7 +34,9 @@ const data = {
   previewUrl,
   setPreviewUrl,
   imgFile,
-  setImgFile
+  setImgFile,
+  logInAcoount,
+  setLogInAcoount
 }
 
 
