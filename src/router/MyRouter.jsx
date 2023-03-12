@@ -18,6 +18,7 @@ import Plus from '../components/MainPage/Plus'
 import RecipeUp from '../components/newRecipe/RecipeUp'
 import Pro from '../components/Pro/Pro'
 import CreditCard from '../components/Pro/CreditCard'
+import ForgotPas from '../components/Log in/ForgotPas'
 
 export default function MyRouter() {
   return (
@@ -39,6 +40,7 @@ export default function MyRouter() {
        <Route path='/main/pro' element={<Pro/>}/>
        <Route path='/main/pro/creditcard' element={<CreditCard/>}/>
        <Route path='/burger' element={<Burger/>}/>
+       <Route path='/pas' element={<ForgotPas/>}/>
        <Route path='/recipeUp' element={<RecipeUp/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>
