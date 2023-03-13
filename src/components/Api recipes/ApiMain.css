@@ -1,0 +1,9 @@
+.back-button-ipa{
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    z-index: 1000;
+}
+.inputStyle{
+    background-color: rgba(222, 222, 228, 0.352);
+}

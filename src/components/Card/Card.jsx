@@ -37,10 +37,6 @@ export default function Card({ item }) {
 
   }, [item])
 
-  
-
-
-
     return (
     <>
       <div
