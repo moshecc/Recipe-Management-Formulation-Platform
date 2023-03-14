@@ -6,7 +6,7 @@ import { ContextData } from "../../App";
 import { BiLogOut } from "react-icons/bi";
 
 export default function Burger() {
-  const { loading, SetLoading , setCurrentOpen , user } = useContext(ContextData);
+  const { loading, SetLoading , setCurrentOpen , user ,SetUser } = useContext(ContextData);
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -14,6 +14,7 @@ export default function Burger() {
     try {
       await logout();
       setCurrentOpen(null)
+      SetUser(null)
       navigate('/');
 
     } catch {

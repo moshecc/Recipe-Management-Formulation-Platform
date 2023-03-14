@@ -37,7 +37,6 @@ export const colRef = collection(db,"recepis");
 
 export function useAuth() {
   const [ currentUser, setCurrentUser ] = useState();
-  // const o = doc()
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
     return unsub;
