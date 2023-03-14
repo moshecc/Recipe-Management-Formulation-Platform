@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { IoMdReturnRight } from "react-icons/io";
 import { Link } from "react-router-dom";
