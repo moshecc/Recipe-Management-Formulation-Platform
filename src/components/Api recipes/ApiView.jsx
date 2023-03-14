@@ -6,7 +6,7 @@ export default function ApiView() {
   return (
     <>
     <div className="bgImg">
-    <Link to={"/apiMain"}>
+    <Link to={"/main/apiMain"}>
           <div className="btn back-button">
             <div>
               <IoMdReturnRight size={30} />

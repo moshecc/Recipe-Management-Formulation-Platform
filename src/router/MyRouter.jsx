@@ -46,7 +46,7 @@ export default function MyRouter() {
        <Route path='/pas' element={<ForgotPas/>}/>
        <Route path='/recipeUp' element={<RecipeUp/>}/>
        <Route path='/apiCard' element={<ApiCard/>}/>
-       <Route path='/apiMain' element={<ApiMain/>}/>
+       <Route path='/main/apiMain' element={<ApiMain/>}/>
        <Route path='/apiView' element={<ApiView/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>

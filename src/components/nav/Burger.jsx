@@ -34,7 +34,7 @@ export default function Burger() {
           <div className="row">
           <Link  style={{color:"black"}} to={""} className="d-flex justify-content-end col-11 nav-link">ערוך משתמש</Link>
           <Link to={"/main/pro"} className="d-flex justify-content-end  col-11 nav-link"> שדרג לפרימיום </Link>
-          <Link to={""} className="d-flex justify-content-end col-11 nav-link">חפש מתכון חדש</Link>
+          <Link to={"/main/apiMain"} className="d-flex justify-content-end col-11 nav-link">חפש מתכון חדש</Link>
             <Link to={'/aboutus'} className="d-flex justify-content-end mb-1 col-11 nav-link">קצת עלינו</Link>
           <div className="d-flex justify-content-start ml-3 mb-2 col-11">
           <button onClick={handleLogout} className="bg-danger btn d-flex justify-content-start" style={{borderRadius:"8px"}}>
