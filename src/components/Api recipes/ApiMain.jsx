@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { IoMdReturnRight } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -8,17 +8,29 @@ import "./ApiMain.css";
 export default function ApiMain() {
   const apiKode = "bf50efed1f67407f9bb3dcef2eefac27";
   const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
-  const [apiData,setapiData] = useState([])
+  const [apiData,setapiData] = useState([]);
+  const [product,setproduct] = useState();
+  const refInput = useRef();
 console.log(apiData);
   useEffect(() => {
     fetch(
-      // `https://api.spoonacular.com/recipes/complexSearch?query=pizza&apiKey=${apiKode1}&number=50`
+      // `https://api.spoonacular.com/recipes/complexSearch?query=${product}&apiKey=${apiKode1}&number=50`
     )
       .then((response) => response.json())
       .then((data) => {setapiData(data.results); console.log(data);})
       .catch((err) => console.error(err));
   }, []);
 
+  function Search(){
+    console.log(refInput.current.value);
+    setproduct(refInput.current.value);
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?query=${product}&apiKey=${apiKode1}&number=50`
+    )
+      .then((response) => response.json())
+      .then((data) => {setapiData(data.results); console.log(data);})
+      .catch((err) => console.error(err));
+  }
   return (
     <>
       <div className="bgImg">
@@ -36,10 +48,12 @@ console.log(apiData);
               className="btn btn-outline-success"
               type="button"
               id="button-addon2"
+              onClick={()=> Search()}
             >
               <BiSearchAlt size={20}/>
             </button>
             <input
+              ref={refInput}
               dir="rtl"
               type="search"
               className="form-control inputStyle"
