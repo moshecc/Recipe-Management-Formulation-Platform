@@ -10,7 +10,6 @@ export default function ApiMain() {
   const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
   const [apiData,setapiData] = useState([]);
   const [product,setproduct] = useState();
-  const refInput = useRef();
 console.log(apiData);
   useEffect(() => {
     fetch(
@@ -22,8 +21,7 @@ console.log(apiData);
   }, []);
 
   function Search(){
-    console.log(refInput.current.value);
-    setproduct(refInput.current.value);
+    
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?query=${product}&apiKey=${apiKode1}&number=50`
     )
@@ -53,7 +51,7 @@ console.log(apiData);
               <BiSearchAlt size={20}/>
             </button>
             <input
-              ref={refInput}
+            onChange={(e)=>setproduct(e.target.value)}
               dir="rtl"
               type="search"
               className="form-control inputStyle"
