@@ -20,6 +20,7 @@ const [pas , setPas] = useState(false) ;
 const [currentOpen ,setCurrentOpen] = useState(null);
 const [previewUrl, setPreviewUrl] = useState([]);
 const [imgFile, setImgFile] = useState([]);
+const [apiRecpie,sutapiRecpie] = useState(null);
 
 
 
@@ -39,7 +40,9 @@ const data = {
   logInAcoount,
   setLogInAcoount,
   pas,
-  setPas
+  setPas,
+  apiRecpie,
+  sutapiRecpie,
 }
 
 
