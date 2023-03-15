@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { IoMdReturnRight } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { ContextData } from "../../App";
-
+import ApiPlus from "./ApiPlus";
+import "./ApiView.css"
 export default function ApiView() {
   const { apiRecpie, sutapiRecpie } = useContext(ContextData);
   console.log(apiRecpie.instructions);
@@ -50,6 +51,9 @@ export default function ApiView() {
           </h2>
           <p className="ing_style"> {apiRecpie.instructions}</p>
         </div>
+        <div className="apiPlus">
+           <ApiPlus/>
+          </div>
       </div>
       </div>
 

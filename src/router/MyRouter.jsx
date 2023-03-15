@@ -22,6 +22,7 @@ import ForgotPas from '../components/Log in/ForgotPas'
 import ApiCard from '../components/Api recipes/ApiCard'
 import ApiMain from '../components/Api recipes/ApiMain'
 import ApiView from '../components/Api recipes/ApiView'
+import ApiPlus from '../components/Api recipes/ApiPlus'
 
 export default function MyRouter() {
   return (
@@ -47,6 +48,7 @@ export default function MyRouter() {
        <Route path='/recipeUp' element={<RecipeUp/>}/>
        <Route path='/apiCard' element={<ApiCard/>}/>
        <Route path='/main/apiMain' element={<ApiMain/>}/>
+       <Route path='/aplus' element={<ApiPlus/>}/>
        <Route path='/apiView' element={<ApiView/>}/>
        <Route path='/*' element={<PageError/>}/>
         </Routes>
