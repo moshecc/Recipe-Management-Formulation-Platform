@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState,useEffect } from 'react'
 import MyRouter from './router/MyRouter'
 //Lord-Icon
 import lottie from 'lottie-web';
@@ -11,7 +11,8 @@ export const ContextData = createContext();
 
 
 export default function App() {
-
+const apiKode = "bf50efed1f67407f9bb3dcef2eefac27";
+const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
 const [user , SetUser] = useState(null);
 const [loading , SetLoading] = useState(false) ;
 const [run , setRun] = useState(false) ;
@@ -21,7 +22,17 @@ const [currentOpen ,setCurrentOpen] = useState(null);
 const [previewUrl, setPreviewUrl] = useState([]);
 const [imgFile, setImgFile] = useState([]);
 const [apiRecpie,sutapiRecpie] = useState(null);
+const [apiRecpieRan,sutapiRecpieRan] = useState(null);
+const [apiData,setapiData] = useState(null);
 
+useEffect(() => {
+  fetch(
+    `https://api.spoonacular.com/recipes/random?apiKey=${apiKode1}&number=50`
+  )
+    .then((response) => response.json())
+    .then((data) => {sutapiRecpieRan(data); console.log(data);})
+    .catch((err) => console.error(err));
+}, []);
 
 
 const data = {
@@ -43,9 +54,11 @@ const data = {
   setPas,
   apiRecpie,
   sutapiRecpie,
+  apiRecpieRan,
+  sutapiRecpieRan,
+  apiData,
+  setapiData,
 }
-
-
   return (
     <>
     <ContextData.Provider value={data}>

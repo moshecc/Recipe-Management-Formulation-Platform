@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useEffect, useState} from "react";
 import "./Nav.css";
 import Burger from "./Burger";
 import { ContextData } from "../../App";
@@ -8,10 +8,10 @@ export default function Nav() {
   const [burger, sutBurger] = useState(false);
   const {user} = useContext(ContextData);
 
-  function hideBurger() {
-    sutBurger(!burger);
-  }
-
+  useEffect(() => {
+   window.addEventListener("click",()=> sutBurger(false))
+  }, [])
+  
   return (
     <div id="e" className="container-fluid sticky-top">
       <div className="myNav row ">
@@ -38,7 +38,10 @@ export default function Nav() {
           )}
         </div>
         <div className="col-sm-1 col-2 pr-0 pl-0 d-flex justify-content-center">
-          <div className="" onClick={hideBurger}>
+          <div className="" onClick={(e) =>{
+           e.stopPropagation();
+           sutBurger(!burger);
+          } }>
             <div className="thebur">
               <lord-icon
                 src="https://cdn.lordicon.com/phtfmmnb.json"

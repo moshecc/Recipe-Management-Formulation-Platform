@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { IoMdReturnRight } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { ContextData } from "../../App";
 import Nav from "../nav/Nav";
 import ApiCard from "./ApiCard";
 import "./ApiMain.css";
 export default function ApiMain() {
   const apiKode = "bf50efed1f67407f9bb3dcef2eefac27";
   const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
-  const [apiData,setapiData] = useState([]);
+  const {apiRecpieRan,sutapiRecpieRan, apiData,setapiData } = useContext(ContextData);
   const [product,setproduct] = useState();
-console.log(apiData);
-  useEffect(() => {
-    fetch(
-      // `https://api.spoonacular.com/recipes/complexSearch?query=${product}&apiKey=${apiKode1}&number=50`
-    )
-      .then((response) => response.json())
-      .then((data) => {setapiData(data.results); console.log(data);})
-      .catch((err) => console.error(err));
-  }, []);
-
+  console.log(apiRecpieRan);
+ 
   function Search(){
     
     fetch(
@@ -62,11 +55,17 @@ console.log(apiData);
           </div>
         </div>
         <div className="mt-5 row justify-content-center">
-        {apiData.length>0?apiData.map((item,i)=>(
+        {apiData!=null?apiData.map((item,i)=>(
           <div className="mr-2 mb-3">
         <ApiCard key={i} item={item} />
         </div>
-        )):""}
+        )):
+        apiRecpieRan.recipes.map((item,i)=>(
+          <div className="mr-2 mb-3">
+        <ApiCard key={i} item={item} />
+        </div>
+        ))
+        }
         </div>
       </div>
     </>

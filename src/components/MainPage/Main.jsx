@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Nav from "../nav/Nav";
 import RecipeList from "./RecipeList";
 import RecipeView from "./RecipeView";
 import "./Main.css"
-export default function Main() {
+import { ContextData } from "../../App";
 
+export default function Main() {
+  const { setCurrentOpen } = useContext(ContextData);
+
+  useEffect(() => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+  }, [setCurrentOpen])
+  
   return (
     <>
     <div className="bgImg">
