@@ -24,6 +24,7 @@ import { Carousel } from "react-responsive-carousel";
 export default function NewRecipe() {
   const { previewUrl, setPreviewUrl, imgFile, setImgFile, setCurrentOpen } =
     useContext(ContextData);
+    setPreviewUrl(null);
   const user = useAuth();
   console.log(user);
   const [open, setOpen] = useState(false);
