@@ -27,7 +27,7 @@ export default function ApiView() {
           <div className="row">
             <div className="img_div col-12 col-sm-6">
                 <img
-                  className="imgLogo rounded"
+                  className="rounded"
                   src={apiRecpie.image? apiRecpie.image : "https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"}
                   alt="logo"
                 />
