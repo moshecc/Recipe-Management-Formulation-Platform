@@ -38,8 +38,10 @@ return rec
       name,
       ingredients,
       instructions,
-      user.uid
+      user.uid,
+     
     );
+    newRecipeData.imgUrl = apiRecpie.image;
     newRecipeData.docId = v4();
     console.log(newRecipeData);
     setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
