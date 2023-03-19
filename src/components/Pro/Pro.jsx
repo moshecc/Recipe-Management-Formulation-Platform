@@ -18,14 +18,17 @@ export default function Pro() {
   return (
     <>
       <div className="bgImg">
+      
         <Link to={"/main"}>
           <div className="btn back-button">
             <div><IoMdReturnRight size={30} /></div>
           </div>
         </Link>
+        <div className="row justify-content-center">
         <b className="d-flex h2 justify-content-center align-items-center mb-5 mt-5 text-pro">ברוכים הבאים לגרסת הפרמיום</b>
-        <div className="d-flex row justify-content-center align-items-center">
-          <div class=" border bc-card bc-card" style={{ width: "16rem", height: "21rem" }}>
+        <div className=" container row justify-content-center ">
+
+          <div class=" mr-2 mb-2 border bc-card bc-card mt-0 mt-lg-5" style={{ width: "16rem", height: "21rem" }}>
             <b className="bg-pro d-flex justify-content-center align-items-center" style={{ height: "4rem" }}>Basic</b>
             <div class="card-body">
               <h2 class="d-flex justify-content-center align-items-center">₪0</h2>
@@ -38,7 +41,7 @@ export default function Pro() {
               <div className="col-12 btn border bg-secondary">Free</div>
             </div>
           </div>
-          <div class=" border bc-card bc-card" style={{ width: "16rem", height: "21rem" }}>
+          <div class="mr-2 mb-2 border bc-card bc-card" style={{ width: "16rem", height: "21rem" }}>
             <b className="bg-pro d-flex justify-content-center align-items-center" style={{ height: "4rem" }}>Chef</b>
             <div class="card-body">
               <h2 class="d-flex justify-content-center align-items-center">₪100</h2>
@@ -52,7 +55,7 @@ export default function Pro() {
             </div>
           </div>
 
-          <div class=" border bc-card bc-card" style={{ width: "16rem", height: "21rem" }}>
+          <div class="mr-2 mb-2 border bc-card bc-card mt-0 mt-lg-5" style={{ width: "16rem", height: "21rem" }}>
             <b className="bg-pro d-flex justify-content-center align-items-center" style={{ height: "4rem" }}>Pro</b>
             <div class="card-body">
               <h2 class="d-flex justify-content-center align-items-center">₪10</h2>
@@ -66,6 +69,7 @@ export default function Pro() {
             </div>
 
           </div>
+        </div>
         </div>
       </div>
     </>
