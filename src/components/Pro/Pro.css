@@ -9,6 +9,9 @@
 .text-pro{
     text-align: center;
 }
+.textProPrice{
+text-align: right;
+}
 .bg-pro{
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(11, 14, 18);
