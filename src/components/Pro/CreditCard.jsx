@@ -25,7 +25,7 @@ export default function CreditCard() {
               purchase_units: [
                 {
                   amount: {
-                    value: {ProPaypal},
+                    value: ProPaypal,
                   },
                 },
               ],
