@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { IoMdReturnRight } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import "./Pro.css"
+import { ContextData } from '../../App'
+
 export default function CreditCard() {
+  const { ProPaypal} = useContext(ContextData);
+
   return (
     <>
     <div className='bgImg'>
@@ -21,7 +25,7 @@ export default function CreditCard() {
               purchase_units: [
                 {
                   amount: {
-                    value: "2.00",
+                    value: {ProPaypal},
                   },
                 },
               ],

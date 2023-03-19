@@ -24,6 +24,7 @@ const [imgFile, setImgFile] = useState([]);
 const [apiRecpie,sutapiRecpie] = useState(null);
 const [apiRecpieRan,sutapiRecpieRan] = useState(null);
 const [apiData,setapiData] = useState(null);
+const [ProPaypal,setProPaypal] = useState(null);
 
 useEffect(() => {
   fetch(
@@ -58,6 +59,8 @@ const data = {
   sutapiRecpieRan,
   apiData,
   setapiData,
+  ProPaypal,
+  setProPaypal,
 }
   return (
     <>

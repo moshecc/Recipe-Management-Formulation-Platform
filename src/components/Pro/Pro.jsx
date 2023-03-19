@@ -1,8 +1,20 @@
-import React from "react";
+import React ,{ useContext }from "react";
 import { IoMdReturnRight } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ContextData } from "../../App";
 import "./Pro.css"
+
 export default function Pro() {
+
+  const {setProPaypal} = useContext(ContextData);
+  const navigate = useNavigate();
+
+  function paymant(e){
+    setProPaypal(e);
+    console.log(e);
+    navigate("/main/pro/creditcard")
+  }
+
   return (
     <>
     <div className="bgImg">
@@ -16,14 +28,14 @@ export default function Pro() {
     <div class=" border rounded bc-card bc-card mr-2 mt-2 mt-sm-5" style={{width: "13rem",height: "19rem"}}>
         <div className="bg-pro rounded d-flex justify-content-center align-items-center" style={{height: "4rem"}}>Pro</div>
        <div class="card-body">
-    <h2 class="d-flex justify-content-center align-items-center">10$</h2>
+    <h2 class="d-flex justify-content-center align-items-center">11$</h2>
     <div className="mt-3 mb-3 c">
     <span className="d-flex justify-content-center">   יותר מ50 מתכונים *</span>
    <span className="d-flex justify-content-center"> ללא פרסומות *</span>
    <span className="d-flex justify-content-center">n</span>
    <span className="d-flex justify-content-center">n</span>
     </div>
-  <Link to={"/main/pro/creditcard"} className="col-12 btn border bg-danger shake">קנה עכשיו</Link>
+  <div onClick={()=> paymant("10.00")} className="col-12 btn border bg-danger shake">קנה עכשיו</div>
   </div>
 </div>
     <div class=" border rounded bc-card bc-card mr-2 mt-2 " style={{width: "13rem",height: "19rem"}}>
