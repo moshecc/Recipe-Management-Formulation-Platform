@@ -65,7 +65,7 @@ export default function InputFile() {
           showStatus={true}
           className="container mb-2 caruselStyle"
         >
-          {previewUrl.map((item, i) => (
+          {previewUrl?previewUrl.map((item, i) => (
             <div key={i}>
               <img className="imgCarouselInput" src={item} alt = "hey" />
               <div
@@ -83,7 +83,7 @@ export default function InputFile() {
                 ></lord-icon>
               </div>
             </div>
-          ))}
+          )):""}
         </Carousel>
       </div>
     </>

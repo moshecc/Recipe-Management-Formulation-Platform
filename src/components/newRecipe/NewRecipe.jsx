@@ -24,7 +24,6 @@ import { Carousel } from "react-responsive-carousel";
 export default function NewRecipe() {
   const { previewUrl, setPreviewUrl, imgFile, setImgFile, setCurrentOpen } =
     useContext(ContextData);
-    setPreviewUrl(null);
   const user = useAuth();
   console.log(user);
   const [open, setOpen] = useState(false);
@@ -70,7 +69,7 @@ export default function NewRecipe() {
         });
       }
       setImgFile([]);
-      setPreviewUrl(null);
+      setPreviewUrl([]);
       navigate("/main");
     }
   };
@@ -127,9 +126,9 @@ export default function NewRecipe() {
                     <div className="d-flex justify-content-end  row mr-3 m-1" dir="ltr" >
                       <div className="col-12 nl-2 col-lg-6 ">
                       <Carousel showThumbs={false}  autoPlay={true}  transitionTime={3} infiniteLoop={true} showStatus={true}>            
-              {previewUrl.map((item, i) => (
+              {previewUrl?previewUrl.map((item, i) => (
                   <img key={i} className="imgCarouselNew " src={item} alt = "hey" />
-                ))}
+                )):""}
               </Carousel>
                       </div>
                       <div className="btn col-12 d-flex col-lg-4 justify-content-center" style={{ color: "black", cursor: "pointer", height:"100px" }}>
