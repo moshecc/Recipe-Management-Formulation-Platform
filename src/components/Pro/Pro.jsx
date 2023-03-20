@@ -61,14 +61,14 @@ export default function Pro() {
           <div class="mr-2 mb-2 border bc-card bc-card mt-0 mt-lg-5" style={{ width: "16rem", height: "21rem" }}>
             <b className="bg-pro d-flex justify-content-center align-items-center" style={{ height: "4rem" }}>Pro</b>
             <div class="card-body">
-              <h2 class="d-flex justify-content-center align-items-center">₪10</h2>
+              <h2 class="d-flex justify-content-center align-items-center">₪50</h2>
               <div className="mt-3 mb-3 c">
                 <span className="d-flex h5 justify-content-center">  עד 200 מתכונים •</span>
                 <span className="d-flex h5 justify-content-center"> ללא פרסומות •</span>
                 <span className="d-flex h5 justify-content-center">n</span>
                 <span className="d-flex h5 justify-content-center">n</span>
               </div>
-              <div onClick={() => {paymant("50.00" , "pro" ,"עד 200 מתכונים" )}} className="col-12 btn border bg-danger shake">קנה עכשיו</div>
+              <div onClick={() => {paymant("5.00" , "pro" ,"עד 200 מתכונים" )}} className="col-12 btn border bg-danger shake">קנה עכשיו</div>
             </div>
 
           </div>

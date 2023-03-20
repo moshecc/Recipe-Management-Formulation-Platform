@@ -31,12 +31,11 @@ export default function CreditCard() {
               </ul>
               <h3 className="d-flex justify-content-center">  מחיר {ProPaypal.price} ₪</h3>
             </div>
-
             <div className="col-6">
               <PayPalScriptProvider
                 options={{
                   "client-id":
-                    "Abl-GtoxYS4GCkAb6CEYnlEUN5oCiHHVmpSp4JnBhTSt68QxwmOBoFMu_ng9hziwaF3EsYeeKxdkltuK",
+                    "AcmyJCjf2k5nnCrAwZU7UsYgK5R-yhHM9y-hZVDvvhJip7-MfWwNOSmqkCMt3ZmjTgYnQ738LUtYNSco",
                   currency: "ILS",
                 }}
               >
