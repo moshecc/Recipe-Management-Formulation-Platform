@@ -88,13 +88,12 @@ export default function RecipeList() {
                     <Card item={item} />
                   </div>
                 ))
-              : userRecipe
-                  .filter((recipe) => recipe.name.startsWith(filter))
+              :userRecipe.filter((recipe) => recipe.name.includes(filter)).length>0?userRecipe.filter((recipe) => recipe.name.includes(filter))
                   .map((item, i) => (
                     <div key={i}>
                       <Card item={item} />
                     </div>
-                  ))}
+                  )):(<p>not found</p>)}
           </div>
         </div>
       </div>

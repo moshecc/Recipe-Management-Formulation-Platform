@@ -23,6 +23,7 @@ export default function AboutUs() {
                 similique quaerat ratione ex quae, inventore at quidem
                 recusandae quibusdam officiis optio? Tempora, soluta.
               </p>
+            <a href="tel:054675119">054675119</a>
             </div>
           </div>
         </div>
