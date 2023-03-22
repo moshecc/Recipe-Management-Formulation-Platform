@@ -27,3 +27,7 @@
     border-radius: 30px;
     background-color: rgb(161, 155, 155);
 }
+.pen{
+    transform: rotate(35deg);
+    cursor: pointer;
+}

@@ -93,13 +93,15 @@ export default function UpdateUser() {
                   style={{ width: "27px", height: "27px", cursor: "pointer" }}
                 ></lord-icon>
               </div>
-              <div className="d-flex justify-content-center mt-2">
-              <lord-icon
+              <div className="d-flex justify-content-center mt-2 ">
+                <span className="pen mr-1">
+                       <lord-icon
                       src="https://cdn.lordicon.com/wloilxuq.json"
                       trigger="hover"
                       style={{ width: "25px", height: "25px" }}
                       >
                     </lord-icon>
+                    </span>
                     <span>{name}</span>
 
               </div>
@@ -117,11 +119,10 @@ export default function UpdateUser() {
                 autoComplete="off"
               >
                 <div dir="rtl">
-                  <div className="row justify-content-center mt-4 align-items-center">
+                  <div className="row justify-content-center mt-4 align-items-center" style={{ cursor: "pointer"}}>
                     <div className="col-8 col-sm-6 pl-0 pr-0 d-flex justify-content-center">
                       <TextField
                         id="outlined-multiline-flexible"
-                        className=""
                         label="שם"
                         // placeholder=" "
                         color="error"
