@@ -9,6 +9,7 @@ import NewCard from "../Card/NewCard";
 import "./RecipeList.css";
 import { UserRecipes } from "../../Firebase";
 
+
 export default function RecipeList() {
   const { SetUser, user, currentOpen } = useContext(ContextData);
   const [userRecipe, setUserRecipe] = useState(null);
@@ -23,11 +24,11 @@ export default function RecipeList() {
     if (currentUser) SetUser(currentUser);
   }, [currentUser]);
 
-  useEffect(() => {
-    if (user != undefined) {
-      UserRecipes(user.uid, setUserRecipe);
-    }
-  }, [currentOpen]);
+  // useEffect(() => {
+  //   if (user != undefined) {
+  //     UserRecipes(user.uid, setUserRecipe);
+  //   }
+  // }, [currentOpen]);
 
   if (user != undefined && userRecipe == null) {
     UserRecipes(user.uid, setUserRecipe);
