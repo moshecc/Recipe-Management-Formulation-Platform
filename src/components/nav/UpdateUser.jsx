@@ -10,9 +10,12 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import { ContextData } from "../../App";
-
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Avatar from '@mui/material/Avatar';
 export default function UpdateUser() {
-  const {  user ,SetUser } = useContext(ContextData);
+  const { user, SetUser } = useContext(ContextData);
 
   const [img, setImg] = useState(user.photoURL)
   const imgRef = useRef()
@@ -25,6 +28,10 @@ export default function UpdateUser() {
 
   function handleCgange() {
     console.log(refName.current.value);
+  }
+
+  function dal() {
+    setImg("")
   }
 
   const theme = createTheme({
@@ -50,83 +57,119 @@ export default function UpdateUser() {
         <div className="row justify-content-center ">
           <div className="UpdteUserContiner p-md-5 col-10 col-md-8 flex-column justify-content-center mt-5">
             <div className="col-12">
-              <h2 className="d-flex justify-content-center  myFont">
-                עדכון משתמש
-              </h2>
+              <h1 className="d-flex justify-content-center  myFont">
+                פרטי משתמש
+              </h1>
               <div className="row justify-content-center">
                 <div className="Avatar mt-3" style={{ backgroundImage: `url(${img})` }}>
                   <div className="d-flex justify-content-end">
                     <input className="hide" ref={imgRef} onChange={handleChange} type="file" />
                   </div>
-                  <div className="d-flex justify-content-end" >
+                  <div className="d-flex justify-content-start" >
                     <lord-icon
                       src="https://cdn.lordicon.com/vixtkkbk.json"
                       trigger="hover"
                       stroke="70"
-                      style={{ width: "40px", height: "40px" }}>
+                      colors="primary:#000000,secondary:#c71f16"
+                      style={{ width: "40px", height: "40px", border: "2px solid rgba(0, 0, 0, 0.3)", borderRadius: "50%" }}
+                    >
                     </lord-icon>
                   </div>
                 </div>
               </div>
+              <div className="d-flex justify-content-end col-9 col-sm-7 ml-4" onClick={() => dal()}>
+                <lord-icon
+                  src="https://cdn.lordicon.com/tntmaygd.json"
+                  trigger="hover"
+                  colors="primary:#000000,secondary:#c71f16"
+                  stroke="100"
+                  style={{ width: "27px", height: "27px", cursor: "pointer" }}
+                ></lord-icon>
+              </div>
+              <div className="d-flex justify-content-center mt-2">
+              <lord-icon
+                      src="https://cdn.lordicon.com/wloilxuq.json"
+                      trigger="hover"
+                      style={{ width: "25px", height: "25px" }}
+                      >
+                    </lord-icon>
+                    <span>{user.displayName}</span>
+
+              </div>
+              <div className="d-flex justify-content-center">
+              <b>{user.email}</b>
+              </div>
             </div>
             <CacheProvider value={cacheRtl}>
-            <Box
-                  component="form"
-                  className="col-12 "
-                  sx={{ "& .MuiTextField-root": { m: 2, width: "160ch" } }}
-                  noValidate
-                  autoComplete="off"
-                >
-              <div dir="rtl">
-                <div className="row justify-content-center mt-4">
-                  <div className="col-5 col-sm-4 pl-0 pr-0 d-flex justify-content-center">
-                    <TextField
-                      id="outlined-multiline-flexible"
-                      className=""
-                      label="שם"
-                      color="error"
+              <Box
+                component="form"
+                className="col-12 "
+                sx={{ "& .MuiTextField-root": { m: 2, width: "160ch" } }}
+                noValidate
+                autoComplete="off"
+              >
+                <div dir="rtl">
+                  <div className="row justify-content-center mt-4">
+                    <div className="col-8 col-sm-6 pl-0 pr-0 d-flex justify-content-center">
+                      <TextField
+                        id="outlined-multiline-flexible"
+                        className=""
+                        label="שם"
+                        // placeholder=" "
+                        color="error"
                       // value={""}
-                      inputRef={refName}
-                      onChange={handleCgange}
-                    />
-                  </div>
-                  <div className="col-5 col-sm-4 pl-0 pr-0 d-flex justify-content-center">
-                    <TextField
-                      id="outlined-multiline-flexible"
-                      className=""
-                      label=" "
-                      // placeholder=" "
-                      color="error"
-                    // value={""}
-                    // inputRef={refName}
-                    />
-                  </div>
-                  <div className="col-10 col-sm-8 pl-0 pr-0 d-flex justify-content-center">
-                    <TextField
-                      id="outlined-multiline-flexible"
-                      className=""
-                      label=" "
-                      // placeholder=" "
-                      color="error"
-                    // value={""}
-                    // inputRef={refName}
-                    />
-                  </div>
-                  <div className="col-10 col-sm-8 pl-0 pr-0 d-flex justify-content-center">
-                    <TextField
-                      id="outlined-multiline-flexible"
-                      className=""
-                      label=" "
-                      // placeholder=" "
-                      color="error"
-                    // value={""}
-                    // inputRef={refName}
-                    />
+                      // inputRef={refName}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div className="d-flex justify-content-start ml-5">
+                  <div
+                    // onClick={set}
+                    className="btn d-flex btn-color-lord m-3 "
+                  >
+                    <lord-icon
+                      src="https://cdn.lordicon.com/wloilxuq.json"
+                      trigger="hover"
+                      style={{ width: "25px", height: "25px" }}>
+                    </lord-icon>
+                    <div className="mr-1"> ערוך </div>
+                  </div>
+                </div>
               </Box>
+              <div className="d-flex justify-content-center">
+                <div className="col-8 col-sm-5 listMenu ">
+                  <List>
+                    <div >
+                      <ListItem className="d-flex justify-content-center">
+                        <ListItemText primary="מתכונים" secondary="חייח " className="mr-3" />
+                        <Avatar className="ml-4">
+                          <lord-icon
+                            src="https://cdn.lordicon.com/wxnxiano.json"
+                            trigger="morph"
+                            style={{ width: "250px", height: "250px" }}>
+                          </lord-icon>
+                        </Avatar>
+                      </ListItem>
+                    </div>
+                    <div >
+                      <ListItem className="d-flex justify-content-center">
+                        <ListItemText primary="אהובים" secondary="כיעב" className="mr-3" />
+                        <Avatar className="ml-4">
+                          <lord-icon
+                            src="https://cdn.lordicon.com/pnhskdva.json"
+                            trigger="hover"
+                            colors="primary:#c71f16"
+                            style={{ width: "250px", height: "250px" }}>
+                          </lord-icon>
+                        </Avatar>
+                      </ListItem>
+                    </div>
+                  </List>
+                </div>
+              </div>
             </CacheProvider>
+
           </div>
         </div>
       </div>
