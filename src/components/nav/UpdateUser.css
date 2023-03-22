@@ -4,14 +4,17 @@
 }
 .Avatar{
     border-radius: 50%;
-    width: 150px;
-    height:150px;
+    width: 120px;
+    height:120px;
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
 
 }
 .hide{
-    width: 40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     opacity: 0;
     z-index: 1;
     position: absolute;
