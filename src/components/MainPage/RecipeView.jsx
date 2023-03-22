@@ -10,14 +10,14 @@ import { storage } from "../../Firebase";
 export default function RecipeView() {
   const [data, setData] = useState(undefined);
 
-  const { currentOpen ,previewUrl, setPreviewUrl, imgFile, setImgFile  } = useContext(ContextData);
+  const { currentOpen, previewUrl, setPreviewUrl, imgFile, setImgFile } = useContext(ContextData);
 
   useEffect(() => {
     setData(currentOpen);
     setImgFile([]);
     setPreviewUrl([])
-    if (currentOpen!=null){
-      const imagesListRef = ref(storage, `${currentOpen.docId==null?"":currentOpen.docId}`);
+    if (currentOpen != null) {
+      const imagesListRef = ref(storage, `${currentOpen.docId == null ? "" : currentOpen.docId}`);
       listAll(imagesListRef).then((response) => {
         response.items.forEach((item) => {
           setImgFile((imgFile) => [...imgFile, item])
@@ -27,13 +27,13 @@ export default function RecipeView() {
         });
       });
     }
-  
+
   }, [currentOpen]);
 
-    
-  
+
+
   let datal = [
-   " https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
+    " https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
   ];
 
   return (
@@ -58,12 +58,12 @@ export default function RecipeView() {
                 infiniteLoop={true}
                 showStatus={true}
               >
-                {previewUrl.length==0?(datal.map((item, i) => (
+                {previewUrl.length == 0 ? (datal.map((item, i) => (
                   <img key={i} className="imgCarousel " src={item} />
-                ))):(previewUrl.map((item, i) => (
+                ))) : (previewUrl.map((item, i) => (
                   <img key={i} className="imgCarousel " src={item} />
                 )))
-                
+
                 }
               </Carousel>
             </div>

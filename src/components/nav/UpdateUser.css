@@ -1,0 +1,19 @@
+.UpdteUserContiner{
+    border-radius: 30px;
+    background-color: rgba(232, 230, 230, 0.822);
+}
+.Avatar{
+    border-radius: 50%;
+    width: 150px;
+    height:150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.hide{
+    width: 40px;
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
+    cursor: pointer;
+}
