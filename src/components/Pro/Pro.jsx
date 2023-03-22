@@ -19,6 +19,8 @@ export default function Pro() {
     navigate("/main/pro/creditcard")
   }
 
+
+
   return (
     <>
       <div className="bgImg">

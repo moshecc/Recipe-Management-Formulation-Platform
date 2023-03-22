@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/base": "^5.0.0-alpha.114",
@@ -15,6 +16,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "emailjs": "^4.0.1",
+    "emailjs-com": "^3.2.0",
     "firebase": "^9.16.0",
     "firestore": "^1.1.6",
     "lord-icon-element": "^4.0.3",
