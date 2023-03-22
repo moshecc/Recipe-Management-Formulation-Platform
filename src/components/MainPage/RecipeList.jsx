@@ -76,25 +76,35 @@ export default function RecipeList() {
             {userRecipe == null
               ? ""
               : favCol
-              ? userRecipe
+                ? userRecipe
                   .filter((recipe) => recipe.favorite)
                   .map((item, i) => (
                     <div key={i}>
                       <Card item={item} />
                     </div>
                   ))
-              : filter == null
-              ? userRecipe.map((item, i) => (
-                  <div key={i}>
-                    <Card item={item} />
-                  </div>
-                ))
-              :userRecipe.filter((recipe) => recipe.name.includes(filter)).length>0?userRecipe.filter((recipe) => recipe.name.includes(filter))
-                  .map((item, i) => (
+                : filter == null
+                  ? userRecipe.map((item, i) => (
                     <div key={i}>
                       <Card item={item} />
                     </div>
-                  )):(<p>not found</p>)}
+                  ))
+                  : userRecipe.filter((recipe) => recipe.name.includes(filter)).length > 0 ? userRecipe.filter((recipe) => recipe.name.includes(filter))
+                    .map((item, i) => (
+                      <div key={i}>
+                        <Card item={item} />
+                      </div>
+                    )) : (
+                    <div className="d-flex justify-content-end mr-5 mt-3">
+                      <div className="h3 mr-2 d-flex align-items-center"><b>המתכון לא נמצא </b></div>
+                      <lord-icon
+                        src="https://cdn.lordicon.com/dnmvmpfk.json"
+                        trigger="hover"
+                        colors="primary:#e83a30"
+                        style={{width:"35px",height:"35px"}}>
+                      </lord-icon>
+                    </div>
+                  )}
           </div>
         </div>
       </div>
