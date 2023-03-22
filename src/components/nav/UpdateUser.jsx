@@ -14,10 +14,13 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
+import { updateProfile } from "firebase/auth";
 export default function UpdateUser() {
   const { user, SetUser } = useContext(ContextData);
 
-  const [img, setImg] = useState(user.photoURL)
+  const [img, setImg] = useState(user.photoURL);
+  const [name, setName] = useState(user.displayName);
+
   const imgRef = useRef()
   const refName = useRef();
 
@@ -42,6 +45,10 @@ export default function UpdateUser() {
     key: "muirtl",
     stylisPlugins: [prefixer, rtlPlugin],
   });
+
+  function setname() {
+    updateProfile(user,{displayName: name });
+  } 
 
 
   return (
@@ -93,7 +100,7 @@ export default function UpdateUser() {
                       style={{ width: "25px", height: "25px" }}
                       >
                     </lord-icon>
-                    <span>{user.displayName}</span>
+                    <span>{name}</span>
 
               </div>
               <div className="d-flex justify-content-center">
@@ -117,15 +124,15 @@ export default function UpdateUser() {
                         label="שם"
                         // placeholder=" "
                         color="error"
-                      // value={""}
-                      // inputRef={refName}
+                      value = {name}
+                      onChange = {(e)=>{setName(e.target.value)}}
                       />
                     </div>
                   </div>
                 </div>
                 <div className="d-flex justify-content-start ml-5">
                   <div
-                    // onClick={set}
+                    onClick={()=>setname()}
                     className="btn d-flex btn-color-lord m-3 "
                   >
                     <lord-icon
