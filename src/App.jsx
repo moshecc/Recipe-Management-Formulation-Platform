@@ -25,6 +25,8 @@ const [apiRecpie,sutapiRecpie] = useState(null);
 const [apiRecpieRan,sutapiRecpieRan] = useState(null);
 const [apiData,setapiData] = useState(null);
 const [ProPaypal,setProPaypal] = useState(null);
+const [recipeNum,setRecipeNum] = useState(null);
+
 
 useEffect(() => {
   fetch(
@@ -61,6 +63,8 @@ const data = {
   setapiData,
   ProPaypal,
   setProPaypal,
+  recipeNum,
+  setRecipeNum
 }
   return (
     <>

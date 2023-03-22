@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import { ContextData } from "../../App";
 import { BiLogOut } from "react-icons/bi";
 
-export default function Burger() {
+export default function Burger({img}) {
   const { loading, SetLoading , setCurrentOpen , user ,SetUser } = useContext(ContextData);
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ export default function Burger() {
           <div className="d-flex col-12  my-2">
             <div className="col-9 px-0 d-flex justify-content-center align-items-center">{user==undefined?" ":`${user.displayName}`}</div>
             <div className="col-3 px-0 d-flex justify-content-start">
-            <Avatar className="border " alt="User Name" src={user==undefined?" ":`${user.photoURL}`} />
+            <Avatar className="border " alt="User Name" src={user==undefined?" ":`${img}`} />
             </div>
           </div>
           <div className="row">

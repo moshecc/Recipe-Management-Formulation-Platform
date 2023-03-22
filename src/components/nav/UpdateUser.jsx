@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoMdReturnRight } from "react-icons/io";
 import "./UpdateUser.css";
@@ -10,31 +10,65 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { prefixer } from "stylis";
 import { CacheProvider } from "@emotion/react";
 import { ContextData } from "../../App";
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Avatar from "@mui/material/Avatar";
 import { updateProfile } from "firebase/auth";
+import { storage, UserRecipes } from "../../Firebase";
+import {
+  deleteObject,
+  getDownloadURL,
+  listAll,
+  ref,
+  uploadBytes,
+} from "firebase/storage";
 export default function UpdateUser() {
-  const { user, SetUser } = useContext(ContextData);
+  const { user, SetUser, recipeNum } = useContext(ContextData);
 
   const [img, setImg] = useState(user.photoURL);
   const [name, setName] = useState(user.displayName);
 
-  const imgRef = useRef()
+  const imgRef = useRef();
   const refName = useRef();
+
+  useEffect(() => {
+    if (user != null) {
+      const imagesListRef = ref(storage, `${user.uid}`);
+      listAll(imagesListRef).then((response) => {
+        response.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            setImg(url);
+          });
+        });
+      });
+    }
+  }, []);
+
+  function dal() {
+    const desertRef = ref(storage, `${user.uid}/profilImg`);
+    // Delete the file
+    deleteObject(desertRef)
+      .then((e) => {
+        console.log("sucsess");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      setImg(user.photoURL);
+  }
 
   function handleChange() {
     const url = URL.createObjectURL(imgRef.current.files[0]);
     setImg(url);
+    const imageRef = ref(storage, `${user.uid}/profilImg`);
+    uploadBytes(imageRef, imgRef.current.files[0]).then((e) => {
+      console.log(e);
+    });
   }
 
   function handleCgange() {
     console.log(refName.current.value);
-  }
-
-  function dal() {
-    setImg("")
   }
 
   const theme = createTheme({
@@ -47,9 +81,8 @@ export default function UpdateUser() {
   });
 
   function setname() {
-    updateProfile(user,{displayName: name });
-  } 
-
+    updateProfile(user, { displayName: name });
+  }
 
   return (
     <>
@@ -68,23 +101,38 @@ export default function UpdateUser() {
                 פרטי משתמש
               </h1>
               <div className="row justify-content-center">
-                <div className="Avatar mt-3" style={{ backgroundImage: `url(${img})` }}>
+                <div
+                  className="Avatar mt-3"
+                  style={{ backgroundImage: `url(${img})` }}
+                >
                   <div className="d-flex justify-content-end">
-                    <input className="hide" ref={imgRef} onChange={handleChange} type="file" />
+                    <input
+                      className="hide"
+                      ref={imgRef}
+                      onChange={handleChange}
+                      type="file"
+                    />
                   </div>
-                  <div className="d-flex justify-content-start" >
+                  <div className="d-flex justify-content-start">
                     <lord-icon
                       src="https://cdn.lordicon.com/vixtkkbk.json"
                       trigger="hover"
                       stroke="70"
                       colors="primary:#000000,secondary:#c71f16"
-                      style={{ width: "40px", height: "40px", border: "2px solid rgba(0, 0, 0, 0.3)", borderRadius: "50%" }}
-                    >
-                    </lord-icon>
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        border: "2px solid rgba(0, 0, 0, 0.3)",
+                        borderRadius: "50%",
+                      }}
+                    ></lord-icon>
                   </div>
                 </div>
               </div>
-              <div className="d-flex justify-content-end col-9 col-sm-7 ml-4" onClick={() => dal()}>
+              <div
+                className="d-flex justify-content-end col-9 col-sm-7 ml-4"
+                onClick={() => dal()}
+              >
                 <lord-icon
                   src="https://cdn.lordicon.com/tntmaygd.json"
                   trigger="hover"
@@ -93,20 +141,18 @@ export default function UpdateUser() {
                   style={{ width: "27px", height: "27px", cursor: "pointer" }}
                 ></lord-icon>
               </div>
-              <div className="d-flex justify-content-center mt-2 ">
-                <span className="pen mr-1">
-                       <lord-icon
+              <div className="d-flex justify-content-center mt-2">
+              <lord-icon
                       src="https://cdn.lordicon.com/wloilxuq.json"
                       trigger="hover"
                       style={{ width: "25px", height: "25px" }}
                       >
                     </lord-icon>
-                    </span>
                     <span>{name}</span>
 
               </div>
               <div className="d-flex justify-content-center">
-              <b>{user.email}</b>
+                <b>{user.email}</b>
               </div>
             </div>
             <CacheProvider value={cacheRtl}>
@@ -119,10 +165,11 @@ export default function UpdateUser() {
                 autoComplete="off"
               >
                 <div dir="rtl">
-                  <div className="row justify-content-center mt-4 align-items-center" style={{ cursor: "pointer"}}>
+                  <div className="row justify-content-center mt-4 align-items-center">
                     <div className="col-8 col-sm-6 pl-0 pr-0 d-flex justify-content-center">
                       <TextField
                         id="outlined-multiline-flexible"
+                        className=""
                         label="שם"
                         // placeholder=" "
                         color="error"
@@ -146,28 +193,38 @@ export default function UpdateUser() {
               <div className="d-flex justify-content-center mb-3">
                 <div className="col-8 col-sm-5 listMenu ">
                   <List>
-                    <div >
+                    <div>
                       <ListItem className="d-flex justify-content-center">
-                        <ListItemText primary="מתכונים" secondary="חייח " className="mr-3" />
+                        <ListItemText
+                          primary="מתכונים"
+                          secondary={recipeNum.length}
+                          className="mr-3"
+                        />
                         <Avatar className="ml-4">
                           <lord-icon
                             src="https://cdn.lordicon.com/wxnxiano.json"
                             trigger="morph"
-                            style={{ width: "250px", height: "250px" }}>
-                          </lord-icon>
+                            style={{ width: "250px", height: "250px" }}
+                          ></lord-icon>
                         </Avatar>
                       </ListItem>
                     </div>
-                    <div >
+                    <div>
                       <ListItem className="d-flex justify-content-center">
-                        <ListItemText primary="אהובים" secondary="כיעב" className="mr-3" />
+                        <ListItemText
+                          primary="אהובים"
+                          secondary={
+                            recipeNum.filter((recipe) => recipe.favorite).length
+                          }
+                          className="mr-3"
+                        />
                         <Avatar className="ml-4">
                           <lord-icon
                             src="https://cdn.lordicon.com/pnhskdva.json"
                             trigger="hover"
                             colors="primary:#c71f16"
-                            style={{ width: "250px", height: "250px" }}>
-                          </lord-icon>
+                            style={{ width: "250px", height: "250px" }}
+                          ></lord-icon>
                         </Avatar>
                       </ListItem>
                     </div>
@@ -175,7 +232,6 @@ export default function UpdateUser() {
                 </div>
               </div>
             </CacheProvider>
-
           </div>
         </div>
       </div>
