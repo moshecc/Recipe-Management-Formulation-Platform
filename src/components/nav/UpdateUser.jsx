@@ -108,6 +108,7 @@ export default function UpdateUser() {
               </div>
             </div>
             <CacheProvider value={cacheRtl}>
+              <div>
               <Box
                 component="form"
                 className="col-12 "
@@ -116,7 +117,7 @@ export default function UpdateUser() {
                 autoComplete="off"
               >
                 <div dir="rtl">
-                  <div className="row justify-content-center mt-4">
+                  <div className="row justify-content-center mt-4 align-items-center">
                     <div className="col-8 col-sm-6 pl-0 pr-0 d-flex justify-content-center">
                       <TextField
                         id="outlined-multiline-flexible"
@@ -128,13 +129,7 @@ export default function UpdateUser() {
                       onChange = {(e)=>{setName(e.target.value)}}
                       />
                     </div>
-                  </div>
-                </div>
-                <div className="d-flex justify-content-start ml-5">
-                  <div
-                    onClick={()=>setname()}
-                    className="btn d-flex btn-color-lord m-3 "
-                  >
+                    <div onClick={()=>setname()} className="btn d-flex btn-color-lord " >
                     <lord-icon
                       src="https://cdn.lordicon.com/wloilxuq.json"
                       trigger="hover"
@@ -142,9 +137,12 @@ export default function UpdateUser() {
                     </lord-icon>
                     <div className="mr-1"> ערוך </div>
                   </div>
+                  </div>
                 </div>
+
               </Box>
-              <div className="d-flex justify-content-center">
+              </div>
+              <div className="d-flex justify-content-center mb-3">
                 <div className="col-8 col-sm-5 listMenu ">
                   <List>
                     <div >
