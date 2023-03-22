@@ -18,7 +18,6 @@ export default function HomePage() {
   },[currentUser])
  
  
-  
   const navigate = useNavigate();
   return (
     <>{currentUser==null?(
