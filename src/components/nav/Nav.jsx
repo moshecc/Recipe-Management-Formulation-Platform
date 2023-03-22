@@ -3,10 +3,30 @@ import "./Nav.css";
 import Burger from "./Burger";
 import { ContextData } from "../../App";
 import Avatar from "@mui/material/Avatar";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
+import { storage } from "../../Firebase";
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
   const {user} = useContext(ContextData);
+  const [img, setImg] = useState(user!=null?user.photoURL:"");
+
+
+  useEffect(()=>{
+    if (user != null) {
+      const imagesListRef = ref(storage, `${user.uid}`);
+      listAll(imagesListRef).then((response) => {
+        response.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            if(url)
+            setImg(url);
+          });
+        });
+      });
+    }
+  },[])
+
+ 
 
   useEffect(() => {
    window.addEventListener("click",()=> sutBurger(false))
@@ -31,7 +51,7 @@ export default function Nav() {
           {!burger ? (
             <div className="name d-flex align-content-center">
               <div className="mt-2 mr-3">{user?`${user.displayName}`:" "}</div>
-              <Avatar className="border " alt="User Name" src={user?`${user.photoURL}`:" "} />
+              <Avatar className="border " alt="User Name" src={user?`${img}`:" "} />
             </div>
           ) : (
             ""
@@ -57,7 +77,7 @@ export default function Nav() {
       {burger ? (
         <div>
           <div className="d-flex justify-content-end">
-            <Burger />
+            <Burger img={img}  />
           </div>
         </div>
       ) : (
