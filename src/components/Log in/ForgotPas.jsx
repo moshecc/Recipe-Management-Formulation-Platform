@@ -12,6 +12,7 @@ import { useContext } from 'react';
 import { ContextData } from '../../App';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../Firebase';
+import "./Login.css"
 
 const theme = createTheme();
 
@@ -44,7 +45,7 @@ function reset(){
 
   return (
     <>
-
+    <div className="bgimg">
      <ThemeProvider theme={theme} >
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -88,7 +89,7 @@ function reset(){
 
       </Container>
     </ThemeProvider>
-
+    </div>
     </>
   )
 }

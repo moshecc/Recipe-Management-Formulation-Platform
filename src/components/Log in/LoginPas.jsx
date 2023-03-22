@@ -43,6 +43,7 @@ export default function LoginPas() {
   }
 
   return (
+    <div className="bgimg">
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -109,5 +110,6 @@ export default function LoginPas() {
         </Box>
       </Container>
     </ThemeProvider>
+    </div>
   );
 }

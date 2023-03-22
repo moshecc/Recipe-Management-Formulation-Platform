@@ -57,6 +57,7 @@ export default function SignUp() {
 const theme = createTheme();
 
   return (
+    <div className="bgimg">
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" >
         <CssBaseline  />
@@ -145,5 +146,6 @@ const theme = createTheme();
         </Box>
       </Container>
     </ThemeProvider>
+    </div>
   );
 }
