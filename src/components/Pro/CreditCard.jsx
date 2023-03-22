@@ -4,9 +4,26 @@ import { Link } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import "./Pro.css";
 import { ContextData } from "../../App";
+import emailjs from '@emailjs/browser';
+
 
 export default function CreditCard() {
-  const { ProPaypal } = useContext(ContextData);
+  const { ProPaypal,user } = useContext(ContextData);
+
+  function send(){
+ const emailContent = {
+  to_name: user.displayName,
+  to_email:user.email,
+  pro: ProPaypal.name,
+  message:'thenk you'
+}
+    emailjs.send('service_7eaaw8y', 'template_lgjhgqk', emailContent, 'q6Xfc64D1-5xdYKoX')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
+  }
 
   return (
     <>
@@ -54,6 +71,7 @@ export default function CreditCard() {
                   onApprove={async (data, actions) => {
                     const details = await actions.order.capture();
                     const name = details.payer.name.given_name;
+                    send();
                     alert("Transaction completed by " + name);
                   }}
                 />
