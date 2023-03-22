@@ -28,6 +28,7 @@ export default function UpdateUser() {
 
   const [img, setImg] = useState(user.photoURL);
   const [name, setName] = useState(user.displayName);
+  const [editName, setEditName] = useState(false);
 
   const imgRef = useRef();
   const refName = useRef();
@@ -67,10 +68,6 @@ export default function UpdateUser() {
     });
   }
 
-  function handleCgange() {
-    console.log(refName.current.value);
-  }
-
   const theme = createTheme({
     direction: "rtl", // Both here and <body dir="rtl">
   });
@@ -82,6 +79,7 @@ export default function UpdateUser() {
 
   function setname() {
     updateProfile(user, { displayName: name });
+    setEditName(false);
   }
 
   return (
@@ -141,22 +139,18 @@ export default function UpdateUser() {
                   style={{ width: "27px", height: "27px", cursor: "pointer" }}
                 ></lord-icon>
               </div>
-              <div className="d-flex justify-content-center mt-2">
+              <div className="d-flex justify-content-center mt-2 mr-4">
+                <span className="pen  mr-1" onClick={()=>(setEditName(!editName))}>
               <lord-icon
                       src="https://cdn.lordicon.com/wloilxuq.json"
                       trigger="hover"
                       style={{ width: "25px", height: "25px" }}
                       >
                     </lord-icon>
+                  </span>
                     <span>{name}</span>
-
               </div>
-              <div className="d-flex justify-content-center">
-                <b>{user.email}</b>
-              </div>
-            </div>
-            <CacheProvider value={cacheRtl}>
-              <div>
+              {editName?<div>
               <Box
                 component="form"
                 className="col-12 "
@@ -165,7 +159,7 @@ export default function UpdateUser() {
                 autoComplete="off"
               >
                 <div dir="rtl">
-                  <div className="row justify-content-center mt-4 align-items-center">
+                  <div className="row justify-content-center mt-1 align-items-center">
                     <div className="col-8 col-sm-6 pl-0 pr-0 d-flex justify-content-center">
                       <TextField
                         id="outlined-multiline-flexible"
@@ -189,7 +183,12 @@ export default function UpdateUser() {
                 </div>
 
               </Box>
+              </div>:""}
+              <div className="d-flex justify-content-center mb-3">
+                <b>{user.email}</b>
               </div>
+            </div>
+            <CacheProvider value={cacheRtl}>
               <div className="d-flex justify-content-center mb-3">
                 <div className="col-8 col-sm-5 listMenu ">
                   <List>
