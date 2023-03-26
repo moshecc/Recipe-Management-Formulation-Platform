@@ -56,7 +56,7 @@ export default function UpdateUser() {
       .catch((error) => {
         console.log(error);
       });
-      setImg(user.photoURL);
+    setImg(user.photoURL);
   }
 
   function handleChange() {
@@ -82,6 +82,7 @@ export default function UpdateUser() {
     setEditName(false);
   }
 
+
   return (
     <>
       <div className="bgImg">
@@ -98,7 +99,7 @@ export default function UpdateUser() {
               <h1 className="d-flex justify-content-center  myFont">
                 פרטי משתמש
               </h1>
-              <div className="row justify-content-center">
+              <div className="row justify-content-center" title="ערוך תמונה">
                 <div
                   className="Avatar mt-3"
                   style={{ backgroundImage: `url(${img})` }}
@@ -128,62 +129,64 @@ export default function UpdateUser() {
                 </div>
               </div>
               <div
-                className="d-flex justify-content-end col-9 col-sm-7 ml-4"
-                onClick={() => dal()}
-              >
-                <lord-icon
-                  src="https://cdn.lordicon.com/tntmaygd.json"
-                  trigger="hover"
-                  colors="primary:#000000,secondary:#c71f16"
-                  stroke="100"
-                  style={{ width: "27px", height: "27px", cursor: "pointer" }}
-                ></lord-icon>
+                className="d-flex justify-content-end col-9 col-sm-7 ml-4">
+                <span onClick={() => dal()}>
+                 <span  
+                 title="מחק תמונה"
+                 >
+                  <lord-icon
+                    src="https://cdn.lordicon.com/tntmaygd.json"
+                    trigger="hover"
+                    colors="primary:#000000,secondary:#c71f16"
+                    stroke="100"
+                    style={{ width: "27px", height: "27px", cursor: "pointer" }}
+                  ></lord-icon>
+                    </span>
+                </span>
               </div>
               <div className="d-flex justify-content-center mt-2 mr-4">
-                <span className="pen  mr-1" onClick={()=>(setEditName(!editName))}>
-              <lord-icon
-                      src="https://cdn.lordicon.com/wloilxuq.json"
-                      trigger="hover"
-                      style={{ width: "25px", height: "25px" }}
-                      >
-                    </lord-icon>
-                  </span>
-                    <span>{name}</span>
-              </div>
-              {editName?<div>
-              <Box
-                component="form"
-                className="col-12 "
-                sx={{ "& .MuiTextField-root": { m: 2, width: "160ch" } }}
-                noValidate
-                autoComplete="off"
-              >
-                <div dir="rtl">
-                  <div className="row justify-content-center mt-1 align-items-center">
-                    <div className="col-8 col-sm-6 pl-0 pr-0 d-flex justify-content-center">
-                      <TextField
-                        id="outlined-multiline-flexible"
-                        className=""
-                        label="שם"
-                        // placeholder=" "
-                        color="error"
-                      value = {name}
-                      onChange = {(e)=>{setName(e.target.value)}}
-                      />
-                    </div>
-                    <div onClick={()=>setname()} className="btn d-flex btn-color-lord " >
+                <div className="pen  mr-1" onClick={() => (setEditName(!editName))}>
+                  <div
+                    title="ערוך שם" 
+                  >
                     <lord-icon
                       src="https://cdn.lordicon.com/wloilxuq.json"
                       trigger="hover"
-                      style={{ width: "25px", height: "25px" }}>
+                      style={{ width: "25px", height: "25px" }}
+                    >
                     </lord-icon>
-                    <div className="mr-1"> ערוך </div>
-                  </div>
                   </div>
                 </div>
+                <div>{name}</div>
+              </div>
+              {editName ? <div>
+                <Box
+                  component="form"
+                  className="col-12 "
+                  sx={{ "& .MuiTextField-root": { m: 2, width: "160ch" } }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <div dir="rtl">
+                    <div className="row justify-content-center mt-1 align-items-center">
+                      <div className="col-8 col-sm-6 pl-0 pr-0 d-flex justify-content-center">
+                        <TextField
+                          id="outlined-multiline-flexible"
+                          className=""
+                          label="שם"
+                          color="error"
+                          value={name}
+                          onChange={(e) => { setName(e.target.value) }}
+                        />
+                      </div>
+                      <div onClick={() => setname()} className="btn d-flex btn-color-lord " >
+                        <div className="mr-1"> שמור </div>
+                      </div>
+                    </div>
+                  </div>
 
-              </Box>
-              </div>:""}
+                </Box>
+              </div> : ""}
               <div className="d-flex justify-content-center mb-3">
                 <b>{user.email}</b>
               </div>
