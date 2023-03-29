@@ -41,7 +41,7 @@ export default function AboutUs() {
                           style={{ width: "70px", height: "70px" }}>
                         </lord-icon>
                       </div>
-                      <span className="card-text row d-flex justify-content-center mt-2">
+                      <span className="card-text row d-flex justify-content-center mt-2 nav-link">
                         <SiGmail className="mt-1 mb-2" size={20} color="red" />
                         <a className="ml-2 myFont" href="mailto:myrecipebook23@gmail.com">myrecipebook23@gmail.com</a>
                       </span>

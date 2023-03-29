@@ -16,13 +16,17 @@ export default function ApiMain() {
 
   function Search() {
 
-    fetch(
+    if (product) {
+     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?query=${product}&apiKey=${apiKode}&number=50`
     )
       .then((response) => response.json())
       .then((data) => { setapiData(data.results); console.log(data); })
       .catch((err) => console.error(err));
   }
+  else{
+    alert("🥗🍰  בבקשה תכניס שם מתכון");
+  }}
   return (
     <>
       <div className="bgImg">
@@ -37,7 +41,7 @@ export default function ApiMain() {
         <div className="d-flex justify-content-center mt-5">
           <div className="input-group col-8 col-sm-6">
             <button
-              className="btn btn-outline-success inputStyle"
+              className="btn btntStyle"
               type="button"
               id="button-addon2"
               onClick={() => Search()}

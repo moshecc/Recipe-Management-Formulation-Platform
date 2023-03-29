@@ -76,7 +76,8 @@ export default function RecipeList() {
               ></lord-icon>
             </div>
           </div>
-          <div className="col-12">
+          <div className="d-flex justify-content-center">
+          <div className="col-12 col-sm-8 col-lg-12">
             <NewCard />
             {userRecipe == null
               ? ""
@@ -110,6 +111,7 @@ export default function RecipeList() {
                       </lord-icon>
                     </div>
                   )}
+          </div>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function ApiCard({ item }) {
 
   return (
     <>
-      <Card sx={{ maxWidth: 220 }} onClick={() => getRecipe()} className="p-2 border">
+      <Card sx={{ maxWidth: 220 }} onClick={() => getRecipe()} className="p-2 border" style={{backgroundColor: " rgba(232, 230, 230, 0.822)"}}>
         <CardActionArea>
           <CardMedia component="img" className="rounded border" width="140" image={item.image} alt="" />
           <samp className="cTitle mt-2 rounded border pt-1">{item.title}</samp>
