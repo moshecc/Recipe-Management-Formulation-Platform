@@ -1,6 +1,6 @@
 .myNav {
     height: 67px;
-    background-color: rgba(173, 187, 198, 0.8);
+    background-color: rgba(179, 202, 222, 0.8);
     border-radius: 0 0 10px 10px;
     box-shadow: 0.25px 0.25px 0.25px 0.25px rgba(68, 76, 83, 0.8);
 }
@@ -49,4 +49,14 @@
     transform: rotate(45deg);
     border-left: 1px solid white;
     border-top: 1px solid white;
+}
+.line{
+    background-image: radial-gradient(rgb(54, 54, 177) 10%,turquoise );
+    height: 2px;
+    border-radius: 50%;
+}
+.bold{
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
 }

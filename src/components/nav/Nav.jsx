@@ -50,7 +50,7 @@ export default function Nav() {
         <div className="col-3 fst-italic fs-2 pr-0 pl-0 d-flex justify-content-center align-items-center">
           {!burger ? (
             <div className="name d-flex align-content-center">
-              <div className="mt-2 mr-3">{user?`${user.displayName}`:" "}</div>
+              <samp className="mt-2 mr-3 h5 font-weight-bold">{user?`${user.displayName}`:" "}</samp>
               <Avatar className="border " alt="User Name" src={user?`${img}`:" "} />
             </div>
           ) : (

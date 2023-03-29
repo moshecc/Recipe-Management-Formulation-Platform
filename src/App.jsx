@@ -13,6 +13,8 @@ export const ContextData = createContext();
 export default function App() {
 const apiKode = "bf50efed1f67407f9bb3dcef2eefac27";
 const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
+const apiKode2 = " f81812c9a79d453ba66f62991789ae67";
+
 const [user , SetUser] = useState(null);
 const [loading , SetLoading] = useState(false) ;
 const [run , setRun] = useState(false) ;
