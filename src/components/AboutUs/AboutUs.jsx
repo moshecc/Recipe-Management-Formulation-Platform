@@ -43,7 +43,7 @@ export default function AboutUs() {
                       </div>
                       <span className="card-text row d-flex justify-content-center mt-2">
                         <SiGmail className="mt-1 mb-2" size={20} color="red" />
-                        <div className="ml-2 myFont">myrecipebook23@gmail.com</div>
+                        <a className="ml-2 myFont" href="mailto:myrecipebook23@gmail.com">myrecipebook23@gmail.com</a>
                       </span>
                     </div>
                   </div>
