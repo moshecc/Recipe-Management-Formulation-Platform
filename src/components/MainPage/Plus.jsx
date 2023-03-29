@@ -45,7 +45,6 @@ export default function Plus() {
   const notify = () => toast("Wow so easy!");
 
   const daletdoc = async () => {
-
 for (let index = 0; index < imgFile.length; index++) {
   const desertRef = ref(storage , `${currentOpen.docId}/${imgFile[index].name}`);
   deleteObject(desertRef).then((e) => {

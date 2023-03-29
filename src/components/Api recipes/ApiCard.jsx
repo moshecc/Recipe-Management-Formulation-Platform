@@ -9,6 +9,7 @@ import { ContextData } from "../../App";
 export default function ApiCard({ item }) {
   const apiKode = "bf50efed1f67407f9bb3dcef2eefac27";
   const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
+  const apiKode2 = " f81812c9a79d453ba66f62991789ae67";
   const { sutapiRecpie } = useContext(ContextData);
 
   const navigate = useNavigate();
@@ -27,10 +28,10 @@ export default function ApiCard({ item }) {
 
   return (
     <>
-      <Card sx={{ maxWidth: 220 }} onClick={() => getRecipe()}>
+      <Card sx={{ maxWidth: 220 }} onClick={() => getRecipe()} className="p-2 border">
         <CardActionArea>
-          <CardMedia component="img" width="140" image={item.image} alt="" />
-          <span className="cTitle ">{item.title}</span>
+          <CardMedia component="img" className="rounded border" width="140" image={item.image} alt="" />
+          <samp className="cTitle mt-2 rounded border pt-1">{item.title}</samp>
         </CardActionArea>
       </Card>
     </>

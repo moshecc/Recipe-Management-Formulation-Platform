@@ -32,6 +32,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     font-weight: 600;
+    -webkit-text-stroke: 0.8px rgba(135, 21, 21, 0.5);
 }
 
 .imgScale img {
@@ -45,5 +46,5 @@
     transform: scale(1.03);
 }
 .bg-bg{
-    background-color: rgba(128, 128, 128, 0.4);
+    background-color: rgba(179, 202, 222, 0.4);
 }
