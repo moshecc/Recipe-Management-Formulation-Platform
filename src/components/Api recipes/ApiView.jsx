@@ -25,14 +25,14 @@ export default function ApiView() {
         <div className="RecipeViewContiner shadow col-12 ">
           <h2 className="d-flex justify-content-center">{apiRecpie.title}</h2>
           <div className="row">
-            <div className="img_div col-12 col-sm-6">
+            <div className="imgApi col-12 col-md-6">
                 <img
-                  className="imgCarousel"
+                  className="imgApi col-12"
                   src={apiRecpie.image? apiRecpie.image : "https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"}
                   alt="logo"
                 />
             </div>
-            <div className="col-12 col-sm-6 ">
+            <div className="col-12 col-md-6 ">
               <h3 className="col-12 d-flex justify-content-center">מרכיבים</h3>
               {apiRecpie != null
           ? apiRecpie.extendedIngredients.map((item, i) => (
