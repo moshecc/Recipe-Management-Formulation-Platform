@@ -4,3 +4,7 @@
     left: 45px;
     z-index: 1000;
 }
+.imgApi{
+    object-fit: cover;
+    border-radius: 40px;
+}
