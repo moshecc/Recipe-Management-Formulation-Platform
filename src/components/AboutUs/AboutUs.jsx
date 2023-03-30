@@ -15,7 +15,7 @@ export default function AboutUs() {
           </div>
         </Link>
         <div className="container-fluid w-100 d-flex justify-content-center">
-          <div className="aboutUs mt-5 col-9">
+          <div className="aboutUs mt-5 mb-5 col-9">
             <div>
               <h1 className="d-flex mt-4 justify-content-center color-bg">קצת עלינו</h1>
               <p className="d-flex mt-4 justify-content-center text-center">
