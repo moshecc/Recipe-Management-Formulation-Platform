@@ -34,13 +34,13 @@ export default function RecipeList() {
   //   }
   // }, [currentOpen]);
 
-  if (user != undefined && userRecipe == null) {
+  if (user !== undefined && userRecipe === null) {
     UserRecipes(user.uid, setUserRecipe);
   }
 
 
   async function favorite() {
-    if (user != undefined) {
+    if (user !== undefined) {
       await UserRecipes(user.uid, setUserRecipe);
       setFavoCol(!favCol);
     }
