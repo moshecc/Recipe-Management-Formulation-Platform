@@ -37,7 +37,7 @@ export default function Plus() {
     `*שם מתכון* \n\n ${currentOpen.name}\n` +
     "\n*מרכיבים*\n\n" +
     `${"• " + currentOpen.ingredients.toString().replaceAll(",", "\n• ")}` +
-    "\n*אופן הכנה*\n\n" +
+    "\n\n*אופן הכנה*\n\n" +
     `${"~ " + currentOpen.instructions.toString().replaceAll(",", "\n~ ")}` +
     "\n\n\n\n" +
     "#my_recipe_book";

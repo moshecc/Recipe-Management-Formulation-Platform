@@ -15,7 +15,7 @@ export default function AboutUs() {
           </div>
         </Link>
         <div className="container-fluid w-100 d-flex justify-content-center">
-          <div className="aboutUs mt-5 col-9">
+          <div className="aboutUs mt-5 mb-5 col-9">
             <div>
               <h1 className="d-flex mt-4 justify-content-center color-bg">קצת עלינו</h1>
               <p className="d-flex mt-4 justify-content-center text-center">
@@ -43,7 +43,7 @@ export default function AboutUs() {
                       </div>
                       <span className="card-text row d-flex justify-content-center mt-2 nav-link">
                         <SiGmail className="mt-1 mb-2" size={20} color="red" />
-                        <a className="ml-2 myFont" href="mailto:myrecipebook23@gmail.com">myrecipebook23@gmail.com</a>
+                        <a className="ml-2 myFont linkStyle" href="mailto:myrecipebook23@gmail.com">myrecipebook23@gmail.com</a>
                       </span>
                     </div>
                   </div>
@@ -59,8 +59,8 @@ export default function AboutUs() {
                         </lord-icon>
                       </div>
                       <span className="card-text row d-flex justify-content-center mt-2">
-                        <SiInstagram className="mt-1 mb-2" size={20} color="purple" />
-                        <div className="ml-2 myFont">myrecipebook23@gmail.com</div>
+                        <SiInstagram className="mt-1 mb-2" size={20} color="#e8308c" />
+                        <a className="ml-2 myFont linkStyle" target={"_blank"} href="https://www.instagram.com/myrecipebook2023/">myrecipebook2023</a>
                       </span>
                     </div>
                   </div>
@@ -76,8 +76,8 @@ export default function AboutUs() {
                         </lord-icon>
                       </div>
                       <span className="card-text row d-flex justify-content-center mt-2">
-                        <SiFacebook className="mt-1 mb-2" size={20} color="blue" />
-                        <div className="ml-2 myFont">myrecipebook23@gmail.com</div>
+                        <SiFacebook className="mt-1 mb-2" size={20} color="#2516c2" />
+                        <a className="ml-2 myFont linkStyle" target={"_blank"} href="https://www.facebook.com/profile.php?id=100091541614136">MyRecipeBook</a>
                       </span>
                     </div>
                   </div>
