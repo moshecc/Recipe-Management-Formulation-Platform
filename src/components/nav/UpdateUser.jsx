@@ -15,7 +15,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import { updateProfile } from "firebase/auth";
-import { storage, UserRecipes } from "../../Firebase";
+import { storage } from "../../Firebase";
 import {
   deleteObject,
   getDownloadURL,
@@ -24,14 +24,13 @@ import {
   uploadBytes,
 } from "firebase/storage";
 export default function UpdateUser() {
-  const { user, SetUser, recipeNum } = useContext(ContextData);
+  const { user, recipeNum } = useContext(ContextData);
 
   const [img, setImg] = useState(user.photoURL);
   const [name, setName] = useState(user.displayName);
   const [editName, setEditName] = useState(false);
 
   const imgRef = useRef();
-  const refName = useRef();
 
   useEffect(() => {
     if (user != null) {
@@ -44,7 +43,7 @@ export default function UpdateUser() {
         });
       });
     }
-  }, []);
+  }, [user]);
 
   function dal() {
     const desertRef = ref(storage, `${user.uid}/profilImg`);
@@ -68,7 +67,7 @@ export default function UpdateUser() {
     });
   }
 
-  const theme = createTheme({
+  createTheme({
     direction: "rtl", // Both here and <body dir="rtl">
   });
   // Create rtl cache

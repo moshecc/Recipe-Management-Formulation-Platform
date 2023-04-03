@@ -10,7 +10,7 @@ import { TbFileSearch, TbPremiumRights } from "react-icons/tb";
 import { FcAbout } from "react-icons/fc";
 
 export default function Burger({ img }) {
-  const { loading, SetLoading, setCurrentOpen, user, SetUser } = useContext(ContextData);
+  const {  SetLoading, setCurrentOpen, user, SetUser } = useContext(ContextData);
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -31,9 +31,9 @@ export default function Burger({ img }) {
     <>
       <div className="cardBurger">
         <div className="d-flex col-12 mt-3">
-          <div className="col-9 px-0 d-flex h5 justify-content-center align-items-center mb-0"><samp className="bold">{user == undefined ? " " : `${user.displayName}`}</samp></div>
+          <div className="col-9 px-0 d-flex h5 justify-content-center align-items-center mb-0"><samp className="bold">{user === undefined ? " " : `${user.displayName}`}</samp></div>
           <div className="col-3 px-0 d-flex justify-content-start">
-            <Avatar className="border " alt="User Name" src={user == undefined ? " " : `${img}`} />
+            <Avatar className="border " alt="User Name" src={user === undefined ? " " : `${img}`} />
           </div>
         </div>
         <div className="col-12 d-flex justify-content-center mt-4 mb-2"><div className="line col-10"></div></div> 
