@@ -34,6 +34,8 @@ export function login(email , password){
 
 export const db = getFirestore(app) ;
 export const colRef = collection(db,"recepis");
+export const colRefPremium = collection(db,"premium");
+
 
 export function useAuth() {
   const [ currentUser, setCurrentUser ] = useState();
@@ -65,7 +67,16 @@ export function UserRecipes(id, setData){
     setData(arr);
   })
 }
-
+export function chekPremium (userId ,setPremium){ 
+  const userP = query(colRefPremium ,where("userId","==",`${userId}`));
+  let arr = [];
+  onSnapshot(userP,(f)=>{
+    f.docs.forEach((e)=>{
+      arr.push({...e.data(),docId: e.id });
+    })
+    setPremium(arr[0]);
+  })
+}
 
 
 

@@ -7,6 +7,7 @@ import { ContextData } from "../../App";
 
 export default function Main() {
   const { setCurrentOpen } = useContext(ContextData);
+  
 
   useEffect(() => {
     window.scroll({

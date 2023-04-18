@@ -22,10 +22,11 @@ import createCache from "@emotion/cache";
 import { Carousel } from "react-responsive-carousel";
 
 export default function NewRecipe() {
-  const { previewUrl, setPreviewUrl, imgFile, setImgFile, setCurrentOpen } =
+  const { previewUrl, setPreviewUrl, imgFile, setImgFile, setCurrentOpen,premium,recipeNum } =
     useContext(ContextData);
   const user = useAuth();
   console.log(user);
+  console.log(premium);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -37,6 +38,16 @@ export default function NewRecipe() {
   }, []);
 
   let set = function setRecipe() {
+    if((recipeNum.length>50 && !premium)|| 
+    (recipeNum.length>150 && premium.premium == "Pro" )|| 
+    (recipeNum.length>300 && premium.premium == "Chef"))
+    {
+if(recipeNum.length>50 && !premium)alert("הירשם לפרימיום")
+if(recipeNum.length>150 && premium.premium == "Pro" )alert(" Chef עדכן לפרימיום ")
+if(recipeNum.length>300 && premium.premium == "Chef")alert(" הגעת למקסימום מתכונים אנא מחק להוספת חדשים")
+    }
+else{
+
     let name = refName.current.value;
     let ingredients = refIngredients.current.value;
     let instructions = refInstructions.current.value;
@@ -72,6 +83,7 @@ export default function NewRecipe() {
       setPreviewUrl([]);
       navigate("/main");
     }
+  }
   };
 
   const handleClickOpen = () => {

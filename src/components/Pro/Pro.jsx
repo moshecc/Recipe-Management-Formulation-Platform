@@ -66,7 +66,6 @@ export default function Pro() {
               </div>
               <div onClick={() => {paymant("50.00" , "Pro" ,"עד 150 מתכונים" )}} className="col-12 btn border bg-danger shake mt-4">קנה עכשיו</div>
             </div>
-
           </div>
         </div>
         </div>
