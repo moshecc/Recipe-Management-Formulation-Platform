@@ -28,16 +28,10 @@ export default function RecipeList() {
     if (userRecipe)setRecipeNum(userRecipe) ;
   }, [userRecipe]);
 
-  // useEffect(() => {
-  //   if (user != undefined) {
-  //     UserRecipes(user.uid, setUserRecipe);
-  //   }
-  // }, [currentOpen]);
 
   if (user !== undefined && userRecipe === null) {
     UserRecipes(user.uid, setUserRecipe);
   }
-
 
   async function favorite() {
     if (user !== undefined) {

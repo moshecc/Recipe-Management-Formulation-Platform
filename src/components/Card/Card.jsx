@@ -17,15 +17,15 @@ export default function Card({ item }) {
 
   function favoriteRecipe() {
     const docref = doc(db, "recepis", item.docId);
-    setDoc(docref, { ...item, favorite: !favo});
+    setDoc(docref, { ...item, favorite: !favo });
     setFavo(!favo);
   }
   useEffect(() => {
     setFavo(item.favorite);
     setMainImg([]);
 
-    if (item!=null){
-      const imagesListRef = ref(storage, `${item.docId==null?"":item.docId}`);
+    if (item != null) {
+      const imagesListRef = ref(storage, `${item.docId == null ? "" : item.docId}`);
       listAll(imagesListRef).then((response) => {
         response.items.forEach((item) => {
           getDownloadURL(item).then((url) => {
@@ -37,7 +37,7 @@ export default function Card({ item }) {
 
   }, [item])
 
-    return (
+  return (
     <>
       <div
         className="card text-dark cardHover mb-2 imgScale p-0"
@@ -48,7 +48,7 @@ export default function Card({ item }) {
             className=" imgStyle"
             height={"100%"}
             width={"100%"}
-            src={mainImg[0]?mainImg[0]:"https://i.imagesup.co/images2/4c7cc05dd420f94ff35456056d5a114499bbbb62.jpg"}
+            src={mainImg[0] ? mainImg[0] : "https://i.imagesup.co/images2/4c7cc05dd420f94ff35456056d5a114499bbbb62.jpg"}
             alt="card"
           />
         </div>
@@ -72,7 +72,9 @@ export default function Card({ item }) {
             onClick={open}
             className="d-flex justify-content-end col-8 pl-0 pr-0 align-items-center textCard"
           >
-            {item.name.length<10?item.name:"..."+item.name.slice(0,10)}
+            {item.name.charAt(0).toLowerCase() > 'a' && item.name.charAt(0).toLowerCase() < 'z' ?
+              item.name.length < 10 ? item.name : item.name.slice(0, 10) + "..." :
+              item.name.length < 10 ? item.name : "..." + item.name.slice(0, 10)}
           </h4>
         </div>
       </div>

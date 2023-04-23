@@ -32,7 +32,7 @@ export default function AboutUs() {
                 המשתמשים בצורה מקצועית ומהירה. אני מצפה לראות את הפרויקט שלנו
                .צומח ומתפתח לאתר מוצלח ונגיש לכל משתמש 
                 <br />
-              <span className="chat">.בנתיים עם יש הצעות ליעול ושיפור המערכת אנא צרו קשר *</span>
+              <span className="chat">.בנתיים אם יש הצעות ליעול ושיפור המערכת אנא צרו קשר *</span>
               </p>
               <samp className="chat h5">*_* Chat GPT  נכתב על ידי *_*</samp>
               </div>
