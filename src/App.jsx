@@ -29,6 +29,8 @@ const [apiRecpieRan,sutapiRecpieRan] = useState(null);
 const [apiData,setapiData] = useState(null);
 const [ProPaypal,setProPaypal] = useState(null);
 const [recipeNum,setRecipeNum] = useState(null);
+const [premium,setPremium] = useState(null);
+
 
 
 useEffect(() => {
@@ -67,7 +69,9 @@ const data = {
   ProPaypal,
   setProPaypal,
   recipeNum,
-  setRecipeNum
+  setRecipeNum,
+  premium,
+  setPremium,
 }
   return (
     <>

@@ -4,16 +4,17 @@ import Burger from "./Burger";
 import { ContextData } from "../../App";
 import Avatar from "@mui/material/Avatar";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
-import { storage } from "../../Firebase";
+import { chekPremium, storage } from "../../Firebase";
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
-  const {user} = useContext(ContextData);
+  const {user , setPremium} = useContext(ContextData);
   const [img, setImg] = useState(user!=null?user.photoURL:"");
 
 
   useEffect(()=>{
     if (user != null) {
+    chekPremium(user.uid , setPremium);
       const imagesListRef = ref(storage, `${user.uid}`);
       listAll(imagesListRef).then((response) => {
         response.items.forEach((item) => {
