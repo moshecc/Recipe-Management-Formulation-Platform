@@ -70,7 +70,7 @@ export default function UpdateUser() {
   createTheme({
     direction: "rtl", // Both here and <body dir="rtl">
   });
-  // Create rtl cache
+  // Create rtl cache 
   const cacheRtl = createCache({
     key: "muirtl",
     stylisPlugins: [prefixer, rtlPlugin],
