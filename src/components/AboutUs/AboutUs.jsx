@@ -19,10 +19,10 @@ export default function AboutUs() {
         <div className="container-fluid w-100 d-flex justify-content-center">
           <div className="aboutUs mt-5 mb-5 col-9">
             <div>
-              <div className="ml-5 mr-5">
-              <h1 className="d-flex mt-4 justify-content-center color-bg">
+              <div className="ml-4 mr-4">
+                <samp className="d-flex h1 text-center mt-4 justify-content-center color-bg">
                 קצת עלינו
-              </h1>
+              </samp>
               <p className="mt-4 text-center h6 mb-4">
                 אנו סטודנטים ללימודי תוכנה המתמחים בפיתוח תוכנה ועיצוב אתרים. אנו
                 פועלים על פרויקט של אתר לספר מתכונים אישי, שמטרתו לאפשר
@@ -34,7 +34,9 @@ export default function AboutUs() {
                 <br />
               <span className="chat">.בנתיים אם יש הצעות ליעול ושיפור המערכת אנא צרו קשר *</span>
               </p>
+              <div className="d-flex justify-content-center">
               <samp className="chat h5">*_* Chat GPT  נכתב על ידי *_*</samp>
+              </div>
               </div>
               <div>
                 <div className="d-flex justify-content-center mt-5 about-text">

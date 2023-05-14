@@ -13,6 +13,8 @@
 }
 .color-bg{
     -webkit-text-stroke: 1.5px rgba(70, 58, 58, 0.65);
+    font-weight: bold;
+    color: rgb(54, 54, 54);
 }
 .fontW{
     font-weight: bold;
