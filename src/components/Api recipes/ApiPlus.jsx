@@ -16,6 +16,7 @@ import { ContextData } from '../../App';
 
 export default function ApiPlus() {
   const { previewUrl,apiRecpie, user } = useContext(ContextData);
+  
 
 
 let seti = function ingri(){
@@ -54,7 +55,9 @@ return rec
       <Box>
         <SpeedDial ariaLabel="SpeedDial basic example" icon={<SpeedDialIcon />}>
           <SpeedDialAction
-          onClick={set}
+          onClick={user?set:()=>{
+            alert("לא נמצא משתמש אנא התחבר")
+          }}
             icon={
              <FavoriteIcon  sx={{ color: red[500] }}/>
             }

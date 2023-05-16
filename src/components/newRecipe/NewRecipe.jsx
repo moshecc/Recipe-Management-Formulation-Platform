@@ -183,7 +183,10 @@ else{
                     </div>
                     <div className="d-flex justify-content-end">
                       <button
-                        onClick={set}
+                        onClick={user?set:()=>{
+                          alert("לא נמצא משתמש אנא התחבר")
+                          navigate("/")
+                        }}
                         type="button"
                         className="btn d-flex btn-color m-3 "
                       >

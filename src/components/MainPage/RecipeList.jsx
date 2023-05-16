@@ -25,17 +25,16 @@ export default function RecipeList() {
   }, [currentUser]);
 
   useEffect(() => {
-    if (userRecipe)setRecipeNum(userRecipe) ;
+    if (userRecipe)setRecipeNum(userRecipe);
   }, [userRecipe]);
 
 
   if (user !== undefined && userRecipe === null) {
-    UserRecipes(user.uid, setUserRecipe);
+    UserRecipes(user?.uid, setUserRecipe);
   }
-
   async function favorite() {
     if (user !== undefined) {
-      await UserRecipes(user.uid, setUserRecipe);
+      await UserRecipes(user?.uid, setUserRecipe);
       setFavoCol(!favCol);
     }
   }
