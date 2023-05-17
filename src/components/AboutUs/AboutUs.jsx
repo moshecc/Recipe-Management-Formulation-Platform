@@ -19,7 +19,7 @@ export default function AboutUs() {
         <div className="container-fluid w-100 d-flex justify-content-center">
           <div className="aboutUs mt-5 mb-5 col-9">
             <div>
-              <div className="ml-4 mr-4">
+              <div className="ml-3 mr-3">
                 <samp className="d-flex h1 text-center mt-4 justify-content-center color-bg">
                 קצת עלינו
               </samp>
@@ -35,7 +35,7 @@ export default function AboutUs() {
               <span className="chat">.בנתיים אם יש הצעות ליעול ושיפור המערכת אנא צרו קשר *</span>
               </p>
               <div className="d-flex justify-content-center">
-              <samp className="chat h5">*_* Chat GPT  נכתב על ידי *_*</samp>
+              <samp  className="chat h5 text-center">*_* Written by Chat GPT *_*</samp>
               </div>
               </div>
               <div>
@@ -127,7 +127,7 @@ export default function AboutUs() {
                       </span>
                     </div>
                   </div>
-                </div>
+                  </div>
               </div>
             </div>
           </div>

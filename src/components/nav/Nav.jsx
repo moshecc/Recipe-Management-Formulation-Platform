@@ -1,38 +1,41 @@
-import React, { useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Nav.css";
 import Burger from "./Burger";
 import { ContextData } from "../../App";
 import Avatar from "@mui/material/Avatar";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { chekPremium, storage } from "../../Firebase";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { AiOutlineClose } from "react-icons/ai";
+import { border } from "@mui/system";
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
-  const {user , setPremium} = useContext(ContextData);
-  const [img, setImg] = useState(user!=null?user.photoURL:"");
+  const { user, setPremium } = useContext(ContextData);
+  const [img, setImg] = useState(user != null ? user.photoURL : "");
 
 
-  useEffect(()=>{
+  useEffect(() => {
     if (user != null) {
-    chekPremium(user.uid , setPremium);
+      chekPremium(user.uid, setPremium);
       const imagesListRef = ref(storage, `${user.uid}`);
       listAll(imagesListRef).then((response) => {
         response.items.forEach((item) => {
           getDownloadURL(item).then((url) => {
-            if(url)
-            setImg(url);
+            if (url)
+              setImg(url);
           });
         });
       });
     }
-  },[user])
+  }, [user])
 
- 
+
 
   useEffect(() => {
-   window.addEventListener("click",()=> sutBurger(false))
+    window.addEventListener("click", () => sutBurger(false))
   }, [])
-  
+
   return (
     <div id="e" className="container-fluid sticky-top">
       <div className="myNav row ">
@@ -51,26 +54,24 @@ export default function Nav() {
         <div className="col-3 fst-italic fs-2 pr-0 pl-0 d-flex justify-content-center align-items-center">
           {!burger ? (
             <div className="name d-flex align-content-center">
-              <div className="mt-2 mr-3 h6 font-weight-bold">{user?`${user.displayName}`:" "}</div>
-              <Avatar className="border " alt="User Name" src={user?`${img}`:" "} />
+              <div className="mt-2 mr-3 h6 font-weight-bold text-center">{user ? `${user.displayName}` : " "}</div>
+              <Avatar className="border mt-2 mt-sm-0 " alt="User Name" src={user ? `${img}` : " "} />
             </div>
           ) : (
             ""
           )}
         </div>
         <div className="col-sm-1 col-2 pr-0 pl-0 d-flex justify-content-center">
-          <div className="" onClick={(e) =>{
-           e.stopPropagation();
-           sutBurger(!burger);
-          } }>
+          <div className="" onClick={(e) => {
+            e.stopPropagation();
+            sutBurger(!burger);
+          }}>
             <div className="thebur">
-              <lord-icon
-                src="https://cdn.lordicon.com/phtfmmnb.json"
-                trigger="morph"
-                colors="primary:#545454,secondary:#000000"
-                stroke="100"
-                style={{ width: "60px", height: "60px" }}
-              ></lord-icon>
+              <div className="d-flex mt-2">
+                {burger 
+                ? <AiOutlineClose size={50} title="לחץ" /> 
+                : <RxHamburgerMenu size={50} title="לחץ" />}
+              </div>
             </div>
           </div>
         </div>
@@ -78,7 +79,7 @@ export default function Nav() {
       {burger ? (
         <div>
           <div className="d-flex justify-content-end">
-            <Burger img={img}  />
+            <Burger img={img} />
           </div>
         </div>
       ) : (
