@@ -46,8 +46,6 @@ export default function RecipeList() {
     }
   }, [userRecipe]);
 
-  console.log(chekRecipeNum);
-
   async function favorite() {
     if (user !== undefined) {
       await UserRecipes(user?.uid, setUserRecipe);
