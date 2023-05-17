@@ -11,8 +11,9 @@ import { UserRecipes } from "../../Firebase";
 
 
 export default function RecipeList() {
-  const { SetUser, user, currentOpen ,setRecipeNum ,deleteRecipe,setDeleteRecipe} = useContext(ContextData);
-  const [userRecipe, setUserRecipe] = useState(null);
+  const { SetUser, user, currentOpen ,setRecipeNum ,deleteRecipe,setDeleteRecipe,userRecipe, setUserRecipe} = useContext(ContextData);
+
+  const [chekRecipeNum, setchekRecipeNum] = useState(0);
 
   const [filter, setfilter] = useState(null);
 
@@ -24,26 +25,34 @@ export default function RecipeList() {
     if (currentUser) SetUser(currentUser);
   }, [currentUser]);
 
+
   useEffect(() => {
-    if (userRecipe)setRecipeNum(userRecipe);
-  }, [userRecipe]);
+    UserRecipes(user?.uid, setUserRecipe);
+  }, [favCol]);
 
-
+  
   if (deleteRecipe) {
     UserRecipes(user?.uid, setUserRecipe);
     setDeleteRecipe(false)
   }
 
-
-
   if (user !== undefined && userRecipe === null) {
-    UserRecipes(user?.uid, setUserRecipe);
+  UserRecipes(user?.uid, setUserRecipe)
   }
+  useEffect(() => {
+    if (user !== undefined && userRecipe !== null) {
+      setchekRecipeNum(userRecipe.length)
+      setRecipeNum(userRecipe)
+    }
+  }, [userRecipe]);
+
+  console.log(chekRecipeNum);
+
   async function favorite() {
     if (user !== undefined) {
       await UserRecipes(user?.uid, setUserRecipe);
-      setFavoCol(!favCol);
     }
+
   }
 
   return (
@@ -92,7 +101,7 @@ export default function RecipeList() {
                 : filter == null
                   ? userRecipe.map((item, i) => (
                     <div key={i}>
-                      <Card item={item} />
+                      {i < chekRecipeNum?<Card item={item} />:""}
                     </div>
                   ))
                   : userRecipe.filter((recipe) => recipe.name.includes(filter)).length > 0 ? userRecipe.filter((recipe) => recipe.name.includes(filter))

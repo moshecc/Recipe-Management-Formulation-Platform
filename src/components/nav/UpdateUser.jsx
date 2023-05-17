@@ -15,7 +15,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import { updateProfile } from "firebase/auth";
-import { storage } from "../../Firebase";
+import { UserRecipes, storage } from "../../Firebase";
 import {
   deleteObject,
   getDownloadURL,
@@ -24,10 +24,10 @@ import {
   uploadBytes,
 } from "firebase/storage";
 export default function UpdateUser() {
-  const { user, recipeNum } = useContext(ContextData);
+  const { user ,setUserRecipe ,userRecipe } = useContext(ContextData);
 
-  const [img, setImg] = useState(user.photoURL);
-  const [name, setName] = useState(user.displayName);
+  const [img, setImg] = useState(user?.photoURL);
+  const [name, setName] = useState(user?.displayName);
   const [editName, setEditName] = useState(false);
 
   const imgRef = useRef();
@@ -80,6 +80,11 @@ export default function UpdateUser() {
     updateProfile(user, { displayName: name });
     setEditName(false);
   }
+
+  if (user !== undefined) {
+    UserRecipes(user?.uid, setUserRecipe)
+    }
+
 
 
   return (
@@ -190,7 +195,7 @@ export default function UpdateUser() {
                     <ListItem className="d-flex justify-content-center">
                       <ListItemText
                         primary="מתכונים"
-                        secondary={recipeNum.length}
+                        secondary={userRecipe?.length}
                         className="mr-3"
                       />
                       <Avatar className="ml-4">
@@ -207,7 +212,7 @@ export default function UpdateUser() {
                       <ListItemText
                         primary="אהובים"
                         secondary={
-                          recipeNum.filter((recipe) => recipe.favorite).length
+                          userRecipe?.filter((recipe) => recipe.favorite).length
                         }
                         className="mr-3"
                       />
