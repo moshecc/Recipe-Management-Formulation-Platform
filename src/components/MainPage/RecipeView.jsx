@@ -47,7 +47,7 @@ export default function RecipeView() {
           />
         </div>
       ) : (
-        <div className="RecipeViewContiner shadow col-12 ">
+        <div className="RecipeViewContiner pb-3 shadow col-12 ">
           <h2 className="d-flex justify-content-center">{currentOpen.name}</h2>
           <div className="row">
             <div className="img_div col-12 col-sm-6">

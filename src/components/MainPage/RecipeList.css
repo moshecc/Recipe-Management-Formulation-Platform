@@ -1,6 +1,6 @@
 .overrecipe{
     overflow-y: auto; 
-    height: 90vh;
+    max-height: 90vh;
     background-color: rgba(232, 230, 230, 0.822);
     border-radius: 15px;
 }
@@ -141,4 +141,11 @@
 
 .actheart:active{
     transform: scale(1.1);
+}
+@media (max-width: 1000px) {
+    .overrecipe{
+        max-height: 62vh;
+    }
+    
+    
 }

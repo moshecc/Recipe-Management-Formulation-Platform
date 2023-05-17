@@ -20,6 +20,7 @@ const [logInAcoount , setLogInAcoount] = useState(true) ;
 const [pas , setPas] = useState(false) ;
 const [currentOpen ,setCurrentOpen] = useState(null);
 const [previewUrl, setPreviewUrl] = useState([]);
+const [deleteRecipe, setDeleteRecipe] = useState(false);
 const [imgFile, setImgFile] = useState([]);
 const [apiRecpie,sutapiRecpie] = useState(null);
 const [apiRecpieRan,sutapiRecpieRan] = useState(null);
@@ -69,6 +70,8 @@ const data = {
   setRecipeNum,
   premium,
   setPremium,
+  deleteRecipe,
+  setDeleteRecipe,
 }
   return (
     <>
