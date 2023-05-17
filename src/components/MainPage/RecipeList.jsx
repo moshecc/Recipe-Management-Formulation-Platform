@@ -52,8 +52,6 @@ export default function RecipeList() {
       await UserRecipes(user?.uid, setUserRecipe);
       setFavoCol(!favCol);
     }
-    UserRecipes(user?.uid, setUserRecipe);
-
   }
 
   return (
