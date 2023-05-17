@@ -6,11 +6,13 @@ import { ContextData } from "../../App";
 import Plus from "./Plus";
 import { getDownloadURL, listAll, ref } from "@firebase/storage";
 import { storage } from "../../Firebase";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function RecipeView() {
   const [data, setData] = useState(undefined);
 
-  const { currentOpen, previewUrl, setPreviewUrl, imgFile, setImgFile } = useContext(ContextData);
+  const { currentOpen,setCurrentOpen, previewUrl, setPreviewUrl, imgFile, setImgFile } = useContext(ContextData);
+  // const [closeRecipe,setCloseRecipe] = useState()
 
   useEffect(() => {
     setData(currentOpen);
@@ -31,6 +33,10 @@ export default function RecipeView() {
   }, [currentOpen]);
 
 
+  const closeRecipe = ()=>{
+    setData(undefined) 
+    setCurrentOpen(null) 
+  }
 
   let datal = [
     " https://i.imagesup.co/images2/eb71cc96839f80c8a1e3f35783f6b28984ca90d2.png"
@@ -48,7 +54,10 @@ export default function RecipeView() {
         </div>
       ) : (
         <div className="RecipeViewContiner pb-3 shadow col-12 ">
-          <h2 className="d-flex justify-content-center">{currentOpen.name}</h2>
+          <div className="row mt-2">
+          <h2 className="d-flex justify-content-center col-11">{currentOpen.name}</h2>
+          <AiOutlineCloseCircle className="col-1 close-recipe" onClick={closeRecipe}/>
+          </div>
           <div className="row">
             <div className="img_div col-12 col-sm-6">
               <Carousel

@@ -7,7 +7,6 @@ import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { chekPremium, storage } from "../../Firebase";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
-import { border } from "@mui/system";
 
 export default function Nav() {
   const [burger, sutBurger] = useState(false);
@@ -69,8 +68,8 @@ export default function Nav() {
             <div className="thebur">
               <div className="d-flex mt-2">
                 {burger 
-                ? <AiOutlineClose size={50} title="לחץ" /> 
-                : <RxHamburgerMenu size={50} title="לחץ" />}
+                ? <AiOutlineClose size={50} style={{color:"rgba(70, 58, 58, 0.65)"}} title="לחץ" /> 
+                : <RxHamburgerMenu size={50} style={{color:"rgba(70, 58, 58, 0.65)"}} title="לחץ" />}
               </div>
             </div>
           </div>
