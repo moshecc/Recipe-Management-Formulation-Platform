@@ -47,6 +47,13 @@ export default function RecipeList() {
     }
   }, [userRecipe]);
 
+  if (user !== undefined){
+    if (userRecipe?.length>chekRecipeNum){
+      UserRecipes(user?.uid, setUserRecipe)
+    }
+  }
+
+
   async function favorite() {
     if (user !== undefined) {
       await UserRecipes(user?.uid, setUserRecipe);
@@ -97,13 +104,13 @@ export default function RecipeList() {
                       <Card item={item} />
                     </div>
                   ))
-                : filter == null
+                : filter == null && userRecipe?.length==chekRecipeNum
                   ? userRecipe.map((item, i) => (
                     <div key={i}>
-                      {i < chekRecipeNum?<Card item={item} />:""}
+                   <Card item={item} />
                     </div>
                   ))
-                  : userRecipe.filter((recipe) => recipe.name.includes(filter)).length > 0 ? userRecipe.filter((recipe) => recipe.name.includes(filter))
+                  : userRecipe.filter((recipe) => recipe.name.includes(filter)).length > 0 && userRecipe?.length==chekRecipeNum ? userRecipe.filter((recipe) => recipe.name.includes(filter))
                     .map((item, i) => (
                       <div key={i}>
                         <Card item={item} />
