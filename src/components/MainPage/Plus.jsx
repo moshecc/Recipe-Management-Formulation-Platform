@@ -30,7 +30,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { deleteObject, ref } from "firebase/storage";
 
 export default function Plus() {
-  const { currentOpen, setCurrentOpen , imgFile } = useContext(ContextData);
+  const { currentOpen, setCurrentOpen, imgFile } = useContext(ContextData);
   const componentRef = useRef();
 
   let str =
@@ -42,17 +42,16 @@ export default function Plus() {
     "\n\n\n\n" +
     "#my_recipe_book";
 
-  const notify = () => toast("Wow so easy!");
 
   const daletdoc = async () => {
-for (let index = 0; index < imgFile.length; index++) {
-  const desertRef = ref(storage , `${currentOpen.docId}/${imgFile[index].name}`);
-  deleteObject(desertRef).then((e) => {
-  console.log("sucsess");
-}).catch((error) => {
-  console.log(error);
-});
-}
+    for (let index = 0; index < imgFile.length; index++) {
+      const desertRef = ref(storage, `${currentOpen.docId}/${imgFile[index].name}`);
+      deleteObject(desertRef).then((e) => {
+        console.log("sucsess");
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
     await deleteDoc(doc(db, "recepis", currentOpen.docId));
     setCurrentOpen(undefined);
   };
@@ -61,6 +60,13 @@ for (let index = 0; index < imgFile.length; index++) {
     content: () => componentRef.current,
   });
 
+
+  const ConfirmDeletion = () => {
+    let dal = window.confirm(" האם אתה בטוח רוצה למחוק  ?");
+    if(dal){
+      daletdoc()
+    }
+  }
   return (
     <>
       <Box>
@@ -106,15 +112,14 @@ for (let index = 0; index < imgFile.length; index++) {
             tooltipTitle={"ערוך מתכון"}
           />
           <SpeedDialAction
-          onClick={notify}
-            icon={
-              <DeleteForeverIcon
-                onClick={() => daletdoc()}
-                sx={{ color: pink[500] }}
-                className="shareIcon"
-              />
-            }
-            tooltipTitle={"מחק מתכון"}
+            onClick={ConfirmDeletion}
+          icon={
+            <DeleteForeverIcon
+              sx={{ color: pink[500] }}
+              className="shareIcon"
+            />
+          }
+          tooltipTitle={"מחק מתכון"}
           />
           <ToastContainer />
         </SpeedDial>

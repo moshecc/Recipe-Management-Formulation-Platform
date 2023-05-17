@@ -100,17 +100,9 @@ export default function UpdateUser() {
                 פרטי משתמש
               </h1>
               <div className="row justify-content-center" title="ערוך תמונה">
-                <div
-                  className="Avatar mt-3"
-                  style={{ backgroundImage: `url(${img})` }}
-                >
+                <div className="Avatar mt-3" style={{ backgroundImage: `url(${img})` }}>
                   <div className="d-flex justify-content-end">
-                    <input
-                      className="hide"
-                      ref={imgRef}
-                      onChange={handleChange}
-                      type="file"
-                    />
+                    <input className="hide" ref={imgRef} onChange={handleChange} type="file"/>
                   </div>
                   <div className="d-flex justify-content-start">
                     <lord-icon
