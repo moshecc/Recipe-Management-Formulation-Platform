@@ -31,7 +31,7 @@ export default function Burger({ img }) {
     <>
       <div className="cardBurger">
         <div className="d-flex col-12 mt-3">
-          <div className="col-9 px-0 d-flex h5 justify-content-center align-items-center mb-0"><samp className="bold">{user === undefined ? " " : `${user?.displayName}`}</samp></div>
+          <div className="col-9 px-0 d-flex h5 justify-content-center align-items-center mb-0"><span className="bold">{user === undefined ? " " : `${user?.displayName}`}</span></div>
           <div className="col-3 px-0 d-flex justify-content-start">
             <Avatar className="border " alt="User Name" src={user === undefined ? " " : `${img}`} />
           </div>
