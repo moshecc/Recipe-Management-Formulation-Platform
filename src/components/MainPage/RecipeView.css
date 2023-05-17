@@ -35,8 +35,19 @@ display: flex;
 }
 .imgLogo{
 height: 100%;
-
 }
+.close-recipe {
+    cursor: pointer;
+    color: red;
+}
+.close-recipe:hover {
+    cursor: pointer;
+    color: red;
+}
+.close-recipe:active {
+    transform: scale(1.10);
+}
+
 @media (max-width: 1000px) {
     .imgLogo_container{
         height: 30vh;
