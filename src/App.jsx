@@ -1,5 +1,6 @@
 import React, { createContext, useState,useEffect } from 'react'
 import MyRouter from './router/MyRouter'
+import { apiKayCode } from './apiCode';
 //Lord-Icon
 import lottie from 'lottie-web';
 import "./App.css"
@@ -11,10 +12,6 @@ export const ContextData = createContext();
 
 
 export default function App() {
-  
-const apiKode = "bf50efed1f67407f9bb3dcef2eefac27";
-const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
-const apiKode2 = " f81812c9a79d453ba66f62991789ae67";
 
 const [user , SetUser] = useState(null);
 const [loading , SetLoading] = useState(false) ;
@@ -35,7 +32,7 @@ const [premium,setPremium] = useState(null);
 
 useEffect(() => {
   fetch(
-    `https://api.spoonacular.com/recipes/random?apiKey=${apiKode1}&number=50`
+    `https://api.spoonacular.com/recipes/random?apiKey=${apiKayCode[Math.floor(Math.random() * apiKayCode.length)]}&number=50`
   )
     .then((response) => response.json())
     .then((data) => {sutapiRecpieRan(data); console.log(data);})

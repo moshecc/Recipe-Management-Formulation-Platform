@@ -3,13 +3,12 @@ import { BiSearchAlt } from "react-icons/bi";
 import { IoMdReturnRight } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { ContextData } from "../../App";
+import { apiKayCode } from "../../apiCode"
 import Nav from "../nav/Nav";
 import ApiCard from "./ApiCard";
 import "./ApiMain.css";
 export default function ApiMain() {
-  const apiKode = "bf50efed1f67407f9bb3dcef2eefac27";
-  const apiKode1 = "ea016e5b9db3498f85c589b7c89ce135";
-  const apiKode2 = " f81812c9a79d453ba66f62991789ae67";
+  
   const { apiRecpieRan, sutapiRecpieRan, apiData, setapiData } = useContext(ContextData);
   const [product, setproduct] = useState();
   console.log(apiRecpieRan);
@@ -18,7 +17,7 @@ export default function ApiMain() {
 
     if (product) {
      fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${product}&apiKey=${apiKode}&number=50`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${product}&apiKey=${apiKayCode[Math.floor(Math.random() * apiKayCode.length)]}&number=50`
     )
       .then((response) => response.json())
       .then((data) => { setapiData(data.results); console.log(data); })
