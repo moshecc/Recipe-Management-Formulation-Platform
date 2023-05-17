@@ -22,7 +22,7 @@ import createCache from "@emotion/cache";
 import { Carousel } from "react-responsive-carousel";
 
 export default function NewRecipe() {
-  const { previewUrl, setPreviewUrl, imgFile, setImgFile, setCurrentOpen,premium,recipeNum } =
+  const { previewUrl, setPreviewUrl, imgFile, setImgFile, setCurrentOpen, premium, recipeNum } =
     useContext(ContextData);
   const user = useAuth();
   console.log(user);
@@ -38,52 +38,56 @@ export default function NewRecipe() {
   }, []);
 
   let set = function setRecipe() {
-    if((recipeNum.length>50 && !premium)|| 
-    (recipeNum.length>150 && premium.premium == "Pro" )|| 
-    (recipeNum.length>300 && premium.premium == "Chef"))
-    {
-if(recipeNum.length>50 && !premium)alert("הירשם לפרימיום")
-if(recipeNum.length>150 && premium.premium == "Pro" )alert(" Chef עדכן לפרימיום ")
-if(recipeNum.length>300 && premium.premium == "Chef")alert(" הגעת למקסימום מתכונים אנא מחק להוספת חדשים")
+    if ((recipeNum.length > 50 && !premium) ||
+      (recipeNum.length > 150 && premium.premium == "Pro") ||
+      (recipeNum.length > 300 && premium.premium == "Chef")) {
+      if (recipeNum.length > 50 && !premium) alert("הירשם לפרימיום")
+      if (recipeNum.length > 150 && premium.premium == "Pro") alert(" Chef עדכן לפרימיום ")
+      if (recipeNum.length > 300 && premium.premium == "Chef") alert(" הגעת למקסימום מתכונים אנא מחק להוספת חדשים")
     }
-else{
+    else {
 
-    let name = refName.current.value;
-    let ingredients = refIngredients.current.value;
-    let instructions = refInstructions.current.value;
+      let name = refName.current.value;
+      let ingredients = refIngredients.current.value;
+      let instructions = refInstructions.current.value;
 
-    ingredients = ingredients.split("\n");
-    instructions = instructions.split("\n");
+      ingredients = ingredients.split("\n");
+      instructions = instructions.split("\n");
 
-    let newRecipeData = new RecipeData(
-      name,
-      ingredients,
-      instructions,
-      user.uid
-    );
-    newRecipeData.docId = v4();
-    console.log(newRecipeData);
-    setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
-      ...newRecipeData,
-    });
-
-    if (previewUrl == null) {
-      navigate("/main");
-    } else {
-      for (let index = 0; index < imgFile.length; index++) {
-        const imageRef = ref(
-          storage,
-          `${newRecipeData.docId}/${imgFile[index].file.name}`
-        );
-        uploadBytes(imageRef, imgFile[index].file).then((e) => {
-          console.log(e);
+      let newRecipeData = new RecipeData(
+        name,
+        ingredients,
+        instructions,
+        user.uid
+      );
+      newRecipeData.docId = v4();
+      console.log(newRecipeData);
+      if ((newRecipeData.name == "")
+         &&(newRecipeData.ingredients[0] == "") 
+         &&(newRecipeData.instructions[0] == "")) {
+        // navigate("/main");
+      } else {
+        setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
+          ...newRecipeData,
         });
       }
-      setImgFile([]);
-      setPreviewUrl([]);
-      navigate("/main");
+      if (previewUrl == null) {
+        navigate("/main");
+      } else {
+        for (let index = 0; index < imgFile.length; index++) {
+          const imageRef = ref(
+            storage,
+            `${newRecipeData.docId}/${imgFile[index].file.name}`
+          );
+          uploadBytes(imageRef, imgFile[index].file).then((e) => {
+            console.log(e);
+          });
+        }
+        setImgFile([]);
+        setPreviewUrl([]);
+        navigate("/main");
+      }
     }
-  }
   };
 
   const handleClickOpen = () => {
@@ -137,13 +141,13 @@ else{
                     </div>
                     <div className="d-flex justify-content-end  row mr-3 m-1" dir="ltr" >
                       <div className="col-12 nl-2 col-lg-6 ">
-                      <Carousel showThumbs={false}  autoPlay={true}  transitionTime={3} infiniteLoop={true} showStatus={true}>            
-              {previewUrl?previewUrl.map((item, i) => (
-                  <img key={i} className="imgCarouselNew " src={item} alt = "hey" />
-                )):""}
-              </Carousel>
+                        <Carousel showThumbs={false} autoPlay={true} transitionTime={3} infiniteLoop={true} showStatus={true}>
+                          {previewUrl ? previewUrl.map((item, i) => (
+                            <img key={i} className="imgCarouselNew " src={item} alt="hey" />
+                          )) : ""}
+                        </Carousel>
                       </div>
-                      <div className="btn col-12 d-flex col-lg-4 justify-content-center" style={{ color: "black", cursor: "pointer", height:"100px" }}>
+                      <div className="btn col-12 d-flex col-lg-4 justify-content-center" style={{ color: "black", cursor: "pointer", height: "100px" }}>
                         <div className="d-flex align-items-center" onClick={handleClickOpen} >
                           <b> הוסף תמונה </b>
                           <lord-icon
@@ -183,7 +187,7 @@ else{
                     </div>
                     <div className="d-flex justify-content-end">
                       <button
-                        onClick={user?set:()=>{
+                        onClick={user ? set : () => {
                           alert("לא נמצא משתמש אנא התחבר")
                           navigate("/")
                         }}
