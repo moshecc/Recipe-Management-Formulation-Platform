@@ -11,7 +11,7 @@ import { UserRecipes } from "../../Firebase";
 
 
 export default function RecipeList() {
-  const { SetUser, user, currentOpen ,setRecipeNum ,deleteRecipe,setDeleteRecipe,userRecipe, setUserRecipe} = useContext(ContextData);
+  const { SetUser, user ,deleteRecipe,setDeleteRecipe,userRecipe, setUserRecipe} = useContext(ContextData);
 
   const [chekRecipeNum, setchekRecipeNum] = useState(0);
 
@@ -39,17 +39,20 @@ export default function RecipeList() {
   if (user !== undefined && userRecipe === null) {
   UserRecipes(user?.uid, setUserRecipe)
   }
+
+  
   useEffect(() => {
     if (user !== undefined && userRecipe !== null) {
       setchekRecipeNum(userRecipe.length)
-      setRecipeNum(userRecipe)
     }
   }, [userRecipe]);
 
   async function favorite() {
     if (user !== undefined) {
       await UserRecipes(user?.uid, setUserRecipe);
+      setFavoCol(!favCol);
     }
+    UserRecipes(user?.uid, setUserRecipe);
 
   }
 
