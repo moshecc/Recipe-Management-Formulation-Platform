@@ -3,6 +3,7 @@
 }
 
 .RecipeViewContiner{
+    min-height: 90vh;
     border-radius: 15px;
     background-color: rgba(232, 230, 230, 0.822);
     font-size: xx-large;
@@ -39,5 +40,8 @@ height: 100%;
 @media (max-width: 1000px) {
     .imgLogo_container{
         height: 30vh;
+  }
+  .RecipeViewContiner{
+    min-height: 30vh;
   }
 }

@@ -11,7 +11,7 @@ import { UserRecipes } from "../../Firebase";
 
 
 export default function RecipeList() {
-  const { SetUser, user, currentOpen ,setRecipeNum} = useContext(ContextData);
+  const { SetUser, user, currentOpen ,setRecipeNum ,deleteRecipe,setDeleteRecipe} = useContext(ContextData);
   const [userRecipe, setUserRecipe] = useState(null);
 
   const [filter, setfilter] = useState(null);
@@ -29,6 +29,13 @@ export default function RecipeList() {
   }, [userRecipe]);
 
 
+  if (deleteRecipe) {
+    UserRecipes(user?.uid, setUserRecipe);
+    setDeleteRecipe(false)
+  }
+
+
+
   if (user !== undefined && userRecipe === null) {
     UserRecipes(user?.uid, setUserRecipe);
   }
@@ -42,7 +49,7 @@ export default function RecipeList() {
   return (
     <>
       <div className="col-12 mt-2 px-0 ">
-        <div className="overrecipe col-12">
+        <div className="overrecipe col-12 pb-2">
           <div className="d-flex">
             <form className="search-bar pt-2 pb-2 pr-0 pl-3">
               <input
