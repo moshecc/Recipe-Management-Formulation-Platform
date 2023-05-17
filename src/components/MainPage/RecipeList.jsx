@@ -65,8 +65,8 @@ export default function RecipeList() {
               <input
                 className="inputStyle"
                 type="search"
-                placeholder=" שם מתכון:"
-                pattern=".*\S.*"
+                placeholder="  שם מתכון:"
+                // pattern=".*\S.*"
                 required
                 dir="rtl"
                 onChange={(e) => setfilter(e.target.value)}
