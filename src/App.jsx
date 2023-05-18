@@ -1,4 +1,4 @@
-import React, { createContext, useState,useEffect } from 'react'
+import React, { createContext, useState,useEffect, useRef } from 'react'
 import MyRouter from './router/MyRouter'
 import { apiKayCode } from './apiCode';
 //Lord-Icon
@@ -29,6 +29,7 @@ const [ProPaypal,setProPaypal] = useState(null);
 const [recipeNum,setRecipeNum] = useState(null);
 const [premium,setPremium] = useState(null);
 const [userRecipe, setUserRecipe] = useState(null);
+const componentRef = useRef();
 
 
 
@@ -76,6 +77,7 @@ const data = {
   setDeleteRecipe,
   userRecipe,
   setUserRecipe,
+  componentRef,
 }
   return (
     <>

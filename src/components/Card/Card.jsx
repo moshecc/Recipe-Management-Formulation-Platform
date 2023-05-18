@@ -7,6 +7,7 @@ import "./Card.css";
 export default function Card({ item }) {
   const { setCurrentOpen, setRun } = useContext(ContextData);
 
+
   const [favo, setFavo] = useState(false);
   const [mainImg, setMainImg] = useState([]);
 
@@ -25,7 +26,10 @@ export default function Card({ item }) {
     setMainImg([]);
 
     if (item != null) {
-      const imagesListRef = ref(storage, `${item.docId == null ? "" : item.docId}`);
+      const imagesListRef = ref(
+        storage,
+        `${item.docId == null ? "" : item.docId}`
+      );
       listAll(imagesListRef).then((response) => {
         response.items.forEach((item) => {
           getDownloadURL(item).then((url) => {
@@ -34,8 +38,7 @@ export default function Card({ item }) {
         });
       });
     }
-
-  }, [item])
+  }, [item]);
 
   return (
     <>
@@ -48,7 +51,11 @@ export default function Card({ item }) {
             className=" imgStyle"
             height={"100%"}
             width={"100%"}
-            src={mainImg[0] ? mainImg[0] : "https://i.imagesup.co/images2/4c7cc05dd420f94ff35456056d5a114499bbbb62.jpg"}
+            src={
+              mainImg[0]
+                ? mainImg[0]
+                : "https://i.imagesup.co/images2/4c7cc05dd420f94ff35456056d5a114499bbbb62.jpg"
+            }
             alt="card"
           />
         </div>
@@ -69,12 +76,21 @@ export default function Card({ item }) {
             ></lord-icon>
           </div>
           <h4
-            onClick={open}
+            onClick={() => {
+              open();
+              window.scrollTo(0, 0);
+              console.log("click12");
+            }}
             className="d-flex justify-content-end col-8 pl-0 pr-0 align-items-center textCard"
           >
-            {item.name.charAt(0).toLowerCase() > 'a' && item.name.charAt(0).toLowerCase() < 'z' ?
-              item.name.length < 10 ? item.name : item.name.slice(0, 10) + "..." :
-              item.name.length < 10 ? item.name : "..." + item.name.slice(0, 10)}
+            {item.name.charAt(0).toLowerCase() > "a" &&
+            item.name.charAt(0).toLowerCase() < "z"
+              ? item.name.length < 10
+                ? item.name
+                : item.name.slice(0, 10) + "..."
+              : item.name.length < 10
+              ? item.name
+              : "..." + item.name.slice(0, 10)}
           </h4>
         </div>
       </div>

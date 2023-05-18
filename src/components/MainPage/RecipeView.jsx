@@ -10,9 +10,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function RecipeView() {
   const [data, setData] = useState(undefined);
-
-  const { currentOpen,setCurrentOpen, previewUrl, setPreviewUrl, imgFile, setImgFile } = useContext(ContextData);
-  // const [closeRecipe,setCloseRecipe] = useState()
+  const { currentOpen,setCurrentOpen,componentRef, previewUrl, setPreviewUrl, setImgFile } = useContext(ContextData);
 
   useEffect(() => {
     setData(currentOpen);
@@ -53,9 +51,11 @@ export default function RecipeView() {
           />
         </div>
       ) : (
-        <div className="RecipeViewContiner pb-3 shadow col-12 ">
-          <div className="row mt-2">
-          <h2 className="d-flex justify-content-center col-11">{currentOpen.name}</h2>
+        <div className="RecipeViewContiner pb-3 shadow col-12">
+          <div className=" col-12"  ref={componentRef}>
+          <div className="row mt-2 mb-2">
+            <div className="col-1"></div>
+          <h2 className="d-flex justify-content-center col-10">{currentOpen.name}</h2>
           <AiOutlineCloseCircle className="col-1 close-recipe" onClick={closeRecipe}/>
           </div>
           <div className="row">
@@ -89,10 +89,8 @@ export default function RecipeView() {
               ))}
             </div>
           </div>
-          <div className="plus">
-            <Plus />
-          </div>
-          <h3 className=" d-flex justify-content-center justify-content-start ">
+         
+          <h3 className=" d-flex justify-content-center justify-content-start mt-2">
             אופן הכנה
           </h3>
           {currentOpen.instructions.map((item, i) => (
@@ -103,7 +101,10 @@ export default function RecipeView() {
             >
               {i + 1} . {item}
             </div>
-          ))}
+          ))}</div>
+ <div className="plus">
+            <Plus />
+          </div>
         </div>
       )}
     </div>

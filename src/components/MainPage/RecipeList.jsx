@@ -101,19 +101,19 @@ export default function RecipeList() {
                   .filter((recipe) => recipe.favorite)
                   .map((item, i) => (
                     <div key={i}>
-                      <Card item={item} />
+                      <Card item={item} />                      
                     </div>
                   ))
                 : filter == null && userRecipe?.length==chekRecipeNum
                   ? userRecipe.map((item, i) => (
                     <div key={i}>
-                   <Card item={item} />
-                    </div>
+                    <Card item={item} />                      
+                  </div>
                   ))
                   : userRecipe.filter((recipe) => recipe.name.includes(filter)).length > 0 && userRecipe?.length==chekRecipeNum ? userRecipe.filter((recipe) => recipe.name.includes(filter))
                     .map((item, i) => (
                       <div key={i}>
-                        <Card item={item} />
+                      <Card item={item} />                      
                       </div>
                     )) : (
                     <div className="d-flex justify-content-end mr-5 mt-3">

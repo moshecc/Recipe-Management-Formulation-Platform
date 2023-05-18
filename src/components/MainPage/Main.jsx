@@ -19,14 +19,14 @@ export default function Main() {
   
   return (
     <>
-    <div className="bgImg">
+    <div className="bgImg" >
       <Nav />
       <div className="d-lg-flex flex-row">
         <div className="col-lg-8 col-12 ">
           <RecipeView />
         </div>
         <div className="col-lg-4 col-12 pl-lg-0 mb-2">
-          <RecipeList />
+          <RecipeList /> 
         </div>
       </div>
     </div>

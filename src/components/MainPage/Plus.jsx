@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
@@ -21,7 +21,6 @@ import {
 } from "react-share";
 import { useContext } from "react";
 import { ContextData } from "../../App";
-import { useRef } from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db, storage } from "../../Firebase";
 import { Link } from "react-router-dom";
@@ -30,8 +29,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { deleteObject, ref } from "firebase/storage";
 
 export default function Plus() {
-  const { currentOpen, setCurrentOpen, imgFile , deleteRecipe, setDeleteRecipe } = useContext(ContextData);
-  const componentRef = useRef();
+  const { currentOpen, setCurrentOpen, imgFile, componentRef, setDeleteRecipe } = useContext(ContextData);
 
   let str =
     `*שם מתכון* \n\n ${currentOpen.name}\n` +
@@ -65,7 +63,7 @@ export default function Plus() {
 
   const ConfirmDeletion = () => {
     let dal = window.confirm(" האם אתה בטוח רוצה למחוק  ?");
-    if(dal){
+    if (dal) {
       daletdoc()
     }
   }
@@ -94,17 +92,8 @@ export default function Plus() {
               <PrintIcon
                 color="primary"
                 className="shareIcon"
-                onClick={() => {
-                  {
-                    <div ref={componentRef}>moshe</div>;
-                    handlePrint();
-                  }
-                }}
-              />
-            }
-            tooltipTitle={"הדפס מתכון"}
-          />
-
+                onClick={() => { { handlePrint() } }} />}
+                tooltipTitle={"הדפס מתכון"}/>
           <SpeedDialAction
             icon={
               <Link to="/recipeUp">
@@ -115,13 +104,13 @@ export default function Plus() {
           />
           <SpeedDialAction
             onClick={ConfirmDeletion}
-          icon={
-            <DeleteForeverIcon
-              sx={{ color: pink[500] }}
-              className="shareIcon"
-            />
-          }
-          tooltipTitle={"מחק מתכון"}
+            icon={
+              <DeleteForeverIcon
+                sx={{ color: pink[500] }}
+                className="shareIcon"
+              />
+            }
+            tooltipTitle={"מחק מתכון"}
           />
           <ToastContainer />
         </SpeedDial>
