@@ -11,7 +11,7 @@ import { UserRecipes } from "../../Firebase";
 
 
 export default function RecipeList() {
-  const { SetUser, user ,deleteRecipe,setDeleteRecipe,userRecipe, setUserRecipe} = useContext(ContextData);
+  const { SetUser, user ,deleteRecipe,setDeleteRecipe,userRecipe, setUserRecipe ,setRecipeNum} = useContext(ContextData);
 
   const [chekRecipeNum, setchekRecipeNum] = useState(0);
 
@@ -44,6 +44,7 @@ export default function RecipeList() {
   useEffect(() => {
     if (user !== undefined && userRecipe !== null) {
       setchekRecipeNum(userRecipe.length)
+      setRecipeNum(userRecipe)
     }
   }, [userRecipe]);
 
