@@ -38,12 +38,12 @@ export default function NewRecipe() {
   }, []);
 
   let set = function setRecipe() {
-    if ((recipeNum.length > 50 && !premium) ||
-      (recipeNum.length > 150 && premium.premium == "Pro") ||
-      (recipeNum.length > 300 && premium.premium == "Chef")) {
-      if (recipeNum.length > 50 && !premium) alert("הירשם לפרימיום")
-      if (recipeNum.length > 150 && premium.premium == "Pro") alert(" Chef עדכן לפרימיום ")
-      if (recipeNum.length > 300 && premium.premium == "Chef") alert(" הגעת למקסימום מתכונים אנא מחק להוספת חדשים")
+    if ((recipeNum?.length > 50 && !premium) ||
+      (recipeNum?.length > 150 && premium.premium == "Pro") ||
+      (recipeNum?.length > 300 && premium.premium == "Chef")) {
+      if (recipeNum?.length > 50 && !premium) alert("הירשם לפרימיום")
+      if (recipeNum?.length > 150 && premium.premium == "Pro") alert(" Chef עדכן לפרימיום ")
+      if (recipeNum?.length > 300 && premium.premium == "Chef") alert(" הגעת למקסימום מתכונים אנא מחק להוספת חדשים")
     }
     else {
 
@@ -65,7 +65,7 @@ export default function NewRecipe() {
       if ((newRecipeData.name == "")
          &&(newRecipeData.ingredients[0] == "") 
          &&(newRecipeData.instructions[0] == "")) {
-        // navigate("/main");
+        alert("בבקשה הכנס שם מתכון!")
       } else {
         setDoc(doc(db, "recepis", `${newRecipeData.docId}`), {
           ...newRecipeData,

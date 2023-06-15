@@ -72,7 +72,7 @@ export default function AboutUs() {
                       <div className="d-flex justify-content-center">
                         <samp className="about-text d-flex fontW align-items-center">
                           {" "}
-                          עקבו אחרינו בדף האנסטגרם
+                          עקבו אחרינו בדף האינסטגרם
                         </samp>
                         <lord-icon
                           src="https://cdn.lordicon.com/ridbdkcb.json"

@@ -17,14 +17,13 @@ import "./Login.css"
 const theme = createTheme();
 
 export default function LoginPas() {
-  const { loading, SetLoading ,SetUser , setLogInAcoount ,setPas } = useContext(ContextData);
+  const { loading, SetLoading ,SetUser , setLogInAcoount ,setPas,email } = useContext(ContextData);
 
-  const email = useRef();
   const password = useRef();
 
   async function handelLogIn() {
     SetLoading(true);
-    await login(email.current.value, password.current.value)
+    await login(email?.current?.value, password.current.value)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;

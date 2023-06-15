@@ -40,7 +40,7 @@ export default function InputFile() {
   }
   return (
     <>
-      <div className="bgInpot  container-fluid   ">
+      <div className="bgInpot container-fluid">
         <div className="inp_continer inp_img container mt-2 mb-2">
           <input
             onChange={handleChange}
@@ -51,7 +51,7 @@ export default function InputFile() {
             id=""
           />
           <div className="inp_caver">
-            <h3> !תלחץ וגרור לכאן</h3>
+            <h4 className="text-center"> הוסף או גרור תמונה</h4>
             <BiImageAdd size={30} />
             <b style={{ fontSize: "12px" }}>לעוד תמונה לחץ שוב* </b>
           </div>

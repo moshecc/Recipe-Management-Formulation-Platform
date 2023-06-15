@@ -17,16 +17,16 @@ import "./Login.css"
 const theme = createTheme();
 
 export default function ForgotPas() {
-  const { loading, SetLoading } = useContext(ContextData);
-  const[email , setEmail] = useState("");
+  const { loading, SetLoading ,email} = useContext(ContextData);
+  const[newEmail , setNewEmail] = useState(email?.current?.value);
 
 function reset(){
   SetLoading(true)
-  sendPasswordResetEmail(auth, email)
+  sendPasswordResetEmail(auth, newEmail)
   .then(() => {
     // Password reset email sent!
     // ..
-    alert("secsed");
+    alert("בקשה נשלחה למיל שלך,במקרה ואתה לא רואה בבקשה תבדוק בספאם, צוות My Recipe Book");
     SetLoading(false)
 
   })
@@ -38,10 +38,6 @@ function reset(){
     SetLoading(false)
   });
 }
-
-
-
-
 
   return (
     <>
@@ -73,7 +69,8 @@ function reset(){
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e)=>{setEmail(e.target.value)}}
+              value={email?.current?.value}
+              onChange={(e)=>{setNewEmail(e.target.value)}}
             />
             <Button
               onClick={()=>{reset()}}
