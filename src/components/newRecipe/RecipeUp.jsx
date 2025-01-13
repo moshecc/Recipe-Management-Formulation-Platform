@@ -20,7 +20,7 @@ import { Carousel } from "react-responsive-carousel";
 
 export default function RecipeUp() {
   const navigate = useNavigate();
-  const { currentOpen,previewUrl, setCurrentOpen ,imgFile } = useContext(ContextData);
+  const { currentOpen, previewUrl, setCurrentOpen, imgFile } = useContext(ContextData);
   const [open, setOpen] = useState(false);
 
   const [nameRecipe, setNameRecipe] = useState(currentOpen.name);
@@ -43,16 +43,16 @@ export default function RecipeUp() {
 
     for (let index = 0; index < imgFile.length; index++) {
       console.log(imgFile);
-      const imageRef = ref(storage,`${newRecipeData.docId}/${imgFile[index].file?.name}`);
-      if(imgFile[index].file){
+      const imageRef = ref(storage, `${newRecipeData.docId}/${imgFile[index].file?.name}`);
+      if (imgFile[index].file) {
         uploadBytes(imageRef, imgFile[index].file).then((e) => {
           console.log(e);
         });
       }
-     
+
     }
 
-   
+
     await updateDoc(doc(db, "recepis", currentOpen.docId), {
       ...newRecipeData,
     });
@@ -117,14 +117,14 @@ export default function RecipeUp() {
                       className="d-flex justify-content-end row mr-3 m-1"
                       dir="ltr"
                     ><div className="col-12 nl-2 col-lg-6 ">
-                      <Carousel showThumbs={false}  autoPlay={true}  transitionTime={3} infiniteLoop={true} showStatus={true}>            
-              {previewUrl.map((item, i) => (
-                  <img key={i} className="imgCarouselNew " src={item} alt = "hey" />
-                ))}
-              </Carousel>
+                        <Carousel showThumbs={false} autoPlay={true} transitionTime={3} infiniteLoop={true} showStatus={true}>
+                          {previewUrl.map((item, i) => (
+                            <img key={i} className="imgCarouselNew " src={item} alt="hey" />
+                          ))}
+                        </Carousel>
                       </div>
                       <div
-className="btn col-12 d-flex col-lg-4 justify-content-center" style={{ color: "black", cursor: "pointer", height:"100px" }}                      >
+                        className="btn col-12 d-flex col-lg-4 justify-content-center" style={{ color: "black", cursor: "pointer", height: "100px" }}                      >
                         <div
                           className="d-flex align-items-center"
                           onClick={handleClickOpen}

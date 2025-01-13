@@ -13,7 +13,7 @@ export default function RecipeView() {
   const { currentOpen,setCurrentOpen,componentRef, previewUrl, setPreviewUrl, setImgFile } = useContext(ContextData);
 
   useEffect(() => {
-    setData(currentOpen);
+    setData( );
     setImgFile([]);
     setPreviewUrl([])
     if (currentOpen != null) {

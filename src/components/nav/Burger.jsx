@@ -39,7 +39,7 @@ export default function Burger({ img }) {
         <div className="col-12 d-flex justify-content-center mt-4 mb-2"><div className="line col-10"></div></div>
         <div className="row mr-0 ml-0">
         {  user&&(<><Link to={"/Main/UpdateUser"} className="d-flex justify-content-end pl-0 pr-0 col-11 nav-link">פרטי משתמש <div className="d-flex align-items-center ml-2 "><FaUserCircle size={20} /></div></Link>
-          <Link to={"/main/pro"} className="d-flex justify-content-end pl-0 pr-0  col-11 nav-link"> שדרג לפרימיום <div className="d-flex align-items-center ml-2 "><TbPremiumRights size={20} /></div></Link>
+          <Link to={"/main/pro"} className="d-flex justify-content-end pl-0 pr-0  col-11 "> שדרג לפרימיום <div className="d-flex align-items-center ml-2 "><TbPremiumRights size={20} /></div></Link>
           </>)}
           <Link to={"/main/apiMain"} className="d-flex justify-content-end pl-0 pr-0 col-11 nav-link">חפש מתכון חדש <div className="d-flex align-items-center ml-2 "><TbFileSearch size={20} /></div></Link>
           <Link to={"/aboutus"} className="d-flex justify-content-end pl-0 pr-0 col-11 nav-link">קצת עלינו <div className="d-flex align-items-center ml-2 "><FcAbout size={20} /></div></Link>

@@ -52,9 +52,9 @@ export default function NewRecipe() {
       let instructions = refInstructions.current.value;
 
       ingredients = ingredients.split("\n");
-      instructions = instructions.split("\n");
+      instructions = instructions.split("\n");  
 
-      let newRecipeData = new RecipeData(
+      let newRecipeData = new RecipeData( 
         name,
         ingredients,
         instructions,
