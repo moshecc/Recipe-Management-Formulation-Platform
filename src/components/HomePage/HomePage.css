@@ -1,0 +1,5 @@
+.bgImg{
+    background-image: url( "../../imges/homePageImg.jpg") ;
+    background-size: cover;
+    height: 100vh;
+}
