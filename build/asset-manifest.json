@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1ab56a12.css",
+    "main.js": "/static/js/main.703a7699.js",
+    "static/media/homePageImg.jpg": "/static/media/homePageImg.311e4c59980a28ec0de7.jpg",
+    "static/media/AmaticaSC-Bold.ttf": "/static/media/AmaticaSC-Bold.368dd336c9119b4bbfb5.ttf",
+    "index.html": "/index.html",
+    "main.1ab56a12.css.map": "/static/css/main.1ab56a12.css.map",
+    "main.703a7699.js.map": "/static/js/main.703a7699.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ab56a12.css",
+    "static/js/main.703a7699.js"
+  ]
+}
