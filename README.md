@@ -1,31 +1,23 @@
 <div align="center">
 
 <a href="https://fascinating-parfait-964ca2.netlify.app/main">
-  <img
-    src="./assets/recipe-book-logo.png"
-    alt="My Recipe Book"
-    width="420"
-  />
+  <img src="assets/logo.webp" alt="My Recipe Book logo" width="320" />
 </a>
 
 # Recipe Management & Formulation Platform
 
-**Create, organize, manage, and discover recipes in one responsive platform.**
+### Create, organize, manage, and discover recipes in one responsive platform.
 
 <br />
 
 <a href="https://fascinating-parfait-964ca2.netlify.app/main">
-  <img
-    src="https://img.shields.io/badge/OPEN%20LIVE%20WEBSITE-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"
-    alt="Open live website"
-  />
+  <img src="https://img.shields.io/badge/Open%20Live%20Application-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Open live application" />
 </a>
 
 <br /><br />
 
-### 🌐 Live Application
-
-**[fascinating-parfait-964ca2.netlify.app/main](https://fascinating-parfait-964ca2.netlify.app/main)**
+**Live website:**  
+[https://fascinating-parfait-964ca2.netlify.app/main](https://fascinating-parfait-964ca2.netlify.app/main)
 
 <br />
 
@@ -55,6 +47,34 @@
 - Custom fallback page for unknown routes
 
 
+## Screenshots
+
+Add current application screenshots to an `assets/screenshots` directory and replace the placeholders below:
+
+<table>
+  <tr>
+    <td align="center">
+      <strong>Main Recipe Workspace</strong><br />
+      <img src="assets/screenshots/main-workspace.png" alt="Main recipe workspace" width="420" />
+    </td>
+    <td align="center">
+      <strong>Recipe Details</strong><br />
+      <img src="assets/screenshots/recipe-details.png" alt="Recipe details screen" width="420" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Create Recipe</strong><br />
+      <img src="assets/screenshots/create-recipe.png" alt="Create recipe form" width="420" />
+    </td>
+    <td align="center">
+      <strong>External Recipe Discovery</strong><br />
+      <img src="assets/screenshots/api-recipes.png" alt="External recipe discovery" width="420" />
+    </td>
+  </tr>
+</table>
+
+> Remove any screenshot entry that is not added to the repository, otherwise GitHub will display a broken image placeholder.
 
 ## Technology Stack
 
@@ -119,86 +139,3 @@ http://localhost:3000
 ```
 
 ## Service Configuration
-
-Firebase configuration is currently located in:
-
-```text
-src/Firebase.jsx
-```
-
-Spoonacular API configuration is referenced from:
-
-```text
-src/apiCode.js
-```
-
-For production deployments, service credentials should be moved to environment variables rather than committed directly to the repository. With Create React App, client-side environment variables must begin with `REACT_APP_`.
-
-Example:
-
-```env
-REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-REACT_APP_FIREBASE_PROJECT_ID=your_project_id
-REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-REACT_APP_SPOONACULAR_API_KEY=your_spoonacular_api_key
-```
-
-> Client-side Firebase configuration is visible to browser users by design. Security must be enforced with Firebase Authentication, Firestore Security Rules, Storage Rules, authorized domains, and API restrictions.
-
-## Available Scripts
-
-### `npm start`
-
-Runs the application in development mode.
-
-### `npm test`
-
-Starts the test runner in interactive watch mode.
-
-### `npm run build`
-
-Creates an optimized production build in the `build` directory.
-
-### `npm run eject`
-
-Ejects the Create React App configuration. This action cannot be reversed.
-
-## Project Structure
-
-```text
-src/
-├── components/       # Pages and reusable UI components
-├── router/           # React Router configuration
-├── inputFile/        # Recipe image-upload components
-├── Classes/          # Recipe data models
-├── Firebase.jsx      # Firebase initialization and helpers
-├── apiCode.js        # External recipe API configuration
-├── App.js            # Shared application context and API loading
-└── index.js          # Application entry point
-```
-
-## Deployment
-
-The frontend is currently deployed with Netlify:
-
-[https://fascinating-parfait-964ca2.netlify.app/main](https://fascinating-parfait-964ca2.netlify.app/main)
-
-Because the application uses client-side routing, a Netlify SPA fallback should redirect unknown requests to `index.html`.
-
-Example `public/_redirects` file:
-
-```text
-/* /index.html 200
-```
-
-## Notes
-
-- Creating and storing personal recipes requires an authenticated user.
-- Guest access is available for exploring the application.
-- Recipe limits depend on the user's subscription tier.
-- External recipe availability depends on Spoonacular API limits and configuration.
-
-## Repository
-
-[moshecc/Recipe-Management-Formulation-Platform](https://github.com/moshecc/Recipe-Management-Formulation-Platform)
