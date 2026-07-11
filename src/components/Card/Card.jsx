@@ -84,13 +84,13 @@ export default function Card({ item }) {
             className="d-flex justify-content-end col-8 pl-0 pr-0 align-items-center textCard"
           >
             {item.name.charAt(0).toLowerCase() > "a" &&
-            item.name.charAt(0).toLowerCase() < "z"
+              item.name.charAt(0).toLowerCase() < "z"
               ? item.name.length < 10
                 ? item.name
                 : item.name.slice(0, 10) + "..."
               : item.name.length < 10
-              ? item.name
-              : "..." + item.name.slice(0, 10)}
+                ? item.name
+                : "..." + item.name.slice(0, 10)}
           </h4>
         </div>
       </div>
