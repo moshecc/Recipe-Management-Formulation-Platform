@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href="https://fascinating-parfait-964ca2.netlify.app/main">
+  <img src="assets/logo.webp" alt="My Recipe Book logo" width="320" />
+</a>
 
-## Available Scripts
+# Recipe Management & Formulation Platform
 
-In the project directory, you can run:
+### Create, organize, manage, and discover recipes in one responsive platform.
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<a href="https://fascinating-parfait-964ca2.netlify.app/main">
+  <img src="https://img.shields.io/badge/Open%20Live%20Application-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Open live application" />
+</a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br /><br />
 
-### `npm test`
+**Live website:**  
+[https://fascinating-parfait-964ca2.netlify.app/main](https://fascinating-parfait-964ca2.netlify.app/main)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-Auth%20%7C%20Firestore%20%7C%20Storage-FFCA28?style=flat-square&logo=firebase&logoColor=black)
+![Material UI](https://img.shields.io/badge/Material%20UI-5-007FFF?style=flat-square&logo=mui&logoColor=white)
+![Netlify](https://img.shields.io/badge/Deployed%20on-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Main Features
 
-### `npm run eject`
+- Email and password authentication with Firebase Authentication
+- Google sign-in and guest access
+- Create, edit, view, and manage personal recipes
+- Store recipe names, ingredients, and preparation instructions
+- Upload multiple recipe images to Firebase Storage
+- Display recipe images in a responsive carousel
+- Store and retrieve recipe data with Cloud Firestore
+- Browse external recipe suggestions using the Spoonacular API
+- Responsive layout for desktop and mobile devices
+- RTL-compatible Material UI components
+- Recipe printing and social-sharing support
+- Premium subscription routes and tier-based recipe limits
+- Custom fallback page for unknown routes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Screenshots
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Add current application screenshots to an `assets/screenshots` directory and replace the placeholders below:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<table>
+  <tr>
+    <td align="center">
+      <strong>Main Recipe Workspace</strong><br />
+      <img src="assets/screenshots/main-workspace.png" alt="Main recipe workspace" width="420" />
+    </td>
+    <td align="center">
+      <strong>Recipe Details</strong><br />
+      <img src="assets/screenshots/recipe-details.png" alt="Recipe details screen" width="420" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Create Recipe</strong><br />
+      <img src="assets/screenshots/create-recipe.png" alt="Create recipe form" width="420" />
+    </td>
+    <td align="center">
+      <strong>External Recipe Discovery</strong><br />
+      <img src="assets/screenshots/api-recipes.png" alt="External recipe discovery" width="420" />
+    </td>
+  </tr>
+</table>
 
-## Learn More
+> Remove any screenshot entry that is not added to the repository, otherwise GitHub will display a broken image placeholder.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technology Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
 
-### Code Splitting
+- React 18
+- React Router DOM
+- Material UI, MUI Joy, and Emotion
+- Styled Components
+- Bootstrap utility classes
+- React Icons and Lordicon
+- React Responsive Carousel
+- React Toastify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Services and Integrations
 
-### Analyzing the Bundle Size
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+- Spoonacular Recipes API
+- PayPal React SDK
+- EmailJS
+- Netlify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Application Routes
 
-### Making a Progressive Web App
+| Route | Purpose |
+| --- | --- |
+| `/` | Authentication and landing page |
+| `/main` | Main recipe-management workspace |
+| `/newrecipe` | Create a new recipe |
+| `/recipeUp` | Update an existing recipe |
+| `/recipeView` | View recipe details |
+| `/main/apiMain` | Browse API-sourced recipes |
+| `/main/pro` | Premium plans |
+| `/main/pro/creditcard` | Payment flow |
+| `/Main/UpdateUser` | User profile settings |
+| `/aboutus` | About page |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Getting Started
 
-### Advanced Configuration
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Node.js 16 or newer
+- npm
+- A Firebase project with Authentication, Firestore, and Storage enabled
+- A Spoonacular API key
 
-### Deployment
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+git clone https://github.com/moshecc/Recipe-Management-Formulation-Platform.git
+cd Recipe-Management-Formulation-Platform
+npm install
+npm start
+```
 
-### `npm run build` fails to minify
+The development server will normally be available at:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+http://localhost:3000
+```
+
+## Service Configuration
